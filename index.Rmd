@@ -1,0 +1,20 @@
+--- 
+title: "POLS0008: Introduction to Quantitative Research Methods"
+author: Justin van Dijk^[Department of Geography, https://www.mappingdutchman.com/] and Stephen Jivraj^[Institute of Epidemiology and Health Care, https://www.ucl.ac.uk/q-step/stephen-jivraj]
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+link-citations: yes
+github-repo: "jtvandijk/POLS0008"
+description: "POLS0008: Introduction to Quantitative Research Methods."
+url: 'https\://jtvandijk.github.io/POLS0008/'
+---
+
+# Welcome {-}
+
+Welcome to **Introduction to Quantitative Research Methods**, one of the first year core module for students enrolled on Q-Step programmes and a second year methods option in BSc Philosophy, Politics and Economics. 
+
+## Noticed a mistake in this resource? {-}
+Please let us know through the GitHub issues tab, send us a message over MS Teams, or contact us by e-mail.
+
