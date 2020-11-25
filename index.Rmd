@@ -1,6 +1,6 @@
 --- 
 title: "POLS0008: Introduction to Quantitative Research Methods"
-author: Justin van Dijk^[Department of Geography, https://www.mappingdutchman.com/] and Stephen Jivraj^[Institute of Epidemiology and Health Care, https://www.ucl.ac.uk/q-step/stephen-jivraj]
+author: Justin van Dijk^[Department of Geography, https://www.mappingdutchman.com/], Stephen Jivraj^[Institute of Epidemiology and Health Care, https://www.ucl.ac.uk/q-step/stephen-jivraj], and James Cheshire^[Department of Geography, http://jcheshire.com]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
