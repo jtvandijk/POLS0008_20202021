@@ -2,8 +2,6 @@
 
 This GitHub repository generates the POLS0008 Introduction to Quantitative Methods handbook which can be found at: https://jtvandijk.github.io/POLS0008/
 
-Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
-
 This work is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
 
