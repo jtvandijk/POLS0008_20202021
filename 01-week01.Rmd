@@ -185,6 +185,8 @@ print(friends)
 4. If you press the up arrow in the command line you will be able to edit the previous lines of code you inputted.
 
 #### Recap {-}
+In this section you have:
+
 1. Entered your first commands into the R command line interface.
 2. Created objects in R.
 3. Created a vector of values (the `friends_dob` object).
@@ -261,3 +263,98 @@ London.Pop <- read.csv('census-historic-population-borough.csv')
 London.Pop <- read.csv('raw/census-historic-population-borough.csv')
 ```
 
+To view the object type:
+
+```{r 01-view-da-pop, warnings=FALSE, message=FALSE,echo=FALSE}
+print(London.Pop)
+```
+
+Or if you only want to see the top 10 or bottom 10 rows you can use the `head()` and `tail()` commands. These are particularly useful if you have large datasets!
+
+```{r 01-head-to tail, warnings=FALSE, message=FALSE,echo=FALSE}
+head(London.Pop)
+tail(London.Pop)
+```
+
+To get to know a bit more about the file you have loaded R has a number of useful functions. We can use these to find out how many columns (**variables**) and rows (**cases**) the data frame (**dataset**) contains.
+
+```{r 01-numbers-of-that-df, warnings=FALSE, message=FALSE,echo=FALSE}
+# get the number of columns
+ncol(London.Pop)
+
+# get the number of rows
+nrow(London.Pop)
+
+# list the column headings
+names(London.Pop)
+```
+
+Given the number of columns in the pop data frame, subsetting by selecting on the columns of interest would make it easier to handle. In R there are two was of doing this. The first uses the `$` symbol to select columns by name and then create a new data frame object.
+
+```{r 01-2011-only, warnings=FALSE, message=FALSE,echo=FALSE}
+# select the columns containing the Borough names and the 2011 population
+London.Pop.2011<- data.frame(London.Pop$Area.Name, London.Pop$Persons.2011) 
+
+# inspect the results
+head(London.Pop.2011)
+```
+
+A second approach to selecting particular data is to use `[Row, Column]`. For instance:
+
+```{r 01-select-those-rows, warnings=FALSE, message=FALSE,echo=FALSE}
+# select the 1st row of the 2nd column
+London.Pop[1,2]
+
+# select the first 5 rows of the 1st column
+London.Pop[1:5,1]
+
+# select the first 5 rows of columns 8 to 11
+London.Pop[1:5,8:11]
+
+# assign the previous selection to a new object
+London.Subset <- London.Pop[1:5,8:11]
+```
+
+In the code snippet, note how the colon `:` is used to specify a range of values. We used the same technique to create the `Some.Data` object above. The abilty to select particular columns means we can see how the population of London's Boroughs have changed over the past century.
+
+```{r 01-change-pop, warnings=FALSE, message=FALSE,echo=FALSE}
+# within the brackets you can add additional columns to the data frame 
+# as long as their separated by commas
+Pop.Change<- data.frame(London.Pop$Area.Name, London.Pop$Persons.2011 - London.Pop$Persons.1911)
+```
+
+If you type `head(PopChange)` you will see that the population change column (created to the right of the comma above) has a very long name. This can be changed using the `names()` command in the same way as we did this for our `Some.Data` object.
+
+```{r 01-whats-in-a-name, warnings=FALSE, message=FALSE,echo=FALSE}
+names(Pop.Change)<- c('Borough', 'Change_1911_2011')
+```
+
+Since we have done some new analysis and created additional information it would be good to save the `PopChange` object to our working directory. This is done using the code below. Within the brackets we put the name of the R object we wish to save on the left of the comma and the file name on the right of the comma (this needs to be in inverted commas). Remember to put `.csv` after since this is the file format we are saving in.
+
+```{r 01-write-to-disk, warnings=FALSE, message=FALSE,echo=FALSE}
+write.csv(Pop.Change, 'Population_Change_1911_2011.csv')
+```
+
+#### Recap {-}
+In this section you have learnt how to:
+
+1. Create an R script.
+2. Load a `csv` into R, perform some analysis, and write out a new `csv` file to your
+working directory.
+3. Subset R data frames by name and also column and/or row number.
+
+#### Seminar assignment {-}
+Create a `csv` file that contains the following columns:
+
+1. The names of the London Boroughs.
+2. Population change between 1811 and 1911.
+3. Population change between 1911 and 1961.
+4. Population change 1961 and 2011.
+
+#### Seminar questions {-}
+
+1. Which Boroughs had the fastest growth during the 19th Century, and which had the slowest?
+2. You may have noticed that there is an additional column in the pop data frame called `Borough-Type`. This indicates if a Borough is in inner (1) or outer (2) London. Is this variable ordinal or nominal?
+
+## Done
+Save your R script by pressing the Save button in the script window. That is it for this week.
