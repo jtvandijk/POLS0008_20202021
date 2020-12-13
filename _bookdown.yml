@@ -1,6 +1,7 @@
 book_filename: "POLS0008"
 rmd_files:
 - index.Rmd
+- 01-week01.Rmd
 language:
   ui:
     chapter_name: ""
