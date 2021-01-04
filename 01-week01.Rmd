@@ -1,17 +1,17 @@
-# Understanding Data
+# Understanding data
 
 ## Introduction
-This week's content focuses on **understanding data**. Some of you, however, may wonder why taking a statistical methods course is necessary in the first place? Besides it being a requirement, there are several compelling reasons to have a (basic) knowledge of data and statistics:
+Welcome to your first week of **Introduction to Quantitative Research Methods**. This week we will focus on **understanding data**. Some of you may wonder why it is necessary to take acourse on data and statistics in the first place? There are several compelling reasons to have a (basic) knowledge of data and statistics:
 
 - it will help you to understand and critically engage with academic articles;
 - it will help you critically assess statistics used in the media, government reports, etc.;
 - it will help you write a dissertation based on secondary analysis;
 - it will help you write your own work convicingly.
 
-Further to this, data skills are in high demand by employers both in the public and private sectors. 
+Further to this, **data skills** are in high demand by employers both in the public and private sectors. 
 
 <div class="note">
-**TL;DR**: Knowing how to collect data, compile data from different sources, and analyse that data is very important.
+**TL;DR**: Having a basic understanding of data and statistics is essential both during and after your time at University.
 </div>
 
 ### Video: Overview {#overview_w01}
@@ -24,7 +24,7 @@ Further to this, data skills are in high demand by employers both in the public 
 [Lecture slides] [[Watch on MS stream]]()
 
 ## R
-The best way of learning about data is by working with data and getting your hands dirty. Before we will introduce some statistical methodology and talk about something called descriptive statistics, we will first have a look at one of the software tools with which we will be working this semester: [R](). R is a free software environment for statistical computing and graphics. It is extremely powerful and as such is now widely used for academic research as well as in the commercial sector. Ever wondered how those excellent [graphs created by the Financial Times](https://ig.ft.com/coronavirus-global-data/) have been created?
+Arguably the easiest way to start learning about data is by getting your hands dirty So, before we will introduce you to some statistical terminology and talk about something called [descriptive statistics](https://en.wikipedia.org/wiki/Descriptive_statistics), we will have a look at one of the software tools with which we will be working this semester: [R](https://www.r-project.org/). R is a free software environment for statistical computing and graphics. It is extremely powerful and as such is now widely used for academic research as well as in the commercial sector. Ever wondered what tool is used to create those excellent [coronavirus visualisations in the Financial Times](https://ig.ft.com/coronavirus-global-data/)?
 
 ### Video: R
 ```{r 01-r, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -35,15 +35,15 @@ The best way of learning about data is by working with data and getting your han
 ```
 [Lecture slides] [[Watch on MS stream]]()
 
-Unlike software such as [Excel]() or [SPSS](), the user has to type commands to get it to execute tasks such as loading in a dataset or performing a calculation. The biggest advantage of this approach is that you can build up a document, or script, that provides a record of what you have done, which in turn enables the straightforward repetition of tasks. Graphics can be easily modified and tweaked by making slight changes to the script or by scrolling through past commands and making quick edits. Unfortunately command-line computing can also be off-putting at first. It is easy to make mistakes that aren't always obvious to detect. Nevertheless, there are good reasons to stick with R. These include:
+Unlike software programmes such as [Microsoft Excel]() or [SPSS](https://www.ibm.com/uk-en/analytics/spss-statistics-software), within a coding environment the user has to type commands to get it to execute tasks such as loading in a dataset or performing a calculation. The biggest advantage of this approach is that you can build up a document, or script, that provides a record of what you have done, which in turn enables the straightforward repetition of tasks. Graphics can be easily modified and tweaked by making slight changes to the script or by scrolling through past commands and making quick edits. Unfortunately, command-line computing can also be off-putting at first. It is easy to make mistakes that are not always obvious to detect. Nevertheless, there are good reasons to stick with R. These include:
 
 - It's broadly intuitive with a strong focus on publishable-quality graphics.
 - It’s 'intelligent' and offers in-built good practice – it tends to stick to statistical conventions and present data in sensible ways.
 - It’s **free**, cross-platform, customisable and extendable with a whole swathe of libraries ('add ons') including those for discrete choice, multilevel and longitudinal regression, and mapping, spatial statistics, spatial regression, and geostatistics.
-- It is well respected and used at the world's largest technology companies (including Google, Microsoft and Facebook, and at hundreds of other companies.
+- It is well respected and used at the world's largest technology companies (including Google, Microsoft and Facebook, and at hundreds of other companies).
 - It offers a **transferable skill** that shows to potential employers experience both of statistics and of computing.
 
-The intention of the practical elements of this week's content, is to provide a thorough introduction to R to get you started:
+The intention of the practical elements of this week is to provide a thorough introduction to R to get you started:
 
 1. The basic programming principles behind R.
 2. Loading in data from `csv` files and subsetting it into smaller chunks.
@@ -52,19 +52,18 @@ The intention of the practical elements of this week's content, is to provide a 
 
 R has a steep learning curve, but the benefits of using it are well worth the effort. Take your time and think through every piece of code you type in. The best way to learn R is to take the basic code provided in tutorials and experiment with changing parameters - such as the colour of points in a graph - to really get 'under the hood' of the software. Take lots of notes as you go along and if you are getting really frustrated take a break!
 
-<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Following a coding tutorial<a href="https://t.co/dXUfp0WWv7">pic.twitter.com/dXUfp0WWv7</a></p>&mdash; Tawanda Nyahuye👨
-💻 (@towernter) <a href="https://twitter.com/towernter/status/1332692092863340544?ref_src=twsrc%5Etfw">November 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 ### Getting started with R
-You can [download and install R]() on your laptop but for the purposes of this course we would like you to use the version hosted on the UCL servers so that everyone participating in the course has access to the same version of the software.
+You can [download and install R](https://www.r-project.org/) on your laptop but for the purposes of this course we would like you to use the version hosted on the UCL servers so that everyone participating in the course has access to the same version of the software.
 Open a web browser and navigate to: https://rstudio.rc.ucl.ac.uk/
-Log in with your **usual UCL username and password**. You should see the RStudio interface appear.
+Log in with your **usual UCL username and password**. You should see the RStudio interface appear. 
+
+**Please note**: RStudio server will only work with an [active VPN connection](https://www.ucl.ac.uk/isd/it-essentials-for-new-students/video-guides/getting-started-ucls-vpn) that links your personal computer into UCL's network. Students in mainland may want to use [UCL China Connect](https://www.ucl.ac.uk/isd/services/get-connected/china-connect).
 
 ```{r 01-rstudio-interface, echo=FALSE, fig.align='center', fig.cap='The RStudio interface.'}
-#knitr::include_graphics('images/week01/01_rstudio_interface.png')
+knitr::include_graphics('images/week01/01_rstudio_interface.png')
 ```
 
-If you managed to log onto RStudio server: brilliant, we are ready to go. At its absolute simplest R is a calculator, so let's try adding some numbers by typing and hitting enter to execute the code:
+If you managed to log onto RStudio server: brilliant, we are ready to go. At its absolute simplest R is a calculator, so let's try adding some numbers by typing in the **console window** and hitting enter to execute the code:
 
 ```{r 01-simple-calculate, warnings=FALSE, message=FALSE}
 4 + 10
@@ -73,7 +72,7 @@ If you managed to log onto RStudio server: brilliant, we are ready to go. At its
 You will notices that in the command line window, it will give you an answer directly (i.e. 14). These outputs of the command line window are shown as `##` throughout this handbook and you **do not** need to type  anything into the command line that follows `##` (because it simply  shows the result of a command!). 
 
 <div class="note">
-Anything that appears as red in the command line means it is an error (or a warning) so you will likely need to correct your code. If you see a **>** on the left it means you can type in your next line, a + means that you haven't finished the previous line of code. As will become clear, + signs often appear if you don't close brackets or you did not properly finish your command in a way that R expected.
+Anything that appears as red in the command line means it is an error (or a warning) so you will likely need to correct your code. If you see a `>` on the left it means you can type in your next line, a `+` means that you haven't finished the previous line of code. As will become clear, `+` signs often appear if you don't close brackets or you did not properly finish your command in a way that R expected.
 </div>
 
 Rather than using numbers and values, it is often easier to assign numbers (or groups of them) a memorable name for easy reference later. In R terminology this is called **creating an object** and this is really important. Let's try this:
@@ -83,7 +82,7 @@ a <- 4
 b <- 10
 ```
 
-The **<-** symbol is used to assign the value to the name, in the above we assigned the integer **4** to an **object** with the name *a*. Similarly, we assigned the integer **10** to an **object** with the name *b* To see what each object contains you can just type `print(name of your object)`, so in our case:
+The `<-` symbol is used to assign the value to the name, in the above we assigned the integer **4** to an **object** with the name *a*. Similarly, we assigned the integer **10** to an **object** with the name *b* To see what each object contains you can just type `print(name of your object)`, so in our case:
 
 ```{r 01-inspecting-those-objects, warnings=FALSE, message=FALSE}
 print(a)
@@ -124,7 +123,7 @@ ls()
 ## Statistical terminology
 Let's now take a short break from RStudio and have a look at some theory: the video below will introduce you to some essential statistical terminology.
 
-### Video: Essential Statistical Terminology
+### Video: Essential statistical terminology
 ```{r 01-statistical-terminology, warnings=FALSE, message=FALSE, echo=FALSE}
 # library(vembedr)
 # embed_msstream('') %>% use_align('left')
@@ -133,10 +132,10 @@ Let's now take a short break from RStudio and have a look at some theory: the vi
 ```
 [Lecture slides] [[Watch on MS stream]]()
 
-Now we now a little more about variables, we can go back to RStudio. Until now our objects have been extremely simple integers (and you should now know what integers are!), but the real power of R comes when we can begin to execute functions on objects. Let's check this out by firstly building a more complex object through the `c()` function. The **c** in the `c()` function means concatenate and essentially groups things together. Let's create an object that contains the (fictional) birth years of the six main characters in the popular American television sitcom [Friends]().
+Now we now a little more about variables, we can go back to RStudio. Until now our objects have been extremely simple integers (and you should now know what integers are!), but the real power of R comes when we can begin to execute functions on objects. Let's check this out by firstly building a more complex object through the `c()` function. The **c** in the `c()` function means concatenate and essentially groups things together. Let's create an object that contains the birth years of the six main characters in the popular American television sitcom [Friends](https://en.wikipedia.org/wiki/Friends).
 
 ```{r 01-friends-dob, warnings=FALSE, message=FALSE}
-friends_dob <- c(1974,1977,1977,1979,1975,1976)
+friends_dob <- c(1969,1967,1970,1968,1968,1967)
 ```
 
 Let's check the results.
@@ -145,7 +144,7 @@ Let's check the results.
 print(friends_dob)
 ```
 
-Now, we can execute some statistical functions on this object such as cacluating the `mean()` value, the `median()` value, and the `range()` of the data.
+Now, we can execute some statistical functions on this object such as calculating the `mean()` value, the `median()` value, and the `range()` of the data.
 
 ```{r 01-mean-friends, warnings=FALSE, message=FALSE}
 mean(friends_dob)
@@ -172,7 +171,7 @@ friends_characters <- c('Monica','Ross','Rachel','Joey','Chandler','Phoebe')
 friends <- data.frame(friends_characters,friends_dob)
 ```
 
-If you type `print(friends)` you will see our data frame.
+If you type `print(friends)` you will see our newly created data frame that consists of the first vector object (date of birth) and the second vector objects (names of characters).
 
 ```{r 01-print-the-df, warnings=FALSE, message=FALSE}
 print(friends)
@@ -180,7 +179,7 @@ print(friends)
 
 #### Tips {-}
 1. R is case sensitive so you need to make sure that you capitalise everything correctly if required.
-2. The spaces between the words don't matter but the positions of the commas and brackets do. Remember, if you find the prompt, >, is replaced with a + it is because the command is incomplete. If necessary, hit the escape (esc) key and try again.
+2. The spaces between the words don't matter but the positions of the commas and brackets do. Remember, if you find the prompt, `>`, is replaced with a `+` it is because the command is incomplete. If necessary, hit the escape (esc) key and try again.
 3. It is important to come up with good names for your objects. In the case of the `friends_dob` object we used a underscore to separate the words. It is good practice to keep the object names as short as posssible so we could have gone for `FriendsDob` or `f_dob`. Be aware: you cannot start an object name with a number!
 4. If you press the up arrow in the command line you will be able to edit the previous lines of code you inputted.
 
@@ -203,9 +202,9 @@ In this section you have:
 # frequency distribution
 ```
 
-In the previous section, R may have seemed fairly labour-intensive. We had to enter all our data manually and each line of code had to be written into the command line. Fortunately this isn't routinely the case. In RStudio look to the top left corner and you will see a plus symbol, click on it and select **R Script**.
+Now we got introduced to descriptive statistics, we can go back to RStudio again. In the previous section, R may have seemed fairly labour-intensive. We had to enter all our data manually and each line of code had to be written into the command line. Fortunately this isn't routinely the case. In RStudio look to the top left corner and you will see a plus symbol, click on it and select **R Script**.
 
-This should give you a blank document that looks a bit like the command line. The difference is that anything you type here can be saved as a script and re-run at a later date. When writing a script it is important to keep notes about what each step is doing. To do this the hash (`#`) symbol is put before any code. This comments out that particular line so that R ignores it when the script is run. Type the following into the script:
+This should give you a blank document that looks a bit like the command line. The difference is that anything you type here can be saved as a script and re-run at a later date. When writing a script it is important to keep notes about what each step is doing. To do this the hash (`#`) symbol is put before any code. This comments out that particular line so that R ignores it when the script is run. Type the following into the scripting window:
 
 ```{r 01-script-it, warnings=FALSE, message=FALSE, eval=FALSE}
 # first attempt at creating a script
@@ -225,7 +224,7 @@ Some.Data <- data.frame(0:10,20:30)
 print(Some.Data)
 ```
 
-The My.Data object is a data frame in need of some sensible column headings. You can add these by typing:
+The `My.Data` object is a data frame in need of some sensible column headings. You can add these by typing:
 
 ```{r 01-add-column names, warnings=FALSE, message=FALSE}
 # add column names
@@ -235,7 +234,9 @@ names(Some.Data)<- c('x','y')
 print(Some.Data)
 ```
 
-Until now we have generated the data used in the examples above. One of R's great strengths is its ability to load in data from almost any file format. Comma Separated Value (`csv`) files are our preferred choice. These can be thought of as stripped down Excel spreadsheets. They are an extremely simple format so they are easily machine readable and can therefore be easily read in and written out of R. Since we are now reading and writing files it is good practice to tell R what your working directory is. Your working directory is the folder on the computer where you wish to store the data files you are working with. You can create a folder called `POLS0008`, for example. If you are using RStudio, on the lower right of the screen is a window with a **Files** tab. If you click on this tab you can then navigate to the folder you wish to use. You can then click on the **More** button and then **Set as Working Directory**. You should then see some code similar to the below appear in the command line. It is also possible to type the code in manually.
+Until now we have generated the data used in the examples above. One of R's great strengths is its ability to load in data from almost any file format. Comma Separated Value (`csv`) files are our preferred choice. These can be thought of as stripped down Excel spreadsheets. They are an extremely simple format so they are easily machine readable and can therefore be easily read in and written out of R. 
+
+Since we are now reading and writing files it is good practice to tell R what your working directory is. Your working directory is the folder on the computer where you wish to store the data files you are working with. You can create a folder called `POLS0008`, for example. If you are using RStudio, on the lower right of the screen is a window with a **Files** tab. If you click on this tab you can then navigate to the folder you wish to use. You can then click on the **More** button and then **Set as Working Directory**. You should then see some code similar to the below appear in the command line. It is also possible to type the code in manually.
 
 ```{r 01-set-wd, warnings=FALSE, message=FALSE, eval=FALSE}
 # set the working directory path to the folder you wish to use
@@ -244,12 +245,12 @@ setwd('~/POLS0008')
 # note the single / (\\ will also work)
 ```
 
-Once the working directory is setup it is then possible to load in a `csv` file. We are going to load a dataset that has been saved in the working directory we just set that shows London's historic population for each of its Boroughs.
+Once the working directory is setup it is then possible to load in a `csv` file. We are going to load a dataset that has been saved in the working directory we just set that shows London's historic population for each of its Boroughs. You can download the `csv` file below.
 
 #### File download {-}
 | File                                                 | Type           | Link |
 | :------                                              | :------        | :------ |
-| Borough Population London        | `csv`          | [Download]() |
+| Borough Population London        | `csv`             | [Download](https://liveuclac-my.sharepoint.com/:f:/g/personal/ucfajtv_ucl_ac_uk/ElYO3yqJw8RPvhwt6zOu9psBGFyesL1-aTWjralbxIGkhQ?e=m3WVg9) |
 
 Once downloaded to your own computer, this file will then need to be uploaded into RStudio. To do this click on the **Upload** button in the files area of the screen. Select the `csv` file you just downloaded and press **OK**. We can then type the following to locate and load in the file we need.
 
@@ -269,14 +270,17 @@ To view the object type:
 print(London.Pop)
 ```
 
-Or if you only want to see the top 10 or bottom 10 rows you can use the `head()` and `tail()` commands. These are particularly useful if you have large datasets!
+Or if you only want to see the top 10 or bottom 10 rows you can use the `head()` and `tail()` functions. These are particularly useful if you have large datasets!
 
 ```{r 01-head-to tail, warnings=FALSE, message=FALSE,echo=FALSE}
+# view first 10 rows
 head(London.Pop)
+
+# view bottom 10 rows
 tail(London.Pop)
 ```
 
-To get to know a bit more about the file you have loaded R has a number of useful functions. We can use these to find out how many columns (**variables**) and rows (**cases**) the data frame (**dataset**) contains.
+To learn a bit more about the file you have loaded, R has a number of useful functions. We can use these to find out how many columns (**variables**) and rows (**cases**) the data frame (**dataset**) contains.
 
 ```{r 01-numbers-of-that-df, warnings=FALSE, message=FALSE,echo=FALSE}
 # get the number of columns
@@ -299,7 +303,7 @@ London.Pop.2011<- data.frame(London.Pop$Area.Name, London.Pop$Persons.2011)
 head(London.Pop.2011)
 ```
 
-A second approach to selecting particular data is to use `[Row, Column]`. For instance:
+A second approach to selecting particular data is to use `[Row, Column]` and 'slice' the data frame. For instance:
 
 ```{r 01-select-those-rows, warnings=FALSE, message=FALSE,echo=FALSE}
 # select the 1st row of the 2nd column
@@ -315,7 +319,7 @@ London.Pop[1:5,8:11]
 London.Subset <- London.Pop[1:5,8:11]
 ```
 
-In the code snippet, note how the colon `:` is used to specify a range of values. We used the same technique to create the `Some.Data` object above. The abilty to select particular columns means we can see how the population of London's Boroughs have changed over the past century.
+In the code snippet, note how the colon `:` is used to specify a range of values. We used the same technique to create the `Some.Data` object above. The ability to select particular columns means we can see how the population of London's Boroughs have changed over the past century by substracting two columns from one another.
 
 ```{r 01-change-pop, warnings=FALSE, message=FALSE,echo=FALSE}
 # within the brackets you can add additional columns to the data frame 
@@ -329,7 +333,7 @@ If you type `head(PopChange)` you will see that the population change column (cr
 names(Pop.Change)<- c('Borough', 'Change_1911_2011')
 ```
 
-Since we have done some new analysis and created additional information it would be good to save the `PopChange` object to our working directory. This is done using the code below. Within the brackets we put the name of the R object we wish to save on the left of the comma and the file name on the right of the comma (this needs to be in inverted commas). Remember to put `.csv` after since this is the file format we are saving in.
+Since we have done some new analysis and created additional information it would be good to save the `PopChange` object to our working directory as a new `csv` file. This is done using the code below. Within the brackets we put the name of the R object we wish to save on the left of the comma and the file name on the right of the comma (this needs to be in inverted commas). Remember to put `.csv` after since this is the file format we are saving in.
 
 ```{r 01-write-to-disk, warnings=FALSE, message=FALSE,echo=FALSE}
 write.csv(Pop.Change, 'Population_Change_1911_2011.csv')
