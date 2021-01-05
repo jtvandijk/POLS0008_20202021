@@ -4,7 +4,7 @@
 Welcome to your second week of **Introduction to Quantitative Research Methods**. This week we will focus on **examining data** using descriptive statistics and measures of dispersion. We will also talk about data manipulation and something called *metadata*. For the tutorial we will continue to use the `London.Pop` object that we created last week and will use this to create some plots.
 
 ### Reading list {#reading-list-w02}
-For this week, you will have to read the following:
+For this week, you will have to read the following book Chapters:
 
 - Lane *et al.*, 2003, **Chapter 2: Graphing Distributions**. In: [Lane *et al.*, 2003, Introduction to Statistics](http://onlinestatbook.com/Online_Statistics_Education.pdf). Houston, Texas:  Rice University.
 
@@ -84,7 +84,7 @@ For more information on the plot parameters (some have obscure names) have a loo
 A slightly different method of creating plots in R requires the `ggplot2` package. There are many hundreds of packages in R each designed for a specific purpose. These are not installed automatically, so each one has to be downloaded and then we need to tell R to use it. To download and install the ggplot2 package type the following:
 
 <div class="note">
-When you hit enter R will ask you to select a [mirror](https://en.wikipedia.org/wiki/Mirror_site) to download the package contents from. It does not really matter which one you choose, but we would suggest you pick the mirror that is geographically closest to you.
+If you are running RStudio on your own computer: when you hit enter R could ask you to select a [mirror](https://en.wikipedia.org/wiki/Mirror_site) to download the package contents from. It does not really matter which one you choose, but we would suggest you pick the mirror that is geographically closest to you.
 </div>
 
 ```{r 02-install-ggplot2, warnings=FALSE, message=FALSE, eval=FALSE}
@@ -92,7 +92,11 @@ When you hit enter R will ask you to select a [mirror](https://en.wikipedia.org/
 install.packages('ggplot2')
 ```
 
-The `install.packages()` step only needs to be performed once. You do not need to install a the package every time you want to use it. However, each time you open R and wish to use a package you need to use the `library()` command to tell R that it will be required. 
+The `install.packages()` step only needs to be performed once. You do not need to install a the package every time you want to use it. However, each time you open R and wish to use a package you need to use the `library()` command to tell R that it will be required.
+
+```{r 01-rstudio-install, echo=FALSE, fig.align='center', fig.cap='Installing the ggplot2 package.'}
+knitr::include_graphics('images/week01/01_install_package.png')
+```
 
 ```{r 02-load-ggplot2, warnings=FALSE, message=FALSE}
 # load ggplot2 package
@@ -158,7 +162,7 @@ ggsave('first_ggplot.pdf', scale=2)
 #### Questions {-}
 1. Where does your plot get saved? Why?
 
-`ggsave` only works with plots that were created with `ggplot`. Within the brackets you should create a file name for the plot - this needs to include the file format: in this case `.pdf`, but you could also save the plot as a `.jpg` file). The file will be saved to your working directory. The scale controls how many times bigger you want the exported plot to be than it currently is in the plot window. Once executed you should be able to see a PDF file in your working directory.
+`ggsave` only works with plots that were created with `ggplot`. Within the brackets you should create a file name for the plot - this needs to include the file format: in this case `.pdf`, but you could also save the plot as a `.jpg` file. The file will be saved to your working directory. The scale controls how many times bigger you want the exported plot to be than it currently is in the plot window. Once executed you should be able to see a PDF file in your working directory.
 
 #### Recap {-}
 In this section you have:

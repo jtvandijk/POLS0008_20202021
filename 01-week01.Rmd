@@ -15,7 +15,7 @@ Further to this, **data skills** are in high demand by employers both in the pub
 </div>
 
 ### Reading list {#reading-list-w01}
-For this week, you will have to read the following:
+For this week, you will have to read the following book Chapters:
 
 - Lane *et al.*, 2003, **Chapter 1: Introduction**. In: [Lane *et al.*, 2003, Introduction to Statistics](http://onlinestatbook.com/Online_Statistics_Education.pdf). Houston, Texas:  Rice University.
 
@@ -227,6 +227,8 @@ When writing a script it is important to keep notes about what each step is doin
 ```{r 01-script-it, warnings=FALSE, message=FALSE, eval=FALSE}
 # first attempt at creating a script
 Some.Data <- data.frame(0:10,20:30)
+
+# inspect the result
 print(Some.Data)
 ```
 

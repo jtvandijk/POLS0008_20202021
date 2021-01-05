@@ -4,7 +4,7 @@
 Welcome to your third week of **Introduction to Quantitative Research Methods**. This week we will focus again on **examining data**, with a particular focus on data visualisation. For the tutorial we will continue to use the asssault incident dataset that we used last week.
 
 ### Reading list {#reading-list-w03}
-For this week, you will have to read the following:
+For this week, you will have to read the following book Chapters:
 
 - Lane *et al.*, 2003, **Chapter 3: Summarizing Distributions**. In: [Lane *et al.*, 2003, Introduction to Statistics](http://onlinestatbook.com/Online_Statistics_Education.pdf). Houston, Texas:  Rice University.
 
