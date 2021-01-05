@@ -14,27 +14,36 @@ Further to this, **data skills** are in high demand by employers both in the pub
 **TL;DR**: Having a basic understanding of data and statistics is essential both during and after your time at University.
 </div>
 
+### Reading list {#reading-list-w01}
+For this week, you will have to read the following:
+
+- Lane *et al.*, 2003, **Chapter 1: Introduction**. In: [Lane *et al.*, 2003, Introduction to Statistics](http://onlinestatbook.com/Online_Statistics_Education.pdf). Houston, Texas:  Rice University.
+
 ### Video: Overview {#overview_w01}
 ```{r 01-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
-# library(vembedr)
-# embed_msstream('') %>% use_align('left')
+library(vembedr)
+embed_msstream('') %>% use_align('left')
 # welcome to this week
 # why take research methods
 ```
 [Lecture slides] [[Watch on MS stream]]()
+
+```{r 01-settings, warnings=FALSE, message=FALSE, echo=FALSE}
+# settings
+options(max.print=30)
+```
 
 ## R
 Arguably the easiest way to start learning about data is by getting your hands dirty So, before we will introduce you to some statistical terminology and talk about something called [descriptive statistics](https://en.wikipedia.org/wiki/Descriptive_statistics), we will have a look at one of the software tools with which we will be working this semester: [R](https://www.r-project.org/). R is a free software environment for statistical computing and graphics. It is extremely powerful and as such is now widely used for academic research as well as in the commercial sector. Ever wondered what tool is used to create those excellent [coronavirus visualisations in the Financial Times](https://ig.ft.com/coronavirus-global-data/)?
 
 ### Video: R
 ```{r 01-r, warnings=FALSE, message=FALSE, echo=FALSE}
-# library(vembedr)
-# embed_msstream('') %>% use_align('left')
+embed_msstream('') %>% use_align('left')
 # what is R
 # why R
 ```
-[Lecture slides] [[Watch on MS stream]]()
-
+[[Lecture slides]]() [[Watch on MS stream]]()
+  
 Unlike software programmes such as [Microsoft Excel]() or [SPSS](https://www.ibm.com/uk-en/analytics/spss-statistics-software), within a coding environment the user has to type commands to get it to execute tasks such as loading in a dataset or performing a calculation. The biggest advantage of this approach is that you can build up a document, or script, that provides a record of what you have done, which in turn enables the straightforward repetition of tasks. Graphics can be easily modified and tweaked by making slight changes to the script or by scrolling through past commands and making quick edits. Unfortunately, command-line computing can also be off-putting at first. It is easy to make mistakes that are not always obvious to detect. Nevertheless, there are good reasons to stick with R. These include:
 
 - It's broadly intuitive with a strong focus on publishable-quality graphics.
@@ -125,14 +134,13 @@ Let's now take a short break from RStudio and have a look at some theory: the vi
 
 ### Video: Essential statistical terminology
 ```{r 01-statistical-terminology, warnings=FALSE, message=FALSE, echo=FALSE}
-# library(vembedr)
-# embed_msstream('') %>% use_align('left')
+embed_msstream('') %>% use_align('left')
 # statistical terminology
 # types of variables
 ```
-[Lecture slides] [[Watch on MS stream]]()
+[[Lecture slides]]() [[Watch on MS stream]]()
 
-Now we now a little more about variables, we can go back to RStudio. Until now our objects have been extremely simple integers (and you should now know what integers are!), but the real power of R comes when we can begin to execute functions on objects. Let's check this out by firstly building a more complex object through the `c()` function. The **c** in the `c()` function means concatenate and essentially groups things together. Let's create an object that contains the birth years of the six main characters in the popular American television sitcom [Friends](https://en.wikipedia.org/wiki/Friends).
+Now we now a little more about variables, we can go back to RStudio. Until now our objects have been extremely simple **integers** (and you should now know what integers are!), but the real power of R comes when we can begin to execute functions on objects. Let's check this out by firstly building a more complex object through the `c()` function. The **c** in the `c()` function means concatenate and essentially groups things together. Let's create an object that contains the birth years of the six main characters in the popular American television sitcom [Friends](https://en.wikipedia.org/wiki/Friends).
 
 ```{r 01-friends-dob, warnings=FALSE, message=FALSE}
 friends_dob <- c(1969,1967,1970,1968,1968,1967)
@@ -164,7 +172,7 @@ All helpfiles will have a **usage** heading detailing the parameters required. I
 When you are new to R the help files can seem pretty impenetrable (because they often are!). Up until relatively recently these were all people had to go on, but in recent years R has really taken off and so there are plenty of places to find help and tips. Google is best tool to use. When people are having problems they tend to post examples of their code online and then the R community will correct it. One of the best ways to solve a problem is to paste their correct code into your R command line window and then gradually change it for your data an purposes.
 </div>
 
-The structure of the `friends_dob` object - essentially a group of numbers (integers!) - is known as a **vector object** in R. To build more complex objects that, for example, resemble a spreadsheet with multiple columns of data, it is possible to create a class of objects known as a **data frame**. This is probably the most commonly used class of object in R. We can create one here by combining two vectors.
+The structure of the `friends_dob` object - essentially a group of numbers (**integers**!) - is known as a **vector object** in R. To build more complex objects that, for example, resemble a spreadsheet with multiple columns of data, it is possible to create a class of objects known as a **data frame**. This is probably the most commonly used class of object in R. We can create one here by combining two vectors.
 
 ```{r 01-make-a-df, warnings=FALSE, message=FALSE}
 friends_characters <- c('Monica','Ross','Rachel','Joey','Chandler','Phoebe')
@@ -194,17 +202,27 @@ In this section you have:
 
 ## Descriptive statistics
 
-### Video: Descriptive statistics
+### Video: Descriptive statistics I
 ```{r 01-descriptive-statistics, warnings=FALSE, message=FALSE, echo=FALSE}
-# library(vembedr)
-# embed_msstream('') %>% use_align('left')
+embed_msstream('') %>% use_align('left')
 # what are descriptive statistics
 # frequency distribution
 ```
+[[Lecture slides]]() [[Watch on MS stream]]()
 
 Now we got introduced to descriptive statistics, we can go back to RStudio again. In the previous section, R may have seemed fairly labour-intensive. We had to enter all our data manually and each line of code had to be written into the command line. Fortunately this isn't routinely the case. In RStudio look to the top left corner and you will see a plus symbol, click on it and select **R Script**.
 
-This should give you a blank document that looks a bit like the command line. The difference is that anything you type here can be saved as a script and re-run at a later date. When writing a script it is important to keep notes about what each step is doing. To do this the hash (`#`) symbol is put before any code. This comments out that particular line so that R ignores it when the script is run. Type the following into the scripting window:
+```{r 01-rstudio-interface-script, echo=FALSE, fig.align='center', fig.cap='Opening a new script in RStudio.'}
+knitr::include_graphics('images/week01/01_rstudio_interface_script.png')
+```
+
+This should give you a blank document that looks a bit like the command line. The difference is that anything you type here can be saved as a script and re-run at a later date. 
+
+```{r 01-rstudio-interface-script-open, echo=FALSE, fig.align='center', fig.cap='The RStudio interface with a new script.'}
+knitr::include_graphics('images/week01/01_rstudio_interface_script_open.png')
+```
+
+When writing a script it is important to keep notes about what each step is doing. To do this the hash (`#`) symbol is put before any code. This comments out that particular line so that R ignores it when the script is run. Type the following into the scripting window:
 
 ```{r 01-script-it, warnings=FALSE, message=FALSE, eval=FALSE}
 # first attempt at creating a script
@@ -212,7 +230,7 @@ Some.Data <- data.frame(0:10,20:30)
 print(Some.Data)
 ```
 
-#### Question {-}
+#### Questions {-}
 1. Without running these lines of code, what do you expect to happen? Do you understand what these simple line of codes do?
 
 In the scripting window if you highlight all the code you have written and press the **Run** button on the top on the scripting window you will see that the code is sent to the command line and the text on the line after the `#` is ignored. From now on you should type your code in the scripting window and then use the **Run** button to execute it. If you have an error then edit the line in the script and hit run again.
@@ -236,7 +254,8 @@ print(Some.Data)
 
 Until now we have generated the data used in the examples above. One of R's great strengths is its ability to load in data from almost any file format. Comma Separated Value (`csv`) files are our preferred choice. These can be thought of as stripped down Excel spreadsheets. They are an extremely simple format so they are easily machine readable and can therefore be easily read in and written out of R. 
 
-Since we are now reading and writing files it is good practice to tell R what your working directory is. Your working directory is the folder on the computer where you wish to store the data files you are working with. You can create a folder called `POLS0008`, for example. If you are using RStudio, on the lower right of the screen is a window with a **Files** tab. If you click on this tab you can then navigate to the folder you wish to use. You can then click on the **More** button and then **Set as Working Directory**. You should then see some code similar to the below appear in the command line. It is also possible to type the code in manually.
+#### Working Directory {-}
+Since we are now reading and writing files it is good practice to tell R what your. Your working directory is the folder on the computer where you wish to store the data files you are working with. You can create a folder called `POLS0008`, for example. If you are using RStudio, on the lower right of the screen is a window with a **Files** tab. If you click on this tab you can then navigate to the folder you wish to use. You can then click on the **More** button and then **Set as Working Directory**. You should then see some code similar to the below appear in the command line. It is also possible to type the code in manually.
 
 ```{r 01-set-wd, warnings=FALSE, message=FALSE, eval=FALSE}
 # set the working directory path to the folder you wish to use
@@ -259,26 +278,30 @@ Once downloaded to your own computer, this file will then need to be uploaded in
 London.Pop <- read.csv('census-historic-population-borough.csv')
 ```
 
-```{r 01-load-csv-for-realz, warnings=FALSE, message=FALSE,echo=FALSE}
+```{r 01-load-csv-for-realz, warnings=FALSE, message=FALSE, echo=FALSE}
 # load csv file from working directory
 London.Pop <- read.csv('raw/census-historic-population-borough.csv')
 ```
 
-To view the object type:
+To view the object type:s
 
-```{r 01-view-da-pop, warnings=FALSE, message=FALSE,echo=FALSE}
+```{r 01-view-da-pop, warnings=FALSE, message=FALSE}
 print(London.Pop)
 ```
 
 Or if you only want to see the top 10 or bottom 10 rows you can use the `head()` and `tail()` functions. These are particularly useful if you have large datasets!
 
-```{r 01-head-to tail, warnings=FALSE, message=FALSE,echo=FALSE}
+```{r 01-head-to tail, warnings=FALSE, message=FALSE}
 # view first 10 rows
 head(London.Pop)
 
 # view bottom 10 rows
 tail(London.Pop)
 ```
+
+<div class="note">
+Depending on the type of `object` the exact number of lines displayed through `head()` and `tail()` may differ. If you want to have precies control over the output and specify how many rows will be printed, you can do this by passing an **integer** as second argument to either of these functions. For instance, `head(London.Pop,n=10)` or `tail(London.Pop,n=10)`.
+</div>
 
 To learn a bit more about the file you have loaded, R has a number of useful functions. We can use these to find out how many columns (**variables**) and rows (**cases**) the data frame (**dataset**) contains.
 
@@ -295,7 +318,7 @@ names(London.Pop)
 
 Given the number of columns in the pop data frame, subsetting by selecting on the columns of interest would make it easier to handle. In R there are two was of doing this. The first uses the `$` symbol to select columns by name and then create a new data frame object.
 
-```{r 01-2011-only, warnings=FALSE, message=FALSE,echo=FALSE}
+```{r 01-2011-only, warnings=FALSE, message=FALSE}
 # select the columns containing the Borough names and the 2011 population
 London.Pop.2011<- data.frame(London.Pop$Area.Name, London.Pop$Persons.2011) 
 
@@ -305,7 +328,7 @@ head(London.Pop.2011)
 
 A second approach to selecting particular data is to use `[Row, Column]` and 'slice' the data frame. For instance:
 
-```{r 01-select-those-rows, warnings=FALSE, message=FALSE,echo=FALSE}
+```{r 01-select-those-rows, warnings=FALSE, message=FALSE}
 # select the 1st row of the 2nd column
 London.Pop[1,2]
 
@@ -321,7 +344,7 @@ London.Subset <- London.Pop[1:5,8:11]
 
 In the code snippet, note how the colon `:` is used to specify a range of values. We used the same technique to create the `Some.Data` object above. The ability to select particular columns means we can see how the population of London's Boroughs have changed over the past century by substracting two columns from one another.
 
-```{r 01-change-pop, warnings=FALSE, message=FALSE,echo=FALSE}
+```{r 01-change-pop, warnings=FALSE, message=FALSE}
 # within the brackets you can add additional columns to the data frame 
 # as long as their separated by commas
 Pop.Change<- data.frame(London.Pop$Area.Name, London.Pop$Persons.2011 - London.Pop$Persons.1911)
@@ -329,13 +352,13 @@ Pop.Change<- data.frame(London.Pop$Area.Name, London.Pop$Persons.2011 - London.P
 
 If you type `head(PopChange)` you will see that the population change column (created to the right of the comma above) has a very long name. This can be changed using the `names()` command in the same way as we did this for our `Some.Data` object.
 
-```{r 01-whats-in-a-name, warnings=FALSE, message=FALSE,echo=FALSE}
+```{r 01-whats-in-a-name, warnings=FALSE, message=FALSE}
 names(Pop.Change)<- c('Borough', 'Change_1911_2011')
 ```
 
 Since we have done some new analysis and created additional information it would be good to save the `PopChange` object to our working directory as a new `csv` file. This is done using the code below. Within the brackets we put the name of the R object we wish to save on the left of the comma and the file name on the right of the comma (this needs to be in inverted commas). Remember to put `.csv` after since this is the file format we are saving in.
 
-```{r 01-write-to-disk, warnings=FALSE, message=FALSE,echo=FALSE}
+```{r 01-write-to-disk, warnings=FALSE, message=FALSE}
 write.csv(Pop.Change, 'Population_Change_1911_2011.csv')
 ```
 
@@ -346,6 +369,8 @@ In this section you have learnt how to:
 2. Load a `csv` into R, perform some analysis, and write out a new `csv` file to your
 working directory.
 3. Subset R data frames by name and also column and/or row number.
+
+## Seminar {#seminar-w01}
 
 #### Seminar assignment {-}
 Create a `csv` file that contains the following columns:
@@ -360,5 +385,5 @@ Create a `csv` file that contains the following columns:
 1. Which Boroughs had the fastest growth during the 19th Century, and which had the slowest?
 2. You may have noticed that there is an additional column in the pop data frame called `Borough-Type`. This indicates if a Borough is in inner (1) or outer (2) London. Is this variable ordinal or nominal?
 
-## Done
-Save your R script by pressing the Save button in the script window. That is it for this week.
+## Before you leave {#byl-w01}
+Save your R script by pressing the **Save** button in the script window. [That is it for this week](https://www.youtube.com/watch?v=d8Fmu3RLEOY)!
