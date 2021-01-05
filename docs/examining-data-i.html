@@ -142,6 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#moodle"><i class="fa fa-check"></i>Moodle</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#important"><i class="fa fa-check"></i>Important</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#office-hours"><i class="fa fa-check"></i>Office hours</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="understanding-data.html"><a href="understanding-data.html"><i class="fa fa-check"></i><b>1</b> Understanding data</a>
 <ul>
@@ -231,7 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Welcome to your second week of <strong>Introduction to Quantitative Research Methods</strong>. This week we will focus on <strong>examining data</strong> using descriptive statistics and measures of dispersion. We will also talk about data manipulation and something called <em>metadata</em>. For the tutorial we will continue to use the <code>London.Pop</code> object that we created last week and will use this to create some plots.</p>
 <div id="reading-list-w02" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Reading list</h3>
-<p>For this week, you will have to read the following:</p>
+<p>For this week, you will have to read the following book Chapters:</p>
 <ul>
 <li>Lane <em>et al.</em>, 2003, <strong>Chapter 2: Graphing Distributions</strong>. In: <a href="http://onlinestatbook.com/Online_Statistics_Education.pdf">Lane <em>et al.</em>, 2003, Introduction to Statistics</a>. Houston, Texas: Rice University.</li>
 </ul>
@@ -295,11 +296,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.2.3</span> ggplot2</h3>
 <p>A slightly different method of creating plots in R requires the <code>ggplot2</code> package. There are many hundreds of packages in R each designed for a specific purpose. These are not installed automatically, so each one has to be downloaded and then we need to tell R to use it. To download and install the ggplot2 package type the following:</p>
 <div class="note">
-<p>When you hit enter R will ask you to select a <a href="https://en.wikipedia.org/wiki/Mirror_site">mirror</a> to download the package contents from. It does not really matter which one you choose, but we would suggest you pick the mirror that is geographically closest to you.</p>
+<p>If you are running RStudio on your own computer: when you hit enter R could ask you to select a <a href="https://en.wikipedia.org/wiki/Mirror_site">mirror</a> to download the package contents from. It does not really matter which one you choose, but we would suggest you pick the mirror that is geographically closest to you.</p>
 </div>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="examining-data-i.html#cb63-1" aria-hidden="true"></a><span class="co"># install package</span></span>
 <span id="cb63-2"><a href="examining-data-i.html#cb63-2" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
 <p>The <code>install.packages()</code> step only needs to be performed once. You do not need to install a the package every time you want to use it. However, each time you open R and wish to use a package you need to use the <code>library()</code> command to tell R that it will be required.</p>
+<div class="figure" style="text-align: center"><span id="fig:01-rstudio-install"></span>
+<img src="images/week01/01_install_package.png" alt="Installing the ggplot2 package."  />
+<p class="caption">
+Figure 2.1: Installing the ggplot2 package.
+</p>
+</div>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="examining-data-i.html#cb64-1" aria-hidden="true"></a><span class="co"># load ggplot2 package</span></span>
 <span id="cb64-2"><a href="examining-data-i.html#cb64-2" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
 <p>The <code>ggplot2</code> package is an implementation of the Grammar of Graphics (<a href="https://en.wikipedia.org/wiki/Leland_Wilkinson">Wilkinson 2005</a>) - a general scheme for data visualisation that breaks up graphs into semantic components such as scales and layers. <code>ggplot2</code> can serve as a replacement for the base graphics in R and contains a number of default options that match good visualisation practice. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
@@ -338,7 +345,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Where does your plot get saved? Why?</li>
 </ol>
-<p><code>ggsave</code> only works with plots that were created with <code>ggplot</code>. Within the brackets you should create a file name for the plot - this needs to include the file format: in this case <code>.pdf</code>, but you could also save the plot as a <code>.jpg</code> file). The file will be saved to your working directory. The scale controls how many times bigger you want the exported plot to be than it currently is in the plot window. Once executed you should be able to see a PDF file in your working directory.</p>
+<p><code>ggsave</code> only works with plots that were created with <code>ggplot</code>. Within the brackets you should create a file name for the plot - this needs to include the file format: in this case <code>.pdf</code>, but you could also save the plot as a <code>.jpg</code> file. The file will be saved to your working directory. The scale controls how many times bigger you want the exported plot to be than it currently is in the plot window. Once executed you should be able to see a PDF file in your working directory.</p>
 </div>
 <div id="recap" class="section level4 unnumbered">
 <h4>Recap</h4>
