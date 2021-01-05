@@ -1,2 +1,0 @@
-"0","# load csv file from working directory"
-"0","London.Pop <- read.csv('raw/census-historic-population-borough.csv')"

@@ -1,2 +1,0 @@
-"0","# quick plot"
-"0","plot(input$WardCode, input$assault_09_11)"

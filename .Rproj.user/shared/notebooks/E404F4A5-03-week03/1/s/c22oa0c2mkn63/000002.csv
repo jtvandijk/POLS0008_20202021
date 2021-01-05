@@ -1,4 +1,0 @@
-"0","# note that we are back to using the `p` object since we need all our data for this "
-"0","# this code may generate a large number of warning messages relating to the plot binwidth, don't worry about them"
-"0","p + geom_histogram() + "
-"0","    facet_wrap(~Bor_Code)"

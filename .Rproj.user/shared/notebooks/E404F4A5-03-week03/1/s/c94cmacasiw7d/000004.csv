@@ -1,5 +1,0 @@
-"0",""
-"0","# plot pretty(ish)"
-"0","p2.camden + geom_histogram() +"
-"0","            geom_density(fill=NA, colour='red') +"
-"0","            ggtitle('Assault incidents in Camden')"

@@ -1,6 +1,0 @@
-"0","# note that the `assault_09_11` column is now y and not x "
-"0","# we also specified x = 1 to algin the plot to the x-axis (any single number would work)"
-"0","p3 <- ggplot(input, aes(x=1, y=assault_09_11))"
-"0",""
-"0","# add the boxplot geom"
-"0","p3 + geom_boxplot()"

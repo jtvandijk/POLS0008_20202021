@@ -20,3 +20,6 @@ All important information and communication in relation to this module will be p
 
 ## Important {-}
 We do not offer any technical support. If you have any technical questions or encounter technical problems, you will have to take this up with the [IT Service Desk](https://www.ucl.ac.uk/isd/help-support). Similarly, for questions related to the organisation of the course (e.g. in which seminar group your get assigned to), you will have to direct your queries to the student office of your Department.
+
+## Office hours {-}
+Office hours with Dr Justin van Dijk (Tuesdays between 15h00 and 16h00) can be booked [here](https://outlook.office365.com/owa/calendar/JustinvanDijkBookableOfficeHours@ucl.ac.uk/bookings/). Office hours with Dr Stephen Jivraj (Tuesdays between 09h45 and 10h45) can be booked [here](https://outlook.office365.com/owa/calendar/StephenJivraj@ucl.ac.uk/bookings/). 

@@ -1,5 +1,0 @@
-"0","# quick plot using the ggplot2 library"
-"0","p <- ggplot(input, aes(x=assault_09_11))"
-"0",""
-"0","# inspect"
-"0","p"

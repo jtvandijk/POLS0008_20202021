@@ -9,3 +9,5 @@ _bookdown_files/*
 packrat/lib*/
 *.geojson
 .DS_Store
+.Rproj.user/*
+.Rproj.user

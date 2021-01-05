@@ -1,2 +1,0 @@
-"0","# make a quick plot of two variables of the London population data set"
-"0","plot(London.Pop$Persons.1811,London.Pop$Persons.1911)"

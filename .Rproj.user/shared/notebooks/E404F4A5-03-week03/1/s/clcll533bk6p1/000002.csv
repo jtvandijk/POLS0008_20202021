@@ -1,2 +1,0 @@
-"0","# load csv file from working directory"
-"0","input <- read.csv('raw/ambulance_assault.csv')"

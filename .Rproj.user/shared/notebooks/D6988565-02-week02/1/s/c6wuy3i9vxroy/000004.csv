@@ -1,2 +1,0 @@
-"0","# add a title, change point colour, change point size"
-"0","plot(London.Pop$Persons.1811, London.Pop$Persons.1911, main='Quick Plot in R', col='blue', cex=2)"
