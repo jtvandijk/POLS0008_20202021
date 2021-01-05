@@ -1,0 +1,22 @@
+--- 
+title: "POLS0008: Introduction to Quantitative Research Methods"
+author: Justin van Dijk^[Department of Geography, https://www.mappingdutchman.com/], Stephen Jivraj^[Institute of Epidemiology and Health Care, https://www.ucl.ac.uk/q-step/stephen-jivraj], and James Cheshire^[Department of Geography, http://jcheshire.com]
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+link-citations: yes
+github-repo: "jtvandijk/POLS0008"
+description: "POLS0008: Introduction to Quantitative Research Methods."
+url: 'https\://jtvandijk.github.io/POLS0008/'
+---
+
+# Welcome {-}
+
+Welcome to **Introduction to Quantitative Research Methods**, one of the first year core module for students enrolled on Q-Step programmes and a second year methods option in BSc Philosophy, Politics and Economics. 
+
+## Moodle {-}
+All important information and communication in relation to this module will be provided on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). Although for the first **4 weeks** all short lecture videos and practical materials will be hosted on this webpage, do check on Moodle **regularly** to see if there are any updates and to access the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137) to ask and answer questions.
+
+## Important {-}
+We do not offer any technical support. If you have any technical questions or encounter technical problems, you will have to take this up with the [IT Service Desk](https://www.ucl.ac.uk/isd/help-support). Similarly, for questions related to the organisation of the course (e.g. in which seminar group your get assigned to), you will have to direct your queries to the student office of your Department.

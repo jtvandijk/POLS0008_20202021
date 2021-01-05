@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1609785765556.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2082E83E",
+    "lastKnownWriteTime" : 1609861263,
+    "last_content_update" : 1609861263094,
+    "path" : "~/Dropbox/UCL/Web/jtvandijk.github.io/POLS0008/01-week01.Rmd",
+    "project_path" : "01-week01.Rmd",
+    "properties" : {
+        "cursorPosition" : "214,0",
+        "scrollLine" : "207"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

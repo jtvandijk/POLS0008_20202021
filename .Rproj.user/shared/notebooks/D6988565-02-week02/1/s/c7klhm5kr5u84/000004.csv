@@ -1,0 +1,2 @@
+"0","# add a title, change point colour, change point symbol"
+"0","plot(London.Pop$Persons.1811, London.Pop$Persons.1911, main=""Another Quick Plot in R"", col='magenta', pch=22)"

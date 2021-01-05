@@ -1,0 +1,2 @@
+"0","# quick histogram using the ggplot2 library"
+"0","p + geom_histogram()"

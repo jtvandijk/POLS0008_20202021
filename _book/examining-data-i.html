@@ -200,6 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="examining-data-ii.html"><a href="examining-data-ii.html#visualising-data"><i class="fa fa-check"></i><b>3.3</b> Visualising data</a>
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="examining-data-ii.html"><a href="examining-data-ii.html#video-visualising-data"><i class="fa fa-check"></i><b>3.3.1</b> Video: Visualising data</a></li>
+<li class="chapter" data-level="3.3.2" data-path="examining-data-ii.html"><a href="examining-data-ii.html#histograms"><i class="fa fa-check"></i><b>3.3.2</b> Histograms</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="examining-data-ii.html"><a href="examining-data-ii.html#seminar-w03"><i class="fa fa-check"></i><b>3.4</b> Seminar</a></li>
 <li class="chapter" data-level="3.5" data-path="examining-data-ii.html"><a href="examining-data-ii.html#byl-w03"><i class="fa fa-check"></i><b>3.5</b> Before you leave</a></li>
@@ -256,20 +257,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <a href="">[Lecture slides]</a> <a href="">[Watch on MS stream]</a></p>
 <p>For this tutorial we will continue to use the <code>London.Pop</code> object that we created during last week’s tutorial. You may still have it loaded into your R workspace. To check if you do you can use the <code>ls()</code> command. Type this into the command line and see if <code>London.Pop</code> is printed. If not you can simply reload it:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="examining-data-i.html#cb1-1" aria-hidden="true"></a><span class="co"># set the working directory path to the folder you wish to use</span></span>
-<span id="cb1-2"><a href="examining-data-i.html#cb1-2" aria-hidden="true"></a><span class="co"># you may need to create the folder first if it doesn&#39;t exist</span></span>
-<span id="cb1-3"><a href="examining-data-i.html#cb1-3" aria-hidden="true"></a><span class="kw">setwd</span>(<span class="st">&#39;~/POLS0008&#39;</span>) </span>
-<span id="cb1-4"><a href="examining-data-i.html#cb1-4" aria-hidden="true"></a><span class="co"># note the single / (\\ will also work)</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="examining-data-i.html#cb58-1" aria-hidden="true"></a><span class="co"># set the working directory path to the folder you wish to use</span></span>
+<span id="cb58-2"><a href="examining-data-i.html#cb58-2" aria-hidden="true"></a><span class="co"># you may need to create the folder first if it doesn&#39;t exist</span></span>
+<span id="cb58-3"><a href="examining-data-i.html#cb58-3" aria-hidden="true"></a><span class="kw">setwd</span>(<span class="st">&#39;~/POLS0008&#39;</span>) </span>
+<span id="cb58-4"><a href="examining-data-i.html#cb58-4" aria-hidden="true"></a><span class="co"># note the single / (\\ will also work)</span></span></code></pre></div>
 <p>If you struggle with setting up your working directory, <a href="understanding-data.html#setting-up-the-environment#WD">have a look at how we did this last week</a>!</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="examining-data-i.html#cb2-1" aria-hidden="true"></a><span class="co"># load csv file from working directory</span></span>
-<span id="cb2-2"><a href="examining-data-i.html#cb2-2" aria-hidden="true"></a>London.Pop &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;census-historic-population-borough.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="examining-data-i.html#cb59-1" aria-hidden="true"></a><span class="co"># load csv file from working directory</span></span>
+<span id="cb59-2"><a href="examining-data-i.html#cb59-2" aria-hidden="true"></a>London.Pop &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;census-historic-population-borough.csv&#39;</span>)</span></code></pre></div>
 <p>Use the <code>head()</code>, or <code>View()</code> command to remind yourself of the structure of the London population data frame. You should see <strong>25</strong> columns of data.</p>
 </div>
 <div id="plotting-data-in-r" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Plotting data in R</h3>
 <p>Tools to create high quality plots have become one of R’s greatest assets. This is a relatively recent development since the software has traditionally been focused on the statistics rather than visualisation. The standard installation of R has base graphic functionality built in to produce very simple plots. For example we can plot the relationship between the London population in 1811 and 1911.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="examining-data-i.html#cb3-1" aria-hidden="true"></a><span class="co"># make a quick plot of two variables of the London population data set</span></span>
-<span id="cb3-2"><a href="examining-data-i.html#cb3-2" aria-hidden="true"></a><span class="kw">plot</span>(London.Pop<span class="op">$</span>Persons<span class="fl">.1811</span>,London.Pop<span class="op">$</span>Persons<span class="fl">.1911</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="examining-data-i.html#cb60-1" aria-hidden="true"></a><span class="co"># make a quick plot of two variables of the London population data set</span></span>
+<span id="cb60-2"><a href="examining-data-i.html#cb60-2" aria-hidden="true"></a><span class="kw">plot</span>(London.Pop<span class="op">$</span>Persons<span class="fl">.1811</span>,London.Pop<span class="op">$</span>Persons<span class="fl">.1911</span>)</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/02-quick-plot-1.png" width="672" /></p>
 <div id="questions" class="section level4 unnumbered">
 <h4>Questions</h4>
@@ -278,11 +279,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Instead of using the <code>$</code> to select the columns of our dataset, how else can we get the same results?</li>
 </ol>
 <p>The result of calling the <code>plot()</code> function, is a very simple <a href="https://en.wikipedia.org/wiki/Scatter_plot">scatter graph</a>. The <code>plot()</code> function offers a huge number of options for customisation. You can see them using the <code>?plot</code> help pages and also the <code>?par</code> help pages (<code>par</code> in this case is short for parameters). There are some examples below (note how the parameters come after specifying the <code>x</code> and <code>y</code> columns).</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="examining-data-i.html#cb4-1" aria-hidden="true"></a><span class="co"># add a title, change point colour, change point size</span></span>
-<span id="cb4-2"><a href="examining-data-i.html#cb4-2" aria-hidden="true"></a><span class="kw">plot</span>(London.Pop<span class="op">$</span>Persons<span class="fl">.1811</span>, London.Pop<span class="op">$</span>Persons<span class="fl">.1911</span>, <span class="dt">main=</span><span class="st">&#39;Quick Plot in R&#39;</span>, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">cex=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="examining-data-i.html#cb61-1" aria-hidden="true"></a><span class="co"># add a title, change point colour, change point size</span></span>
+<span id="cb61-2"><a href="examining-data-i.html#cb61-2" aria-hidden="true"></a><span class="kw">plot</span>(London.Pop<span class="op">$</span>Persons<span class="fl">.1811</span>, London.Pop<span class="op">$</span>Persons<span class="fl">.1911</span>, <span class="dt">main=</span><span class="st">&#39;Quick Plot in R&#39;</span>, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">cex=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/02-quick-plot-with-some-options-1.png" width="672" /></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="examining-data-i.html#cb5-1" aria-hidden="true"></a><span class="co"># add a title, change point colour, change point symbol</span></span>
-<span id="cb5-2"><a href="examining-data-i.html#cb5-2" aria-hidden="true"></a><span class="kw">plot</span>(London.Pop<span class="op">$</span>Persons<span class="fl">.1811</span>, London.Pop<span class="op">$</span>Persons<span class="fl">.1911</span>, <span class="dt">main=</span><span class="st">&quot;Another Quick Plot in R&quot;</span>, <span class="dt">col=</span><span class="st">&#39;magenta&#39;</span>, <span class="dt">pch=</span><span class="dv">22</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="examining-data-i.html#cb62-1" aria-hidden="true"></a><span class="co"># add a title, change point colour, change point symbol</span></span>
+<span id="cb62-2"><a href="examining-data-i.html#cb62-2" aria-hidden="true"></a><span class="kw">plot</span>(London.Pop<span class="op">$</span>Persons<span class="fl">.1811</span>, London.Pop<span class="op">$</span>Persons<span class="fl">.1911</span>, <span class="dt">main=</span><span class="st">&quot;Another Quick Plot in R&quot;</span>, <span class="dt">col=</span><span class="st">&#39;magenta&#39;</span>, <span class="dt">pch=</span><span class="dv">22</span>)</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/02-quick-plot-with-different-options-1.png" width="672" /></p>
 <div class="note">
 <p>For more information on the plot parameters (some have obscure names) have a look here: <a href="http://www.statmethods.net/advgraphs/parameters.html" class="uri">http://www.statmethods.net/advgraphs/parameters.html</a></p>
@@ -295,42 +296,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="note">
 <p>When you hit enter R will ask you to select a <a href="https://en.wikipedia.org/wiki/Mirror_site">mirror</a> to download the package contents from. It does not really matter which one you choose, but we would suggest you pick the mirror that is geographically closest to you.</p>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="examining-data-i.html#cb6-1" aria-hidden="true"></a><span class="co"># install package</span></span>
-<span id="cb6-2"><a href="examining-data-i.html#cb6-2" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="examining-data-i.html#cb63-1" aria-hidden="true"></a><span class="co"># install package</span></span>
+<span id="cb63-2"><a href="examining-data-i.html#cb63-2" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
 <p>The <code>install.packages()</code> step only needs to be performed once. You do not need to install a the package every time you want to use it. However, each time you open R and wish to use a package you need to use the <code>library()</code> command to tell R that it will be required.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="examining-data-i.html#cb7-1" aria-hidden="true"></a><span class="co"># load ggplot2 package</span></span>
-<span id="cb7-2"><a href="examining-data-i.html#cb7-2" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="examining-data-i.html#cb64-1" aria-hidden="true"></a><span class="co"># load ggplot2 package</span></span>
+<span id="cb64-2"><a href="examining-data-i.html#cb64-2" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
 <p>The <code>ggplot2</code> package is an implementation of the Grammar of Graphics (<a href="https://en.wikipedia.org/wiki/Leland_Wilkinson">Wilkinson 2005</a>) - a general scheme for data visualisation that breaks up graphs into semantic components such as scales and layers. <code>ggplot2</code> can serve as a replacement for the base graphics in R and contains a number of default options that match good visualisation practice. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
 <p>Whilst the instructions are step by step. you are encouraged to deviate from them (trying different colours for example) to get a better understanding of what we are doing. For further help, <code>ggplot2</code> is one of the best documented packages in R and <a href="https://ggplot2.tidyverse.org/">large volumes of documentation</a> are available. Good examples of how to learn how to make great graphs and visualisations can also be found on the website <a href="https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/" class="uri">https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/</a>. Let’s try to make a basic plot using <code>ggplot2</code> ourselves.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="examining-data-i.html#cb8-1" aria-hidden="true"></a><span class="co"># create a ggplot2 object names &#39;p&#39;</span></span>
-<span id="cb8-2"><a href="examining-data-i.html#cb8-2" aria-hidden="true"></a>p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(London.Pop, <span class="kw">aes</span>(Persons<span class="fl">.1811</span>, Persons<span class="fl">.1911</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="examining-data-i.html#cb65-1" aria-hidden="true"></a><span class="co"># create a ggplot2 object names &#39;p&#39;</span></span>
+<span id="cb65-2"><a href="examining-data-i.html#cb65-2" aria-hidden="true"></a>p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(London.Pop, <span class="kw">aes</span>(Persons<span class="fl">.1811</span>, Persons<span class="fl">.1911</span>))</span></code></pre></div>
 <p>What you have just done is set up a <code>ggplot</code> object where you say where you want the input data to come from – in this case it is the <code>London.Pop</code> object. The column headings within the <code>aes()</code> brackets refer to the parts of that data frame you wish to use (the variables <em>Persons.1811</em> and <em>Persons.1911</em>). aes is short for <strong>aesthetics that vary</strong> – this is a complicated way of saying the data variables used in the plot. If you just type <code>p</code> and hit enter you will get an empty canvas. This is because you have not told <code>ggplot</code> what you want to do with the data. We do this by adding so-called <strong>geoms</strong>, in this case <code>geom_point()</code>, to create a scatter plot. Let’s try this.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="examining-data-i.html#cb9-1" aria-hidden="true"></a><span class="co"># plot</span></span>
-<span id="cb9-2"><a href="examining-data-i.html#cb9-2" aria-hidden="true"></a>p</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="examining-data-i.html#cb66-1" aria-hidden="true"></a><span class="co"># plot</span></span>
+<span id="cb66-2"><a href="examining-data-i.html#cb66-2" aria-hidden="true"></a>p</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/02-plot-that-empty-ggplot2-object-1.png" width="672" /></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="examining-data-i.html#cb10-1" aria-hidden="true"></a><span class="co"># add our geom to our &#39;p&#39; object</span></span>
-<span id="cb10-2"><a href="examining-data-i.html#cb10-2" aria-hidden="true"></a>p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</span>
-<span id="cb10-3"><a href="examining-data-i.html#cb10-3" aria-hidden="true"></a></span>
-<span id="cb10-4"><a href="examining-data-i.html#cb10-4" aria-hidden="true"></a><span class="co"># plot</span></span>
-<span id="cb10-5"><a href="examining-data-i.html#cb10-5" aria-hidden="true"></a>p</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="examining-data-i.html#cb67-1" aria-hidden="true"></a><span class="co"># add our geom to our &#39;p&#39; object</span></span>
+<span id="cb67-2"><a href="examining-data-i.html#cb67-2" aria-hidden="true"></a>p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</span>
+<span id="cb67-3"><a href="examining-data-i.html#cb67-3" aria-hidden="true"></a></span>
+<span id="cb67-4"><a href="examining-data-i.html#cb67-4" aria-hidden="true"></a><span class="co"># plot</span></span>
+<span id="cb67-5"><a href="examining-data-i.html#cb67-5" aria-hidden="true"></a>p</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/02-add-a-geom-object-1.png" width="672" /></p>
 <p>You can already see that this plot is looking a bit nicer than the one we created with the base <code>plot()</code> function used above. Within the <code>geom_point()</code> brackets you can alter the appearance of the points in the plot. Try something like <code>p + geom_point(colour='red', size=2)</code> and also experiment with your own colours/ sizes.</p>
 <p>If you want to colour the points according to another variable it is possible to do this by adding the desired variable into the <code>aes()</code> section after <code>geom_point()</code>. Here we will do this to indicate the size of the population in 2011 as well as the relationship between the size of the population in 19811 and 1911.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="examining-data-i.html#cb11-1" aria-hidden="true"></a><span class="co"># add some more aesthetics that vary</span></span>
-<span id="cb11-2"><a href="examining-data-i.html#cb11-2" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> Persons<span class="fl">.2011</span>), <span class="dt">size =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="examining-data-i.html#cb68-1" aria-hidden="true"></a><span class="co"># add some more aesthetics that vary</span></span>
+<span id="cb68-2"><a href="examining-data-i.html#cb68-2" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> Persons<span class="fl">.2011</span>), <span class="dt">size =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/02-add-a-geom-object-with-some-more-aes-1.png" width="672" /></p>
 <p>You will notice that <code>ggplot</code> has also created a key that shows the values associated with each colour. In this slightly contrived example it is also possible to resize each of the points according to the <code>Persons.2011</code> variable.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="examining-data-i.html#cb12-1" aria-hidden="true"></a><span class="co"># add some more aesthetics that vary</span></span>
-<span id="cb12-2"><a href="examining-data-i.html#cb12-2" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">size =</span> Persons<span class="fl">.2011</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="examining-data-i.html#cb69-1" aria-hidden="true"></a><span class="co"># add some more aesthetics that vary</span></span>
+<span id="cb69-2"><a href="examining-data-i.html#cb69-2" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">size =</span> Persons<span class="fl">.2011</span>))</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/02-add-a-geom-object-with-some-other-aes-1.png" width="672" /></p>
 <p>The real power of <code>ggplot2</code> lies in its ability build a plot up as a series of layers. This is done by stringing plot functions (geoms) together with the <code>+</code> sign. In this case we can add a text layer to the plot using <code>geom_text()</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="examining-data-i.html#cb13-1" aria-hidden="true"></a><span class="co"># add some more aesthetics that vary</span></span>
-<span id="cb13-2"><a href="examining-data-i.html#cb13-2" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">size =</span> Persons<span class="fl">.2011</span>)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb13-3"><a href="examining-data-i.html#cb13-3" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_text</span>(<span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">colour=</span><span class="st">&#39;red&#39;</span>, <span class="kw">aes</span>(<span class="dt">label =</span> Area.Name))</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="examining-data-i.html#cb70-1" aria-hidden="true"></a><span class="co"># add some more aesthetics that vary</span></span>
+<span id="cb70-2"><a href="examining-data-i.html#cb70-2" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">size =</span> Persons<span class="fl">.2011</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb70-3"><a href="examining-data-i.html#cb70-3" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_text</span>(<span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">colour=</span><span class="st">&#39;red&#39;</span>, <span class="kw">aes</span>(<span class="dt">label =</span> Area.Name))</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/02-full-ggplot-1.png" width="672" /></p>
 <p>This idea of layers (or geoms) is quite different from the standard plot functions in R, but you will find that each of the functions does a lot of clever stuff to make plotting much easier (see the <code>ggplot2</code> documentation for a full list). The above code adds London Borough labels to the plot over the points they correspond to. This isn’t perfect since many of the labels overlap but they serve as a useful illustration of the layers. To make things a little easier the plot can be saved as a <code>PDF</code> using the <code>ggsave</code> command. When saving the plot can be enlarged to help make the labels more legible.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="examining-data-i.html#cb14-1" aria-hidden="true"></a><span class="co"># save the plot</span></span>
-<span id="cb14-2"><a href="examining-data-i.html#cb14-2" aria-hidden="true"></a><span class="kw">ggsave</span>(<span class="st">&#39;first_ggplot.pdf&#39;</span>, <span class="dt">scale=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="examining-data-i.html#cb71-1" aria-hidden="true"></a><span class="co"># save the plot</span></span>
+<span id="cb71-2"><a href="examining-data-i.html#cb71-2" aria-hidden="true"></a><span class="kw">ggsave</span>(<span class="st">&#39;first_ggplot.pdf&#39;</span>, <span class="dt">scale=</span><span class="dv">2</span>)</span></code></pre></div>
 <div id="questions-1" class="section level4 unnumbered">
 <h4>Questions</h4>
 <ol style="list-style-type: decimal">
@@ -382,10 +383,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="examining-data-i.html#cb15-1" aria-hidden="true"></a><span class="co"># load csv file from working directory</span></span>
-<span id="cb15-2"><a href="examining-data-i.html#cb15-2" aria-hidden="true"></a>input &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;ambulance_assault.csv&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="examining-data-i.html#cb16-1" aria-hidden="true"></a><span class="co"># inspect the results </span></span>
-<span id="cb16-2"><a href="examining-data-i.html#cb16-2" aria-hidden="true"></a><span class="kw">head</span>(input)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="examining-data-i.html#cb72-1" aria-hidden="true"></a><span class="co"># load csv file from working directory</span></span>
+<span id="cb72-2"><a href="examining-data-i.html#cb72-2" aria-hidden="true"></a>input &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;ambulance_assault.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="examining-data-i.html#cb73-1" aria-hidden="true"></a><span class="co"># inspect the results </span></span>
+<span id="cb73-2"><a href="examining-data-i.html#cb73-2" aria-hidden="true"></a><span class="kw">head</span>(input)</span></code></pre></div>
 <pre><code>##   Bor_Code     WardName WardCode                WardType assault_09_11
 ## 1     00AA   Aldersgate   00AAFA Prospering Metropolitan            10
 ## 2     00AA      Aldgate   00AAFB Prospering Metropolitan             0
@@ -393,8 +394,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4     00AA Billingsgate   00AAFD Prospering Metropolitan             0
 ## 5     00AA  Bishopsgate   00AAFE Prospering Metropolitan           188
 ## 6     00AA Bread Street   00AAFF Prospering Metropolitan             0</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="examining-data-i.html#cb18-1" aria-hidden="true"></a><span class="co"># inspect the size of the dataset</span></span>
-<span id="cb18-2"><a href="examining-data-i.html#cb18-2" aria-hidden="true"></a><span class="kw">nrow</span>(input)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="examining-data-i.html#cb75-1" aria-hidden="true"></a><span class="co"># inspect the size of the dataset</span></span>
+<span id="cb75-2"><a href="examining-data-i.html#cb75-2" aria-hidden="true"></a><span class="kw">nrow</span>(input)</span></code></pre></div>
 <pre><code>## [1] 649</code></pre>
 <p>You will notice that the data table has 4 columns and 649 rows. The column headings are abbreviations of the following:</p>
 <ul>
@@ -405,29 +406,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>assault_09_11</strong>: The number of assault incidents requiring an ambulance between 2009 and 2011 for each Ward.</li>
 </ul>
 <p>The <code>mean()</code>, <code>median()</code>, and <code>range()</code> were some of the first R functions we used at the last week to describe our <code>Friends</code> dataset. We will use these to describe our assault incident data as well as other descriptive statistics, including standard deviation.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="examining-data-i.html#cb20-1" aria-hidden="true"></a><span class="co"># calculate the mean of the assault incident variable</span></span>
-<span id="cb20-2"><a href="examining-data-i.html#cb20-2" aria-hidden="true"></a><span class="kw">mean</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="examining-data-i.html#cb77-1" aria-hidden="true"></a><span class="co"># calculate the mean of the assault incident variable</span></span>
+<span id="cb77-2"><a href="examining-data-i.html#cb77-2" aria-hidden="true"></a><span class="kw">mean</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
 <pre><code>## [1] 173.4669</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="examining-data-i.html#cb22-1" aria-hidden="true"></a><span class="co"># calculate the standard deviation of the assault incident variable</span></span>
-<span id="cb22-2"><a href="examining-data-i.html#cb22-2" aria-hidden="true"></a><span class="kw">sd</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="examining-data-i.html#cb79-1" aria-hidden="true"></a><span class="co"># calculate the standard deviation of the assault incident variable</span></span>
+<span id="cb79-2"><a href="examining-data-i.html#cb79-2" aria-hidden="true"></a><span class="kw">sd</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
 <pre><code>## [1] 130.3482</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="examining-data-i.html#cb24-1" aria-hidden="true"></a><span class="co"># calculate the minimum value of the assault incident variable</span></span>
-<span id="cb24-2"><a href="examining-data-i.html#cb24-2" aria-hidden="true"></a><span class="kw">min</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="examining-data-i.html#cb81-1" aria-hidden="true"></a><span class="co"># calculate the minimum value of the assault incident variable</span></span>
+<span id="cb81-2"><a href="examining-data-i.html#cb81-2" aria-hidden="true"></a><span class="kw">min</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="examining-data-i.html#cb26-1" aria-hidden="true"></a><span class="co"># calculate the maximum value of the assault incident variable</span></span>
-<span id="cb26-2"><a href="examining-data-i.html#cb26-2" aria-hidden="true"></a><span class="kw">max</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="examining-data-i.html#cb83-1" aria-hidden="true"></a><span class="co"># calculate the maximum value of the assault incident variable</span></span>
+<span id="cb83-2"><a href="examining-data-i.html#cb83-2" aria-hidden="true"></a><span class="kw">max</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
 <pre><code>## [1] 1582</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="examining-data-i.html#cb28-1" aria-hidden="true"></a><span class="co"># calculate the range of the assault incident variable</span></span>
-<span id="cb28-2"><a href="examining-data-i.html#cb28-2" aria-hidden="true"></a><span class="kw">range</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="examining-data-i.html#cb85-1" aria-hidden="true"></a><span class="co"># calculate the range of the assault incident variable</span></span>
+<span id="cb85-2"><a href="examining-data-i.html#cb85-2" aria-hidden="true"></a><span class="kw">range</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
 <pre><code>## [1]    0 1582</code></pre>
 <p>These are commonly used descriptive statistics. To make things even easier, R has a <code>summary()</code> function that calculates a number of these routine statistics simultaneously.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="examining-data-i.html#cb30-1" aria-hidden="true"></a><span class="co"># calculate the most common descriptive statistics for the assault incident variable</span></span>
-<span id="cb30-2"><a href="examining-data-i.html#cb30-2" aria-hidden="true"></a><span class="kw">summary</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="examining-data-i.html#cb87-1" aria-hidden="true"></a><span class="co"># calculate the most common descriptive statistics for the assault incident variable</span></span>
+<span id="cb87-2"><a href="examining-data-i.html#cb87-2" aria-hidden="true"></a><span class="kw">summary</span>(input<span class="op">$</span>assault_<span class="dv">09</span>_<span class="dv">11</span>)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##     0.0    86.0   146.0   173.5   233.0  1582.0</code></pre>
 <p>You should see you get the minimum (Min.) and maximum (Max.) values of the <em>assault_09_11</em> column; its first (1st Qu.) and third (3rd Qu.) quartiles that comprise the interquartile range; its the mean and the median. The built-in R <code>summary()</code> function does not calculate the standard deviation. There are functions in other libraries that calculate more detailed descriptive statistics, including <code>describe()</code> in the <code>psych</code> package, which we will use in the later tutorials. We can also use the <code>summary()</code> function to describe a categorical variable and it will list its levels:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="examining-data-i.html#cb32-1" aria-hidden="true"></a><span class="co"># summarise a categorical variable</span></span>
-<span id="cb32-2"><a href="examining-data-i.html#cb32-2" aria-hidden="true"></a><span class="kw">summary</span>(input<span class="op">$</span>WardType)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="examining-data-i.html#cb89-1" aria-hidden="true"></a><span class="co"># summarise a categorical variable</span></span>
+<span id="cb89-2"><a href="examining-data-i.html#cb89-2" aria-hidden="true"></a><span class="kw">summary</span>(input<span class="op">$</span>WardType)</span></code></pre></div>
 <pre><code>##     Accessible Countryside     Industrial Hinterlands 
 ##                          1                          8 
 ## Multicultural Metropolitan    Prospering Metropolitan 
@@ -437,11 +438,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Traditional Manufacturing 
 ##                         12</code></pre>
 <p>As you may notice, the summary of a categorical variable is in very fact the same as <a href="https://en.wikipedia.org/wiki/Frequency_distribution">frequency table</a>:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="examining-data-i.html#cb34-1" aria-hidden="true"></a><span class="co"># create a frequency table of a categorical variable</span></span>
-<span id="cb34-2"><a href="examining-data-i.html#cb34-2" aria-hidden="true"></a>freqtable &lt;-<span class="st"> </span><span class="kw">table</span>(input<span class="op">$</span>WardType)</span>
-<span id="cb34-3"><a href="examining-data-i.html#cb34-3" aria-hidden="true"></a></span>
-<span id="cb34-4"><a href="examining-data-i.html#cb34-4" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb34-5"><a href="examining-data-i.html#cb34-5" aria-hidden="true"></a>freqtable</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="examining-data-i.html#cb91-1" aria-hidden="true"></a><span class="co"># create a frequency table of a categorical variable</span></span>
+<span id="cb91-2"><a href="examining-data-i.html#cb91-2" aria-hidden="true"></a>freqtable &lt;-<span class="st"> </span><span class="kw">table</span>(input<span class="op">$</span>WardType)</span>
+<span id="cb91-3"><a href="examining-data-i.html#cb91-3" aria-hidden="true"></a></span>
+<span id="cb91-4"><a href="examining-data-i.html#cb91-4" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb91-5"><a href="examining-data-i.html#cb91-5" aria-hidden="true"></a>freqtable</span></code></pre></div>
 <pre><code>## 
 ##     Accessible Countryside     Industrial Hinterlands 
 ##                          1                          8 
@@ -452,11 +453,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Traditional Manufacturing 
 ##                         12</code></pre>
 <p>We can also get the proportion of each group using the frequency table as input:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="examining-data-i.html#cb36-1" aria-hidden="true"></a><span class="co"># create a frequency table of a categorical variable</span></span>
-<span id="cb36-2"><a href="examining-data-i.html#cb36-2" aria-hidden="true"></a>proptable &lt;-<span class="st"> </span><span class="kw">prop.table</span>(freqtable)</span>
-<span id="cb36-3"><a href="examining-data-i.html#cb36-3" aria-hidden="true"></a></span>
-<span id="cb36-4"><a href="examining-data-i.html#cb36-4" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb36-5"><a href="examining-data-i.html#cb36-5" aria-hidden="true"></a>proptable</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="examining-data-i.html#cb93-1" aria-hidden="true"></a><span class="co"># create a frequency table of a categorical variable</span></span>
+<span id="cb93-2"><a href="examining-data-i.html#cb93-2" aria-hidden="true"></a>proptable &lt;-<span class="st"> </span><span class="kw">prop.table</span>(freqtable)</span>
+<span id="cb93-3"><a href="examining-data-i.html#cb93-3" aria-hidden="true"></a></span>
+<span id="cb93-4"><a href="examining-data-i.html#cb93-4" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb93-5"><a href="examining-data-i.html#cb93-5" aria-hidden="true"></a>proptable</span></code></pre></div>
 <pre><code>## 
 ##     Accessible Countryside     Industrial Hinterlands 
 ##                0.001540832                0.012326656 

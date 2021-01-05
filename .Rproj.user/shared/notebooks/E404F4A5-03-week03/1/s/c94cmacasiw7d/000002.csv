@@ -1,0 +1,6 @@
+"0","# histogram with density distribution using the ggplot2 library"
+"0","p2.camden <- ggplot(camden, aes(x=assault_09_11, y=..density..))"
+"0",""
+"0","# plot"
+"0","p2.camden + geom_histogram() +"
+"0","            geom_density(fill=NA, colour='red')"

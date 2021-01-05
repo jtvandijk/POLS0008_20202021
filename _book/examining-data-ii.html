@@ -201,6 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="examining-data-ii.html"><a href="examining-data-ii.html#video-visualising-data"><i class="fa fa-check"></i><b>3.3.1</b> Video: Visualising data</a></li>
 <li class="chapter" data-level="3.3.2" data-path="examining-data-ii.html"><a href="examining-data-ii.html#histograms"><i class="fa fa-check"></i><b>3.3.2</b> Histograms</a></li>
+<li class="chapter" data-level="3.3.3" data-path="examining-data-ii.html"><a href="examining-data-ii.html#box-and-whisker-plots"><i class="fa fa-check"></i><b>3.3.3</b> Box and whisker plots</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="examining-data-ii.html"><a href="examining-data-ii.html#seminar-w03"><i class="fa fa-check"></i><b>3.4</b> Seminar</a></li>
 <li class="chapter" data-level="3.5" data-path="examining-data-ii.html"><a href="examining-data-ii.html#byl-w03"><i class="fa fa-check"></i><b>3.5</b> Before you leave</a></li>
@@ -296,10 +297,136 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="POLS0008_files/figure-html/03-quick-histogram-1.png" width="672" /></p>
 <p>The height of each bar (the x-axis) shows the count of the datapoints and the width of each bar is the value range of datapoints included. If you want the bars to be thinner (to represent a narrower range of values and capture some more of the variation in the distribution) you can adjust the binwidth. Binwidth controls the size of ‘bins’ that the data are split up into. We will discuss this in more detail later in the course, but put simply, the bigger the bin (larger binwidth) the more data it can hold. Try:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="examining-data-ii.html#cb6-1" aria-hidden="true"></a><span class="co"># quick histogram using the ggplot2 library</span></span>
-<span id="cb6-2"><a href="examining-data-ii.html#cb6-2" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="examining-data-ii.html#cb6-1" aria-hidden="true"></a><span class="co"># updated histogram using the ggplot2 library</span></span>
+<span id="cb6-2"><a href="examining-data-ii.html#cb6-2" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth=</span><span class="dv">10</span>)</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/03-adjusted-histogram-1.png" width="672" /></p>
+<p>You can also overlay a density distribution over the top of the histogram. Again, this will be discussed in more detail in the coming weeks, but think of the plotted line as a summary of the underlying histogram. For this we need to produce a second plot object that says we wish to use the density distribution as the <code>y</code> variable.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="examining-data-ii.html#cb7-1" aria-hidden="true"></a><span class="co"># histogram with density distribution using the ggplot2 library</span></span>
+<span id="cb7-2"><a href="examining-data-ii.html#cb7-2" aria-hidden="true"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(input, <span class="kw">aes</span>(<span class="dt">x=</span>assault_<span class="dv">09</span>_<span class="dv">11</span>, <span class="dt">y=</span>..density..))</span>
+<span id="cb7-3"><a href="examining-data-ii.html#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="examining-data-ii.html#cb7-4" aria-hidden="true"></a><span class="co"># plot</span></span>
+<span id="cb7-5"><a href="examining-data-ii.html#cb7-5" aria-hidden="true"></a>p2 <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span></span>
+<span id="cb7-6"><a href="examining-data-ii.html#cb7-6" aria-hidden="true"></a><span class="st">     </span><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">colour=</span><span class="st">&#39;red&#39;</span>)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="POLS0008_files/figure-html/03-adjusted-histogram-with-density-distribution-1.png" width="672" /></p>
+</div>
+<div id="questions-1" class="section level4 unnumbered">
+<h4>Questions</h4>
+<ol style="list-style-type: decimal">
+<li>What does the <code>fill</code> parameter do in the above code?</li>
+</ol>
+<p>This plot has provided a good impression of the overall distribution, but it would be interesting to see characteristics of the data within each of the Boroughs. We can do this since each Borough in the input object is made up of multiple wards. To see what we mean, we can select all the wards that fall within the Borough of Camden, which has the code <code>00AG</code> (if you want to see what each Borough the code corresponds to, and learn a little more about the statistical geography of England and Wales, then <a href="http://en.wikipedia.org/wiki/ONS_coding_system">do have a look here</a>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="examining-data-ii.html#cb9-1" aria-hidden="true"></a><span class="co"># filter our dataset</span></span>
+<span id="cb9-2"><a href="examining-data-ii.html#cb9-2" aria-hidden="true"></a>camden &lt;-<span class="st"> </span>input[input<span class="op">$</span>Bor_Code<span class="op">==</span><span class="st">&#39;00AG&#39;</span>,]</span></code></pre></div>
+<p>The crucial part of the code snippet above is what’s included in the square brackets <code>[ ]</code>. We are subsetting the input object, but instead of telling R what column names or numbers we require, we are requesting all rows in the Bor_Code column that contain <code>00AG</code>. <code>00AG</code> is a text string so it needs to go in speech marks <code>''</code> (or <code>""</code>) and we need to use two equals signs <code>==</code> in R to mean “equals to”. A single equals sign <code>=</code> is another way of assigning objects (it works the same way as &lt;- but is much less widley used for this purpose because it is used when paramaterising functions). Let’s quickly compare our original <code>input</code> object with our newly created <code>camden</code> object:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="examining-data-ii.html#cb10-1" aria-hidden="true"></a><span class="co"># inspect input dataset</span></span>
+<span id="cb10-2"><a href="examining-data-ii.html#cb10-2" aria-hidden="true"></a><span class="kw">nrow</span>(input)</span></code></pre></div>
+<pre><code>## [1] 649</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="examining-data-ii.html#cb12-1" aria-hidden="true"></a><span class="co"># inspect Camden dataset</span></span>
+<span id="cb12-2"><a href="examining-data-ii.html#cb12-2" aria-hidden="true"></a><span class="kw">nrow</span>(camden)</span></code></pre></div>
+<pre><code>## [1] 18</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="examining-data-ii.html#cb14-1" aria-hidden="true"></a><span class="co"># inspect Camden dataset</span></span>
+<span id="cb14-2"><a href="examining-data-ii.html#cb14-2" aria-hidden="true"></a><span class="kw">head</span>(camden)</span></code></pre></div>
+<pre><code>##     Bor_Code                       WardName WardCode
+## 128     00AG                        Belsize   00AGGD
+## 129     00AG                     Bloomsbury   00AGGE
+## 130     00AG Camden Town with Primrose Hill   00AGGF
+## 131     00AG                     Cantelowes   00AGGG
+## 132     00AG                  Fortune Green   00AGGH
+## 133     00AG          Frognal and Fitzjohns   00AGGJ
+##                       WardType assault_09_11
+## 128    Prospering Metropolitan            91
+## 129    Prospering Metropolitan           315
+## 130    Prospering Metropolitan           535
+## 131 Multicultural Metropolitan           238
+## 132    Prospering Metropolitan           106
+## 133    Prospering Metropolitan            77</code></pre>
+<p>So to produce Camden’s frequency distribution, with the corresponding density distribution, the code above needs to be replicated using the camden object in the place of input:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="examining-data-ii.html#cb16-1" aria-hidden="true"></a><span class="co"># histogram with density distribution using the ggplot2 library</span></span>
+<span id="cb16-2"><a href="examining-data-ii.html#cb16-2" aria-hidden="true"></a>p2.camden &lt;-<span class="st"> </span><span class="kw">ggplot</span>(camden, <span class="kw">aes</span>(<span class="dt">x=</span>assault_<span class="dv">09</span>_<span class="dv">11</span>, <span class="dt">y=</span>..density..))</span>
+<span id="cb16-3"><a href="examining-data-ii.html#cb16-3" aria-hidden="true"></a></span>
+<span id="cb16-4"><a href="examining-data-ii.html#cb16-4" aria-hidden="true"></a><span class="co"># plot</span></span>
+<span id="cb16-5"><a href="examining-data-ii.html#cb16-5" aria-hidden="true"></a>p2.camden <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span></span>
+<span id="cb16-6"><a href="examining-data-ii.html#cb16-6" aria-hidden="true"></a><span class="st">            </span><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">colour=</span><span class="st">&#39;red&#39;</span>)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="POLS0008_files/figure-html/03-freq-dist-camden-1.png" width="672" /></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="examining-data-ii.html#cb18-1" aria-hidden="true"></a><span class="co"># plot pretty(ish)</span></span>
+<span id="cb18-2"><a href="examining-data-ii.html#cb18-2" aria-hidden="true"></a>p2.camden <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span></span>
+<span id="cb18-3"><a href="examining-data-ii.html#cb18-3" aria-hidden="true"></a><span class="st">            </span><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">colour=</span><span class="st">&#39;red&#39;</span>) <span class="op">+</span></span>
+<span id="cb18-4"><a href="examining-data-ii.html#cb18-4" aria-hidden="true"></a><span class="st">            </span><span class="kw">ggtitle</span>(<span class="st">&#39;Assault incidents in Camden&#39;</span>)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="POLS0008_files/figure-html/03-freq-dist-camden-2.png" width="672" /></p>
+<p>As you can see this looks a little different from the density of the entire dataset. This is largely becasue we have relatively few rows of data in the camden object (as we saw when using <code>nrow(camden)</code>). Nevertheless it would be interesting to see the data distributions for each of the London Boroughs. It is a chance to use the <code>facet_wrap()</code> function in R. This brilliant function lets you create a whole load of graphs at once!</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="examining-data-ii.html#cb20-1" aria-hidden="true"></a><span class="co"># note that we are back to using the `p` object since we need all our data for this </span></span>
+<span id="cb20-2"><a href="examining-data-ii.html#cb20-2" aria-hidden="true"></a><span class="co"># this code may generate a large number of warning messages relating to the plot binwidth, don&#39;t worry about them</span></span>
+<span id="cb20-3"><a href="examining-data-ii.html#cb20-3" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb20-4"><a href="examining-data-ii.html#cb20-4" aria-hidden="true"></a><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Bor_Code)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="POLS0008_files/figure-html/wrap-wrap-wrap-1.png" width="672" /></p>
+<p>Yes. It is that easy. Let’s try using <code>facet_wrap()</code> to plot according to Ward type</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="examining-data-ii.html#cb22-1" aria-hidden="true"></a><span class="co"># note that we are back to using the `p` object since we need all our data for this </span></span>
+<span id="cb22-2"><a href="examining-data-ii.html#cb22-2" aria-hidden="true"></a><span class="co"># this code may generate a large number of warning messages relating to the plot binwidth, don&#39;t worry about them</span></span>
+<span id="cb22-3"><a href="examining-data-ii.html#cb22-3" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb22-4"><a href="examining-data-ii.html#cb22-4" aria-hidden="true"></a><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>WardType)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="POLS0008_files/figure-html/wrap-wrap-wrap-ward-1.png" width="672" /></p>
+</div>
+<div id="questions-2" class="section level4 unnumbered">
+<h4>Questions</h4>
+<ol style="list-style-type: decimal">
+<li>What are the key differences in the distributions between the different types of our <code>facet_wrap()</code> plots?</li>
+</ol>
+<p>The <code>facet_wrap()</code> part of the code simply needs the name of the column you would like to use to subset the data into individual plots. Before the column name a tilde <code>~</code> is used as shorthand for “by” - so using the function we are asking R to facet the input object into lots of smaller plots based on the <em>Bor_Code</em> column in the first example and <em>WardType</em> in the second. Use the <code>facet_wrap()</code> help file to learn how to create the same plot but with the graphs arranged into 4 columns.</p>
+</div>
+</div>
+<div id="box-and-whisker-plots" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Box and whisker plots</h3>
+<p>In addition to histograms, a type of plot that shows the core characteristics of the distribution of values within a dataset, and includes some of the <code>summary()</code> information we generated earlier, is a box and whisker plot (boxplot for short). These too can be easily produced in R.</p>
+<div class="figure" style="text-align: center"><span id="fig:01-boxpot"></span>
+<img src="images/week03/03_box_whisker.png" alt="A box and whisker plot."  />
+<p class="caption">
+Figure 3.1: A box and whisker plot.
+</p>
+</div>
+<p>We can create a third plot object for this from the <code>input</code> object:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="examining-data-ii.html#cb24-1" aria-hidden="true"></a><span class="co"># note that the `assault_09_11` column is now y and not x </span></span>
+<span id="cb24-2"><a href="examining-data-ii.html#cb24-2" aria-hidden="true"></a><span class="co"># we also specified x = 1 to algin the plot to the x-axis (any single number would work)</span></span>
+<span id="cb24-3"><a href="examining-data-ii.html#cb24-3" aria-hidden="true"></a>p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(input, <span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">1</span>, <span class="dt">y=</span>assault_<span class="dv">09</span>_<span class="dv">11</span>))</span>
+<span id="cb24-4"><a href="examining-data-ii.html#cb24-4" aria-hidden="true"></a></span>
+<span id="cb24-5"><a href="examining-data-ii.html#cb24-5" aria-hidden="true"></a><span class="co"># add the boxplot geom</span></span>
+<span id="cb24-6"><a href="examining-data-ii.html#cb24-6" aria-hidden="true"></a>p3 <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="POLS0008_files/figure-html/boxplot-1.png" width="672" /></p>
+<p>If we are just interested in Camden then we can use the <code>camden</code> object created above in the code.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="examining-data-ii.html#cb25-1" aria-hidden="true"></a><span class="co"># boxplot for camden only</span></span>
+<span id="cb25-2"><a href="examining-data-ii.html#cb25-2" aria-hidden="true"></a>p3.camden &lt;-<span class="st"> </span><span class="kw">ggplot</span>(camden, <span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">1</span>, <span class="dt">y=</span>assault_<span class="dv">09</span>_<span class="dv">11</span>))</span>
+<span id="cb25-3"><a href="examining-data-ii.html#cb25-3" aria-hidden="true"></a></span>
+<span id="cb25-4"><a href="examining-data-ii.html#cb25-4" aria-hidden="true"></a><span class="co"># add the boxplot geom</span></span>
+<span id="cb25-5"><a href="examining-data-ii.html#cb25-5" aria-hidden="true"></a>p3.camden <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="POLS0008_files/figure-html/boxplot-camden-1.png" width="672" /></p>
+<p>If you prefer you can flip the plot 90 degrees so that it reads from left to right:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="examining-data-ii.html#cb26-1" aria-hidden="true"></a><span class="co"># boxplot for camden only</span></span>
+<span id="cb26-2"><a href="examining-data-ii.html#cb26-2" aria-hidden="true"></a>p3.camden &lt;-<span class="st"> </span><span class="kw">ggplot</span>(camden, <span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">1</span>, <span class="dt">y=</span>assault_<span class="dv">09</span>_<span class="dv">11</span>))</span>
+<span id="cb26-3"><a href="examining-data-ii.html#cb26-3" aria-hidden="true"></a></span>
+<span id="cb26-4"><a href="examining-data-ii.html#cb26-4" aria-hidden="true"></a><span class="co"># add the boxplot geom and rotate </span></span>
+<span id="cb26-5"><a href="examining-data-ii.html#cb26-5" aria-hidden="true"></a>p3.camden <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb26-6"><a href="examining-data-ii.html#cb26-6" aria-hidden="true"></a><span class="st">            </span><span class="kw">coord_flip</span>()</span></code></pre></div>
+<p><img src="POLS0008_files/figure-html/boxplot-camden-rotate-1.png" width="672" /></p>
+<p>You can see that Camden looks a little different to the boxplot of the entire dataset. It would therefore be useful to compare the distributions of data within each of the Boroughs in a single plot as we did with the frequency distributions above. <code>ggplot</code> makes this very easy (again!), we just need to change the <code>x</code> parameter to the Borough code column (<em>Bor_Code</em>).</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="examining-data-ii.html#cb27-1" aria-hidden="true"></a><span class="co"># boxplot for camden only</span></span>
+<span id="cb27-2"><a href="examining-data-ii.html#cb27-2" aria-hidden="true"></a>p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(input, <span class="kw">aes</span>(<span class="dt">x=</span>Bor_Code, <span class="dt">y=</span>assault_<span class="dv">09</span>_<span class="dv">11</span>))</span>
+<span id="cb27-3"><a href="examining-data-ii.html#cb27-3" aria-hidden="true"></a></span>
+<span id="cb27-4"><a href="examining-data-ii.html#cb27-4" aria-hidden="true"></a><span class="co"># add the boxplot geom and rotate </span></span>
+<span id="cb27-5"><a href="examining-data-ii.html#cb27-5" aria-hidden="true"></a>p4 <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb27-6"><a href="examining-data-ii.html#cb27-6" aria-hidden="true"></a><span class="st">     </span><span class="kw">coord_flip</span>()</span></code></pre></div>
+<p><img src="POLS0008_files/figure-html/boxplot-all-combined-1.png" width="672" /></p>
+<div id="recap" class="section level4 unnumbered">
+<h4>Recap</h4>
+<p>In this section you have:</p>
+<ol style="list-style-type: decimal">
+<li>Utilised some of the advanced functionality as part of the <code>ggplot2</code> package, not least through the creation of facetted histogram plots using <code>geom_histogram()</code> and <code>facet_wrap()</code> and also box and whisker plots with <code>geom_boxplot()</code>.</li>
+<li>Subset data based on a specific criteria (in this case selection the data corresponding to Camden).</li>
+<li>Explored the distribution of dataset through histograms, density and boxplots.</li>
+</ol>
 </div>
 </div>
 </div>
@@ -307,14 +434,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.4</span> Seminar</h2>
 <div id="seminar-assignment" class="section level4 unnumbered">
 <h4>Seminar assignment</h4>
-</div>
-<div id="seminar-questions" class="section level4 unnumbered">
-<h4>Seminar questions</h4>
+<ol style="list-style-type: decimal">
+<li>Take the <em>census-historic-population-borough.csv</em> file we used to produce the scatter plots of London’s population in Week 01 and create <strong>3</strong> different types of plots from one or more of the variables.</li>
+</ol>
 </div>
 </div>
 <div id="byl-w03" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Before you leave</h2>
-<p>Save your R script by pressing the <strong>Save</strong> button in the script window. <a href="">That is it for this week</a>!</p>
+<p>Save your R script by pressing the <strong>Save</strong> button in the script window. <a href="https://www.youtube.com/watch?v=ZbZSe6N_BXs">That is it for this week</a>!</p>
 
 </div>
 </div>

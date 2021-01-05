@@ -1,0 +1,2 @@
+"0","# create a ggplot2 object names 'p'"
+"0","p <- ggplot(London.Pop, aes(Persons.1811, Persons.1911))"
