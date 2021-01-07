@@ -1,12 +1,45 @@
 # Understanding data
 
 ## Introduction
-Welcome to your first week of **Introduction to Quantitative Research Methods**. This week we will focus on **understanding data**. Some of you may wonder why it is necessary to take acourse on data and statistics in the first place? There are several compelling reasons to have a (basic) knowledge of data and statistics:
+Welcome to your first week of **Introduction to Quantitative Research Methods**. This week we will focus on **understanding data**.
+
+<div class="note">
+Before you continue, make sure you have read through the details on the [welcome page](index.html) and have watched the course introduction video.
+</div>
+
+This week is structured by **3** short lecture videos, practical material that you need to do in preparation for Thursday's seminar, and a seminar task. You can find this week's [compulsory reading material]({#reading-list-w01) below.
+
+Let's get started.
+
+### Video: Introduction W01 {#introduction_w01}
+```{r 01-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]]() [[Watch on MS stream]]()
+
+```{r 01-settings, warnings=FALSE, message=FALSE, echo=FALSE}
+# settings
+options(max.print=30)
+```
+
+### Reading list {#reading-list-w01}
+#### Core reading {-}
+- Lane *et al.*, 2003, **Chapter 1: Introduction**. In: Lane *et al.*, 2003, Introduction to Statistics. Houston, Texas:  Rice University. [[Link]](http://onlinestatbook.com/Online_Statistics_Education.pdf)
+
+#### Supplementary reading {-}
+- Diez *et al.*, 2019, **Chapter 1: Introduction to data**. In: Diez *et al.*, 2019, OpenIntro Statistics. Fourth Edition. Boston, Massachusetts: OpenIntro. [[Link]](https://leanpub.com/openintro-statistics)
+
+### Q&A session
+This week there will be a live Q&A session on **Tuesday, January 12, 2020 @ 11h00 (GMT)**. The session will be hosted on Zoom [[Link]](	https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09). For security reasons, the meeting password for this Q&A session can be found on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) on the **main page** (*POLS0008 - Q&A - Tuesday 11:00 (JVD)*).
+
+## Data and statistics
+Some of you may wonder why it is necessary to take a course on data and statistics in the first place? Well, there are several compelling reasons to have a (basic) knowledge of data and statistics:
 
 - it will help you to understand and critically engage with academic articles;
 - it will help you critically assess statistics used in the media, government reports, etc.;
 - it will help you write a dissertation based on secondary analysis;
-- it will help you write your own work convicingly.
+- it will help you write your own work convincingly.
 
 Further to this, **data skills** are in high demand by employers both in the public and private sectors. 
 
@@ -14,27 +47,9 @@ Further to this, **data skills** are in high demand by employers both in the pub
 **TL;DR**: Having a basic understanding of data and statistics is essential both during and after your time at University.
 </div>
 
-### Reading list {#reading-list-w01}
-For this week, you will have to read the following book Chapters:
-
-- Lane *et al.*, 2003, **Chapter 1: Introduction**. In: [Lane *et al.*, 2003, Introduction to Statistics](http://onlinestatbook.com/Online_Statistics_Education.pdf). Houston, Texas:  Rice University.
-
-### Video: Overview {#overview_w01}
-```{r 01-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
-library(vembedr)
-embed_msstream('') %>% use_align('left')
-# welcome to this week
-# why take research methods
-```
-[Lecture slides] [[Watch on MS stream]]()
-
-```{r 01-settings, warnings=FALSE, message=FALSE, echo=FALSE}
-# settings
-options(max.print=30)
-```
-
 ## R
 Arguably the easiest way to start learning about data is by getting your hands dirty So, before we will introduce you to some statistical terminology and talk about something called [descriptive statistics](https://en.wikipedia.org/wiki/Descriptive_statistics), we will have a look at one of the software tools with which we will be working this semester: [R](https://www.r-project.org/). R is a free software environment for statistical computing and graphics. It is extremely powerful and as such is now widely used for academic research as well as in the commercial sector. Ever wondered what tool is used to create those excellent [coronavirus visualisations in the Financial Times](https://ig.ft.com/coronavirus-global-data/)?
+R’s great strength is that it is open-source, can be used on all major computer operating systems and is free for anyone to use. Because of this, it is has rapidly become one of the statistical languages of choice for many academics. Moreover, it has a large and active user community with people constantly contributing new packages to carry out all manner of statistical and graphical analysis. 
 
 ### Video: R
 ```{r 01-r, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -60,6 +75,20 @@ The intention of the practical elements of this week is to provide a thorough in
 4. Creating basic and more complex plots in order to visualise the distributions values within a dataset.
 
 R has a steep learning curve, but the benefits of using it are well worth the effort. Take your time and think through every piece of code you type in. The best way to learn R is to take the basic code provided in tutorials and experiment with changing parameters - such as the colour of points in a graph - to really get 'under the hood' of the software. Take lots of notes as you go along and if you are getting really frustrated take a break!
+
+### POLS0008 forum {-}
+If you encounter a problem during the course, e.g. something is unclear or you are stuck with your R code, you can post your question on the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137). If you do not have questions yourself, do check the forum regularly as you may be able to help fellow students. Of course, the answers are moderated by the module tutors and the brilliant teaching support staff. 
+
+Some tips about how to get the best of the forum:
+
+1. Be efficient, but also be polite. It just makes it a nicer read for all of us if you start with a greeting and end on a thanks, etc.! 
+2. Be clear in the subject about what you are asking about. Topics named "*Final Task*" and "*Same Problem*", for example, will get confusing very fast. We want the forum to be a lasting record of the module and there maybe something on there you want to refer back to
+ so having descriptive subjects helps. For example "*Boxplot does not have any whiskers*" or "*Unable to load in csv file*" is better.
+3. Concisely outline the problem and also the steps you have taken to solve it. Explain what you are trying to do and why. This is really helpful for us to troubleshoot. As we will be using a programming language during the computer tutorials, the mistake you made might have happened a few lines of code before the one that is showing the error. We won't know this without some extra context.
+4. Include the R code - a screenshot is fine but show the whole screen: there can be some useful clues in the console and objects list that we won't see if you are showing only one line of code.
+5. If we solve a problem acknowledge this with a reply! How will we know otherwise?
+6. If you think you know the answer to someone's question help them out!
+7. If you are having a similar issue post to the forum - including what you have done to try and fix it.
 
 ### Getting started with R
 You can [download and install R](https://www.r-project.org/) on your laptop but for the purposes of this course we would like you to use the version hosted on the UCL servers so that everyone participating in the course has access to the same version of the software.
@@ -128,6 +157,10 @@ To confirm that your command has worked, just run the `ls()` command again:
 ```{r 01-cofirm-delete, warnings=FALSE, message=FALSE}
 ls()
 ```
+
+<div class="note">
+Remember that if you have any questions with your R code and you are stuck that you can post a question on the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137)!
+</div>
 
 ## Statistical terminology
 Let's now take a short break from RStudio and have a look at some theory: the video below will introduce you to some essential statistical terminology.
@@ -257,7 +290,7 @@ print(Some.Data)
 Until now we have generated the data used in the examples above. One of R's great strengths is its ability to load in data from almost any file format. Comma Separated Value (`csv`) files are our preferred choice. These can be thought of as stripped down Excel spreadsheets. They are an extremely simple format so they are easily machine readable and can therefore be easily read in and written out of R. 
 
 #### Working Directory {-}
-Since we are now reading and writing files it is good practice to tell R what your. Your working directory is the folder on the computer where you wish to store the data files you are working with. You can create a folder called `POLS0008`, for example. If you are using RStudio, on the lower right of the screen is a window with a **Files** tab. If you click on this tab you can then navigate to the folder you wish to use. You can then click on the **More** button and then **Set as Working Directory**. You should then see some code similar to the below appear in the command line. It is also possible to type the code in manually.
+Since we are now reading and writing files it is good practice to tell R what your working directory is. Your working directory is the folder on the computer where you wish to store the data files you are working with. You can create a folder called `POLS0008`, for example. If you are using RStudio, on the lower right of the screen is a window with a **Files** tab. If you click on this tab you can then navigate to the folder you wish to use. You can then click on the **More** button and then **Set as Working Directory**. You should then see some code similar to the below appear in the command line. It is also possible to type the code in manually.
 
 ```{r 01-set-wd, warnings=FALSE, message=FALSE, eval=FALSE}
 # set the working directory path to the folder you wish to use
@@ -302,7 +335,7 @@ tail(London.Pop)
 ```
 
 <div class="note">
-Depending on the type of `object` the exact number of lines displayed through `head()` and `tail()` may differ. If you want to have precies control over the output and specify how many rows will be printed, you can do this by passing an **integer** as second argument to either of these functions. For instance, `head(London.Pop,n=10)` or `tail(London.Pop,n=10)`.
+Depending on the type of `object` the exact number of lines displayed through `head()` and `tail()` may differ. If you want to have precise control over the output and specify how many rows will be printed, you can do this by passing an **integer** as second argument to either of these functions. For instance, `head(London.Pop,n=10)` or `tail(London.Pop,n=10)`.
 </div>
 
 To learn a bit more about the file you have loaded, R has a number of useful functions. We can use these to find out how many columns (**variables**) and rows (**cases**) the data frame (**dataset**) contains.
@@ -344,7 +377,7 @@ London.Pop[1:5,8:11]
 London.Subset <- London.Pop[1:5,8:11]
 ```
 
-In the code snippet, note how the colon `:` is used to specify a range of values. We used the same technique to create the `Some.Data` object above. The ability to select particular columns means we can see how the population of London's Boroughs have changed over the past century by substracting two columns from one another.
+In the code snippet, note how the colon `:` is used to specify a range of values. We used the same technique to create the `Some.Data` object above. The ability to select particular columns means we can see how the population of London's Boroughs have changed over the past century by subtracting two columns from one another.
 
 ```{r 01-change-pop, warnings=FALSE, message=FALSE}
 # within the brackets you can add additional columns to the data frame 
@@ -374,7 +407,7 @@ working directory.
 
 ## Seminar {#seminar-w01}
 
-#### Seminar assignment {-}
+#### Seminar task {-}
 Create a `csv` file that contains the following columns:
 
 1. The names of the London Boroughs.
@@ -383,9 +416,11 @@ Create a `csv` file that contains the following columns:
 4. Population change 1961 and 2011.
 
 #### Seminar questions {-}
-
 1. Which Boroughs had the fastest growth during the 19th Century, and which had the slowest?
 2. You may have noticed that there is an additional column in the pop data frame called `Borough-Type`. This indicates if a Borough is in inner (1) or outer (2) London. Is this variable ordinal or nominal?
+
+#### Seminar link {-}
+Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
 
 ## Before you leave {#byl-w01}
 Save your R script by pressing the **Save** button in the script window. [That is it for this week](https://www.youtube.com/watch?v=d8Fmu3RLEOY)!

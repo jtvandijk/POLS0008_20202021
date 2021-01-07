@@ -3,17 +3,20 @@
 ## Introduction
 Welcome to your third week of **Introduction to Quantitative Research Methods**. This week we will focus again on **examining data**, with a particular focus on data visualisation. For the tutorial we will continue to use the asssault incident dataset that we used last week.
 
-### Reading list {#reading-list-w03}
-For this week, you will have to read the following book Chapters:
-
-- Lane *et al.*, 2003, **Chapter 3: Summarizing Distributions**. In: [Lane *et al.*, 2003, Introduction to Statistics](http://onlinestatbook.com/Online_Statistics_Education.pdf). Houston, Texas:  Rice University.
-
-### Video: Overview {#overview_w03}
+### Video: Overview {#Introduction_w03}
 ```{r 03-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
 embed_msstream('') %>% use_align('left')
 ```
 [Lecture slides] [[Watch on MS stream]]()
+
+### Q&A session
+This week there will be a live Q&A session on **Tuesday, January 26, 2020 @ 11h00 (GMT)**. The session will be hosted on Zoom [[Link]](	https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09). For security reasons, the meeting password for this Q&A session can be found on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) on the **main page** (*POLS0008 - Q&A - Tuesday 11:00 (JVD)*).
+
+## Reading list {#reading-list-w03}
+#### Core reading {-}
+- Lane *et al.*, 2003, **Chapter 3: Summarizing Distributions**. In: Lane *et al.*, 2003, Introduction to Statistics. Houston, Texas:  Rice University.
+[[Link]](http://onlinestatbook.com/Online_Statistics_Education.pdf)
 
 ## Examining data
 
@@ -212,9 +215,12 @@ In this section you have:
 
 ## Seminar {#seminar-w03}
 
-#### Seminar assignment {-}
+#### Seminar task {-}
 
 1. Take the *census-historic-population-borough.csv* file we used to produce the scatter plots of London’s population in Week 01 and create **3** different types of plots from one or more of the variables.
+
+#### Seminar link {-}
+Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
 
 ## Before you leave {#byl-w03}
 Save your R script by pressing the **Save** button in the script window. [That is it for this week](https://www.youtube.com/watch?v=ZbZSe6N_BXs)!

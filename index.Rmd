@@ -1,6 +1,6 @@
 --- 
 title: "POLS0008: Introduction to Quantitative Research Methods"
-author: Justin van Dijk^[Department of Geography, https://www.mappingdutchman.com/], Stephen Jivraj^[Institute of Epidemiology and Health Care, https://www.ucl.ac.uk/q-step/stephen-jivraj], and James Cheshire^[Department of Geography, http://jcheshire.com]
+author: Justin van Dijk^[Department of Geography, https://www.mappingdutchman.com/], Stephen Jivraj^[Institute of Epidemiology and Health Care, https://www.ucl.ac.uk/q-step/stephen-jivraj]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -13,13 +13,28 @@ url: 'https\://jtvandijk.github.io/POLS0008/'
 
 # Welcome {-}
 
-Welcome to **Introduction to Quantitative Research Methods**, one of the first year core module for students enrolled on Q-Step programmes and a second year methods option in BSc Philosophy, Politics and Economics. 
+Welcome to **POLS0008: Introduction to Quantitative Research Methods**, one of the first year core module for students enrolled on Q-Step programmes and a second year methods option in BSc Philosophy, Politics and Economics. 
 
-## Moodle {-}
-All important information and communication in relation to this module will be provided on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). Although for the first **4 weeks** all short lecture videos and practical materials will be hosted on this webpage, do check on Moodle **regularly** to see if there are any updates and to access the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137) to ask and answer questions.
+Before we start, please take a moment to read through the information below and watch the course introduction video. The video should also answer any questions you may have with regard to the structure of the course, where to find your course materials, and what options you have when you have questions.
 
-## Important {-}
-We do not offer any technical support. If you have any technical questions or encounter technical problems, you will have to take this up with the [IT Service Desk](https://www.ucl.ac.uk/isd/help-support). Similarly, for questions related to the organisation of the course (e.g. in which seminar group your get assigned to), you will have to direct your queries to the student office of your Department.
+### Course Introduction {-}
+```{r 09-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/EUxjPTbV6jpIgvoBfzaSdjEBkyykxYWd6fczowFWgzQGCA?e=1tfyHO) [[Watch on MS stream]]()
 
-## Office hours {-}
+### Moodle {-}
+All important information and communication in relation to this module will be provided on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). Even though for the first **4 weeks** all short lecture videos and practical materials will be hosted on this webpage, do check on Moodle **regularly** to see if there are any updates or important messages.
+
+### Structure {-}
+Although there may be some slight variation from week to week, the course is generally structured by several short lecture videos, reading material, a computer practical, a seminar task that you need to do in preparation of the live seminar, and a live seminar. Each week, all content for that week will be made available online by Monday morning. All live seminars take place on Thursday morning. This means that you have **3** days to go through all the materials and conduct your seminar task before it is discussed in the live seminar.
+
+### Assessment {-}
+This module is assessed by one 3,000 word essay (counting 100% towards your final mark for this course) based on secondary analysis of survey data. The assessment will be introduced by Dr Stephen Jivraj and more details will follow in later weeks.
+
+### Technical support {-}
+We do not offer any technical support. If you have any technical questions or encounter technical problems, you will have to take this up with the [IT Service Desk](https://www.ucl.ac.uk/isd/help-support). Similarly, for questions related to the organisation of the course (e.g. to which seminar group your get assigned to), you will have to direct your queries to the student office of your Department.
+
+### Office hours {-}
 Office hours with Dr Justin van Dijk (Tuesdays between 15h00 and 16h00) can be booked [here](https://outlook.office365.com/owa/calendar/JustinvanDijkBookableOfficeHours@ucl.ac.uk/bookings/). Office hours with Dr Stephen Jivraj (Tuesdays between 09h45 and 10h45) can be booked [here](https://outlook.office365.com/owa/calendar/StephenJivraj@ucl.ac.uk/bookings/). 
