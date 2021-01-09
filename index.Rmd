@@ -18,11 +18,11 @@ Welcome to **POLS0008: Introduction to Quantitative Research Methods**, one of t
 Before we start, please take a moment to read through the information below and watch the course introduction video. The video should also answer any questions you may have with regard to the structure of the course, where to find your course materials, and what options you have when you have questions.
 
 ### Course Introduction {-}
-```{r 09-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
+```{r 00-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
-embed_msstream('') %>% use_align('left')
+embed_msstream('b8ffcd14-34ef-4c85-8283-da1255b2165e') %>% use_align('left')
 ```
-[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/EUxjPTbV6jpIgvoBfzaSdjEBkyykxYWd6fczowFWgzQGCA?e=1tfyHO) [[Watch on MS stream]]()
+[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/EdYf92pNXwBNgsoN_yVV05cBjO8-6_o57mAqsbZdRe7rtA?e=AhuQqM) [[Watch on MS stream]](https://web.microsoftstream.com/video/b8ffcd14-34ef-4c85-8283-da1255b2165e?list=studio)
 
 ### Moodle {-}
 All important information and communication in relation to this module will be provided on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). Even though for the first **4 weeks** all short lecture videos and practical materials will be hosted on this webpage, do check on Moodle **regularly** to see if there are any updates or important messages.

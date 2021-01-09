@@ -14,9 +14,9 @@ Let's get started.
 #### Video: Introduction W01 {-}
 ```{r 01-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
-embed_msstream('') %>% use_align('left')
+embed_msstream('13e503d0-f063-479b-ab3e-e27134db0727') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[Lecture slides] [[Watch on MS stream]](https://web.microsoftstream.com/video/13e503d0-f063-479b-ab3e-e27134db0727)
 
 ```{r 01-settings, warnings=FALSE, message=FALSE, echo=FALSE}
 # settings
@@ -46,9 +46,9 @@ Further to this, **data skills** are in high demand by employers both in the pub
 #### Video: Data and statistics {-}
 ```{r 02-data-statistics, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
-embed_msstream('') %>% use_align('left')
+embed_msstream('6ef68a99-90a7-4e19-9b68-0d897883f355') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/EeJvWY_9LX1Ghjv2jbsSObQBtYwyWWtS39olbUQsay2_8A?e=RaoFCa) [[Watch on MS stream]](https://web.microsoftstream.com/video/6ef68a99-90a7-4e19-9b68-0d897883f355)
 
 ## R for data analysis
 Arguably the easiest way to start learning about data and statistics is by getting our hands dirty. So, before we will introduce you to some statistical terminology, we will have a look at one of the software tools with which we will be working this semester: [R](https://www.r-project.org/). R is a free software environment for statistical computing and graphics. It is extremely powerful and as such is now widely used for academic research as well as in the commercial sector. Ever wondered what tool is used to create those excellent [coronavirus visualisations in the Financial Times](https://ig.ft.com/coronavirus-global-data/)?
@@ -57,9 +57,9 @@ R’s great strength is that it is open-source, can be used on all major compute
 
 #### Video: R for data analysis {-}
 ```{r 01-r-data-analysis, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+embed_msstream('32c1a4c3-2b2f-4530-97d2-efdd0ee432c4') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/ETjqnywNlVFDtOtzGxZ7_XMBtkHS5MN8vypHp6_J3Eq2OQ?e=xfHWJ2) [[Watch on MS stream]](https://web.microsoftstream.com/video/32c1a4c3-2b2f-4530-97d2-efdd0ee432c4)
   
 Unlike software programmes such as [Microsoft Excel]() or [SPSS](https://www.ibm.com/uk-en/analytics/spss-statistics-software), within a coding environment the user has to type commands to get it to execute tasks such as loading in a dataset or performing a calculation. The biggest advantage of this approach is that you can build up a document, or script, that provides a record of what you have done, which in turn enables the straightforward repetition of tasks. Graphics can be easily modified and tweaked by making slight changes to the script or by scrolling through past commands and making quick edits. Unfortunately, command-line computing can also be off-putting at first. It is easy to make mistakes that are not always obvious to detect. Nevertheless, there are good reasons to stick with R. These include:
 
@@ -95,7 +95,7 @@ Some tips about how to get the best out of the forum:
 ## R console
 You can [download and install R](https://www.r-project.org/) on your laptop but for the purposes of this course we would like you to use the version hosted on the UCL servers so that everyone participating in the course has access to the same version of the software.
 Open a web browser and navigate to: https://rstudio.rc.ucl.ac.uk/
-Log in with your **usual UCL username and password**. You should see the RStudio interface appear. 
+Log in with your **usual UCL username and password**. You should see the RStudio interface appear. If it is the first time you log on to RStudio server you may only see the RStudio interface appear once you have clicked on the **start a new session** button.s
 
 <div class="note">
 **Please note**: RStudio server will only work with an [active VPN connection](https://www.ucl.ac.uk/isd/it-essentials-for-new-students/video-guides/getting-started-ucls-vpn) that links your personal computer into UCL's network. Students in mainland may want to use [UCL China Connect](https://www.ucl.ac.uk/isd/services/get-connected/china-connect). Students that use a Mac computer that is running on the latest version of MacOS ([MacOS Big Sur](https://www.apple.com/uk/macos/big-sur/)), are advised to use [Desktop@UCL](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) as the Cisco AnyConnect VPN application may not work.
@@ -170,11 +170,11 @@ Let's now take a short break from RStudio and have a look at some theory: the vi
 
 #### Video: Statistical terminology {-}
 ```{r 01-statistical-terminology, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+embed_msstream('1486a8d6-33a5-45b6-87ac-7f3e879d45f9') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/EQoBjPQeuYtJgELKgxz115EBI2OrlLbuT2Berj6OEqyAiQ?e=VPRT7u) [[Watch on MS stream]](https://web.microsoftstream.com/video/1486a8d6-33a5-45b6-87ac-7f3e879d45f9)
 
-Now we now a little more about variables, we can go back to RStudio. Until now our objects have been extremely simple **integers** (i.e. whole numbers), but the real power of R comes when we can begin to execute functions on objects. 
+Now we now a little more about different types of variables and levels of measurement, we can go back to RStudio. Until now our objects have been extremely simple **integers** (i.e. whole numbers), but the real power of R comes when we can begin to execute functions on objects. 
 
 Let's have a closer look at functions by firstly building a more complex object through the `c()` function. The **c** in the `c()` function means concatenate and essentially groups things together. Let's create an object that contains the birth years of the six main characters in the popular American television sitcom [Friends](https://en.wikipedia.org/wiki/Friends).
 
@@ -195,6 +195,10 @@ mean(friends_dob)
 median(friends_dob)
 range(friends_dob)
 ```
+
+<div class="note">
+In next week's material we will dive a little deeper into these statistical functions, for now we only want you to know how to execute a function and you do not have to worry just yet about what exactly is a `range`, `median`, or `mean`.
+</div>
 
 All functions need a series of arguments to be passed to them in order to work. These arguments are typed within the brackets and typically comprise the name of the object (in the examples above its the `friends_dob`) that contains the data followed by some parameters. The exact parameters required are listed in the functions help files. To find the help file for the function type `?` followed by the function name, for example:
 
@@ -285,9 +289,9 @@ Until now we have generated the data used in the examples above. One of R's grea
 
 #### Video: `csv` files {-}
 ```{r 01-csv-files, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+embed_msstream('d3693016-7894-4f80-bc84-28db62dbfc10') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[Lecture slides] [[Watch on MS stream]](https://web.microsoftstream.com/video/d3693016-7894-4f80-bc84-28db62dbfc10)
 
 #### Working Directory {-}
 Since we are now reading and writing files it is good practice to tell R what your working directory is. Your working directory is the folder on the computer where you wish to store the data files you are working with. You can create a folder called `POLS0008`, for example. If you are using RStudio, on the lower right of the screen is a window with a **Files** tab. If you click on this tab you can then navigate to the folder you wish to use. You can then click on the **More** button and then **Set as Working Directory**. You should then see some code similar to the below appear in the command line. It is also possible to type the code in manually.

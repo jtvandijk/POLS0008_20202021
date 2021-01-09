@@ -1,23 +1,4 @@
 # Sourcing data
 
-## Introduction
-Welcome to your fourth week of **Introduction to Quantitative Research Methods**. This week we will focus on **sourcing data**, with a particular focus on **tidy data**.
+<center>**This week’s content will be be made available by 01/02.**</center>
 
-## Reading list {#reading-list-w04}
-#### Core reading {-}
-- Wickham, 2014, Tidy data, *Journal of Statistical Software* 59(10). [[Link]](http://www.jstatsoft.org/v59/i10/paper)
-
-### Video: Introduction {#Introduction_w04}
-```{r 04-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
-library(vembedr)
-embed_msstream('') %>% use_align('left')
-```
-[Lecture slides] [[Watch on MS stream]]()
-
-## Reading list {#reading-list-w03}
-#### Core reading {-}
-- Lane *et al.*, 2003, **Chapter 3: Summarizing Distributions**. In: Lane *et al.*, 2003, Introduction to Statistics. Houston, Texas:  Rice University.
-[[Link]](http://onlinestatbook.com/Online_Statistics_Education.pdf)
-
-### Q&A session
-This week there will be **NO** live Q&A session.
