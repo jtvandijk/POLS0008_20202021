@@ -1,9 +1,13 @@
 # Examining data I
 
 ## Introduction
-Welcome to your second week of **Introduction to Quantitative Research Methods**. This week we will focus on **examining data** using descriptive statistics and measures of dispersion. We will also talk about data manipulation and something called *metadata*. For the tutorial we will continue to use the `London.Pop` object that we created last week and will use this to create some plots.
+Welcome to your second week of **Introduction to Quantitative Research Methods**. This week we will focus on **examining data** using descriptive statistics and measures of dispersion. We will also talk about data visualisation. 
 
-### Video: Introduction W02 {#Introduction_w02}
+This week is structured by **3** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in prepratation for Thursday's seminar.
+
+Let's get to it.
+
+#### Video: Introduction W02 {-}
 ```{r 02-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
 embed_msstream('') %>% use_align('left')
@@ -27,9 +31,9 @@ options(max.print=30)
 This week there will be **NO** live Q&A session.
 
 ## Examining data
-Any research project involving [quantitative data](https://en.wikipedia.org/wiki/Quantitative_research) should start with an exploration / examination of the available datasets. This applies both to data that you have collected yourself or data that you have acquired in a different way, e.g. through downloading official [UK Census and labour market statistics](https://www.nomisweb.co.uk/). The set of techniques that is used to examine your data is called [descriptive statistcs](https://en.wikipedia.org/wiki/Descriptive_statistics). Descriptive statistics are used to describe the basic features of your dataset. Descriptive statistics provide simple summaries about your data. Together with simple visual analysis, they form the basis of virtually **every** quantitative analysis of data. Visualising data makes it easier to understand, analyse, and communicate. 
+Any research project involving [quantitative data](https://en.wikipedia.org/wiki/Quantitative_research) should start with an exploration / examination of the available datasets. This applies both to data that you have collected yourself or data that you have acquired in a different way, e.g. through downloading official [UK Census and labour market statistics](https://www.nomisweb.co.uk/). The set of techniques that is used to examine your data is called [descriptive statistcs](https://en.wikipedia.org/wiki/Descriptive_statistics). Descriptive statistics are used to describe the basic features of your dataset and provide simple summaries about your data. Together with simple visual analysis, they form the basis of virtually **every** quantitative data analysis 
 
-### Video: Descriptive statistics II
+#### Video: Descriptive statistics {-}
 ```{r 02-descriptive-statistics, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
 ```
@@ -180,10 +184,10 @@ In this section you have:
 5. Learned how to specify data variables with the `aes()` parameter.
 6. Saved your plot.
 
-## Manipulating data
+## Visualising data
 
-### Video: Manipulating data
-```{r 02-manipulating-data, warnings=FALSE, message=FALSE, echo=FALSE}
+#### Video: Visualising data {-}
+```{r 02-visualising-data, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
