@@ -1,7 +1,7 @@
 # Understanding data
 
 ## Introduction
-Welcome to your first week of **Introduction to Quantitative Research Methods**. This week we will focus on **understanding data**.
+Welcome to your first week of **Introduction to Quantitative Research Methods**. This week we will focus on **understanding data**. We will also introduce you to some basic statistical terminology. Lastly, we will introduce you to the software tools that we will be using throughout the remainder of this course: R and RStudio.
 
 <div class="note">
 Before you continue, make sure you have read through the details on the [welcome page](index.html) of this handbook and have watched the course introduction video.
@@ -209,7 +209,7 @@ All functions need a series of arguments to be passed to them in order to work. 
 All helpfiles will have a **usage** heading detailing the parameters required. In the case of the mean you can see it simply says `mean(x, ...)`. In function helpfiles `x` will always refer to the object the function requires and, in the case of the mean, the `...` refers to some optional arguments that we don't need to worry about.
 
 <div class="note">
-When you are new to R the help files can seem pretty impenetrable (because they often are!). Up until relatively recently these were all people had to go on, but in recent years R has really taken off and so there are plenty of places to find help and tips. Google is the best tool to use. When people are having problems they tend to post examples of their code online and then the R community will correct it. One of the best ways to solve a problem is to paste their correct code into your R command line window and then gradually change it for your data an purposes.
+When you are new to R the help files can seem pretty impenetrable (because they often are!). Up until relatively recently these were all people had to go on, but in recent years R has really taken off and so there are plenty of places to find help and tips. Google is the best tool to use. When people are having problems they tend to post examples of their code online and then the R community will correct it. One of the best ways to solve a problem is to paste their correct code into your R command line window and then gradually change it for your data and purposes.
 </div>
 
 The structure of the `friends_dob` object - essentially a group of numbers (**integers**!) - is known as a **vector object** in R. To build more complex objects that, for example, resemble a spreadsheet with multiple columns of data, it is possible to create a class of objects known as a **data frame**. This is probably the most commonly used class of object in R. We can create one here by combining two vectors.
