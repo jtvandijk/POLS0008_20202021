@@ -4,7 +4,7 @@
 Welcome to your first week of **Introduction to Quantitative Research Methods**. This week we will focus on **understanding data**.
 
 <div class="note">
-Before you continue, make sure you have read through the details on the [welcome page](index.html) and have watched the course introduction video.
+Before you continue, make sure you have read through the details on the [welcome page](index.html) of this handbook and have watched the course introduction video.
 </div>
 
 This week is structured by **5** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in prepratation for Thursday's seminar.
