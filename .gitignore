@@ -4,6 +4,7 @@ proj.user
 .RData
 _publish.R
 _book
+_book/*
 _bookdown_files
 _bookdown_files/*
 packrat/lib*/
@@ -11,3 +12,6 @@ packrat/lib*/
 .DS_Store
 .Rproj.user/*
 .Rproj.user
+docs
+docs/*
+
