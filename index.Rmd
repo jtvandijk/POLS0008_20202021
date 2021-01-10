@@ -15,7 +15,7 @@ url: 'https\://jtvandijk.github.io/POLS0008/'
 
 Welcome to **POLS0008: Introduction to Quantitative Research Methods**, one of the first year core module for students enrolled on Q-Step programmes and a second year methods option in BSc Philosophy, Politics and Economics. 
 
-Before we start, please take a moment to read through the information below and watch the course introduction video. The video should also answer any questions you may have with regard to the structure of the course, where to find your course materials, and what options you have when you have questions.
+Before we start, please take a moment to read through the information below and watch the course introduction video. The video should answer any questions you may have with regard to the structure of the course, where to find your course materials, and what options you have when you have questions.
 
 ### Course Introduction {-}
 ```{r 00-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}

@@ -1,7 +1,7 @@
 # Understanding data
 
 ## Introduction
-Welcome to your first week of **Introduction to Quantitative Research Methods**. This week we will focus on **understanding data**. We will also introduce you to some basic statistical terminology. Lastly, we will introduce you to the software tools that we will be using throughout the remainder of this course: R and RStudio.
+Welcome to your first week of **Introduction to Quantitative Research Methods**. This week we will focus on **understanding data**. We will also introduce you to some basic statistical terminology. Lastly, we will introduce you to the software tools that we will be using throughout this course: R and RStudio.
 
 <div class="note">
 Before you continue, make sure you have read through the details on the [welcome page](index.html) of this handbook and have watched the course introduction video.
@@ -24,6 +24,8 @@ options(max.print=30)
 ```
 
 ### Reading list {#reading-list-w01}
+Please find the reading list for this week below. We strongly recommend that you read the **core reading material** before you continue with the rest of this week's material.
+
 #### Core reading {-}
 - Lane *et al.*, 2003, **Chapter 1: Introduction**. In: Lane *et al.*, 2003, Introduction to Statistics. Houston, Texas:  Rice University. [[Link]](http://onlinestatbook.com/Online_Statistics_Education.pdf)
 
@@ -31,7 +33,7 @@ options(max.print=30)
 - Diez *et al.*, 2019, **Chapter 1: Introduction to data**. In: Diez *et al.*, 2019, OpenIntro Statistics. Fourth Edition. Boston, Massachusetts: OpenIntro. [[Link]](https://leanpub.com/openintro-statistics)
 
 ### Q&A session
-This week there will be a live Q&A session on **Tuesday, January 12, 2020 @ 11h00 (GMT)**. The session will be hosted on Zoom [[Link]](	https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09). For security reasons, the meeting password for this Q&A session can be found on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) on the **main page** (*POLS0008 - Q&A - Tuesday 11:00 (JVD)*).
+This week there will be a live Q&A session on **Tuesday, January 12, 2020 @ 11h00 (GMT)**. The session will be hosted on Zoom [[Link]](	https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09). For security reasons, the meeting password for this Q&A session can be found on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) on the **main page**: *POLS0008 - Q&A - Tuesday 11:00 (JVD)*.
 
 ## Data and statistics
 Some of you may wonder why it is necessary to take a course on data and statistics in the first place? Well, there are several compelling reasons to have a (basic) knowledge of data and statistics:
@@ -55,12 +57,6 @@ Arguably the easiest way to start learning about data and statistics is by getti
 
 R’s great strength is that it is open-source, can be used on all major computer operating systems and is free for anyone to use. Because of this, it is has rapidly become one of the statistical languages of choice for many academics. Moreover, it has a large and active user community with people constantly contributing new packages to carry out all manner of statistical and graphical analysis. 
 
-#### Video: R for data analysis {-}
-```{r 01-r-data-analysis, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('32c1a4c3-2b2f-4530-97d2-efdd0ee432c4') %>% use_align('left')
-```
-[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/ETjqnywNlVFDtOtzGxZ7_XMBtkHS5MN8vypHp6_J3Eq2OQ?e=xfHWJ2) [[Watch on MS stream]](https://web.microsoftstream.com/video/32c1a4c3-2b2f-4530-97d2-efdd0ee432c4)
-  
 Unlike software programmes such as [Microsoft Excel]() or [SPSS](https://www.ibm.com/uk-en/analytics/spss-statistics-software), within a coding environment the user has to type commands to get it to execute tasks such as loading in a dataset or performing a calculation. The biggest advantage of this approach is that you can build up a document, or script, that provides a record of what you have done, which in turn enables the straightforward repetition of tasks. Graphics can be easily modified and tweaked by making slight changes to the script or by scrolling through past commands and making quick edits. Unfortunately, command-line computing can also be off-putting at first. It is easy to make mistakes that are not always obvious to detect. Nevertheless, there are good reasons to stick with R. These include:
 
 - It's broadly intuitive with a strong focus on publishable-quality graphics.
@@ -77,6 +73,12 @@ The intention of the practical elements of this week is to provide a thorough in
 4. Creating basic and more complex plots in order to visualise the distributions values within a dataset.
 
 R has a steep learning curve, but the benefits of using it are well worth the effort. Take your time and think through every piece of code you type in. The best way to learn R is to take the basic code provided in tutorials and experiment with changing parameters - such as the colour of points in a graph - to really get 'under the hood' of the software. Take lots of notes as you go along and if you are getting really frustrated take a break!
+
+#### Video: R for data analysis {-}
+```{r 01-r-data-analysis, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('32c1a4c3-2b2f-4530-97d2-efdd0ee432c4') %>% use_align('left')
+```
+[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/ETjqnywNlVFDtOtzGxZ7_XMBtkHS5MN8vypHp6_J3Eq2OQ?e=xfHWJ2) [[Watch on MS stream]](https://web.microsoftstream.com/video/32c1a4c3-2b2f-4530-97d2-efdd0ee432c4)
 
 #### POLS0008 forum {-}
 If you encounter a problem during the course, e.g. something is unclear or you are stuck with your R code, you can post your question on the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137). If you do not have questions yourself, do check the forum regularly as you may be able to help fellow students. Of course, the answers are moderated by the module tutors and the brilliant teaching support staff. 
@@ -197,7 +199,7 @@ range(friends_dob)
 ```
 
 <div class="note">
-In next week's material we will dive a little deeper into these statistical functions, for now we only want you to know how to execute a function and you do not have to worry just yet about what exactly is a `range`, `median`, or `mean`.
+In next week's material we will dive a little deeper into these statistical functions, for now, however, we only want you to know how to execute a function. If at this stage you are not entirely sure on what what exactly is a `range`, `median`, or `mean` that is perfectly fine and you should not worry about it just yet.
 </div>
 
 All functions need a series of arguments to be passed to them in order to work. These arguments are typed within the brackets and typically comprise the name of the object (in the examples above its the `friends_dob`) that contains the data followed by some parameters. The exact parameters required are listed in the functions help files. To find the help file for the function type `?` followed by the function name, for example:
@@ -216,7 +218,7 @@ The structure of the `friends_dob` object - essentially a group of numbers (**in
 
 ```{r 01-make-a-df, warnings=FALSE, message=FALSE}
 friends_characters <- c('Monica','Ross','Rachel','Joey','Chandler','Phoebe')
-friends <- data.frame(friends_characters,friends_dob)
+friends <- data.frame(friends_characters, friends_dob)
 ```
 
 If you type `print(friends)` you will see our newly created data frame that consists of the first vector object (date of birth) and the second vector objects (names of characters).
@@ -228,7 +230,7 @@ print(friends)
 #### Tips {-}
 1. R is case sensitive so you need to make sure that you capitalise everything correctly if required.
 2. The spaces between the words don't matter but the positions of the commas and brackets do. Remember, if you find the prompt, `>`, is replaced with a `+` it is because the command is incomplete. If necessary, hit the escape (esc) key and try again.
-3. It is important to come up with good names for your objects. In the case of the `friends_dob` object we used a underscore to separate the words. It is good practice to keep the object names as short as posssible so we could have gone for `FriendsDob` or `f_dob`. Be aware: you cannot start an object name with a number!
+3. It is important to come up with good names for your objects. In the case of the `friends_dob` object we used a underscore `_` to separate the words. It is good practice to keep the object names as short as posssible so we could have gone for `FriendsDob` or `f_dob`. Be aware: you cannot start an object name with a number!
 4. If you press the up arrow in the command line you will be able to edit the previous lines of code you inputted.
 
 #### Recap {-}
@@ -303,7 +305,11 @@ setwd('~/POLS0008')
 # note the single / (\\ will also work)
 ```
 
-Once the working directory is setup it is then possible to load in a `csv` file. We are going to load a dataset that has been saved in the working directory we just set that shows London's historic population for each of its Boroughs. You can download the `csv` file below.
+<div class="note">
+Please ensure that **folder names** and **file names** do not contain spaces or special characters such as `*` `.` `"` `/` `\` `[` `]` `:` `;` `|` `=` `,` `<` `?` `>` `&` `$` `#` `!` `'` `{` `}` `(` `)`. Different operating systems and programming languages deal differently with spaces and special characters and as such including these in your folder names and file names can cause many problems and unexpected errors. As an alternative to using white space you can use an underscore `_` if you like.
+</div>
+
+Once the working directory is setup it is then possible to load in a `csv` file. We are going to load a dataset that has been saved in the working directory we just set that shows London's historic population for each of its Boroughs. You can download the `csv` file below. The `csv` file is also available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) in the *Datasets for practicals* folder.
 
 #### File download {-}
 | File                                                 | Type           | Link |
@@ -339,7 +345,7 @@ tail(London.Pop)
 ```
 
 <div class="note">
-Depending on the type of `object` the exact number of lines displayed through `head()` and `tail()` may differ. If you want to have precise control over the output and specify how many rows will be printed, you can do this by passing an **integer** as second argument to either of these functions. For instance, `head(London.Pop,n=10)` or `tail(London.Pop,n=10)`.
+Depending on the type of `object` the exact number of lines displayed through `head()` and `tail()` may differ. If you want to have precise control over the output and specify how many rows will be printed, you can do this by passing an **integer** as second argument to either of these functions. For instance, `head(London.Pop, n=10)` or `tail(London.Pop, n=10)`.
 </div>
 
 To learn a bit more about the file you have loaded, R has a number of useful functions. We can use these to find out how many columns (**variables**) and rows (**cases**) the data frame (**dataset**) contains.
@@ -410,6 +416,11 @@ working directory.
 3. Subset R data frames by name and also column and/or row number.
 
 ## Seminar {#seminar-w01}
+Please find the seminar task and seminar questions for this week's seminar below. 
+
+<div class="note">
+**Please make sure that you have executed the seminar task and have answered the seminar questions before the seminar!**
+</div>
 
 #### Seminar task {-}
 Create a `csv` file that contains the following columns:
@@ -420,11 +431,13 @@ Create a `csv` file that contains the following columns:
 4. Population change between 1961 and 2011.
 
 #### Seminar questions {-}
+Answer the following questions:
+
 1. Which Boroughs had the fastest growth during the 19th Century, and which had the slowest?
 2. You may have noticed that there is an additional column in the pop data frame called `Borough-Type`. This indicates if a Borough is in inner (1) or outer (2) London. Is this variable ordinal or nominal?
 
 #### Seminar link {-}
-Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
+Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) in the *Seminar links* folder.
 
 ## Before you leave {#byl-w01}
 Save your R script by pressing the **Save** button in the script window. [That is it for this week](https://www.youtube.com/watch?v=d8Fmu3RLEOY)!
