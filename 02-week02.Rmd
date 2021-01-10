@@ -1,7 +1,5 @@
 # Examining data I
 
-# Examining data I
-
 ## Introduction
 Welcome to your second week of **Introduction to Quantitative Research Methods**. This week we will focus on **examining data** using descriptive statistics and measures of dispersion. We will also talk about some basic data visualisation. 
 
