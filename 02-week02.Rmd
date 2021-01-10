@@ -1,7 +1,7 @@
 # Examining data I
 
 ## Introduction
-Welcome to your second week of **Introduction to Quantitative Research Methods**. This week we will focus on **examining data** using measures of central tendency and measures of dispersion. These measures are typically known as **descriptive statistics**. We will also talk about some basic data visualisation. 
+Welcome to your second week of **Introduction to Quantitative Research Methods**. This week we will focus on **examining data** using measures of central tendency and measures of dispersion. These measures are collectively known as **descriptive statistics**. We will also talk about some basic data visualisation. 
 
 This week is structured by **3** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in prepratation for Thursday's seminar.
 
@@ -23,7 +23,7 @@ options(max.print=30)
 Please find the reading list for this week below. We strongly recommend that you read the **core reading material** before you continue with the rest of this week's material.
 
 #### Core reading {-}
-- Lane *et al.*, 2003, **Chapter 2: Graphing Distributions**. In: Lane *et al.*, 2003, Introduction to Statistics. Houston, Texas:  Rice University. [[Link]](http://onlinestatbook.com/Online_Statistics_Education.pdf)
+- Lane *et al.*, 2003, **Chapter 3: Summarizing Distributions**. In: Lane *et al.*, 2003, Introduction to Statistics. Houston, Texas:  Rice University. [[Link]](http://onlinestatbook.com/Online_Statistics_Education.pdf)
 
 #### Supplementary reading {-}
 - Diez *et al.*, 2019, **Chapter 2: Summarizing data**. In: Diez *et al.*, 2019, OpenIntro Statistics. Fourth Edition. Boston, Massachusetts: OpenIntro.
@@ -68,9 +68,9 @@ Use the `head()`, or `View()`, function to remind yourself of the structure of t
 1. What is the difference between using `head()` and `View()` to inspect your data?
 2. Can you combine the functions `View()` and `head()` to browse only through a few lines of your data?
 
-The `mean()`, `median()`, and `range()` were some of the first R functions we used at the last week to describe our `Friends` dataset. Now we know a little more about these **measures of central tendency**, we can apply them on our `London.Pop` data set. Let's do this by focusing on London's population in 2011.
+The `mean()` and `median()` were some of the first R functions we used at the last week to describe our `Friends` dataset. Now we know a little more about these **measures of central tendency**, we can apply them on our `London.Pop` data set. Let's do this by focusing on London's population in 2011.
 
-```{r 02-slice-the-population, warnings=FALSE, message=FALSE, echo=TRUE}
+```{r 02-slice-the-population, warnings=FALSE, message=FALSE}
 # select the relevant columns
 London.Pop2011 <- London.Pop[,c(1:2,24)]
 ```
@@ -78,65 +78,105 @@ London.Pop2011 <- London.Pop[,c(1:2,24)]
 #### Questions {-}
 1. Do you remember what the `c()` function does?
 2. Why do we need to use the `c()` in this case?
+3. Instead of using the `[ , ]` [syntax](https://en.wikipedia.org/wiki/Syntax) to slice our data frame, how can we create the same `London.Pop2011` object by using the `$`?
 
 Now we can calculate our **measures of central tendency**.
 
-```{r 02-calculate-measures, warnings=FALSE, message=FALSE, }
+```{r 02-calculate-measures, warnings=FALSE, message=FALSE }
+# calculate the median of the 2011 population variable
+median(London.Pop2011$Persons.2011)
 
-We will use these to describe our assault incident data as well as other descriptive statistics, including standard deviation. 
-
-As you may notice, the summary of a categorical variable is in very fact the same as [frequency table](https://en.wikipedia.org/wiki/Frequency_distribution):
-
-```{r 02-frequency-table, warnings=FALSE, message=FALSE}
-# create a frequency table of a categorical variable
-freqtable <- table(input$WardType)
-
-# inspect
-freqtable
-```
-
-We can also get the proportion of each group using the frequency table as input:
-
-```{r 02-prop-frequency-table, warnings=FALSE, message=FALSE}
-# create a frequency table of a categorical variable
-proptable <- prop.table(freqtable)
-
-# inspect
-proptable
-```
-
-
-
-
-
-
-### Plotting data in R
-Tools to create high quality plots have become one of R's greatest assets. This is a relatively recent development since the software has traditionally been focused on the statistics rather than visualisation. The standard installation of R has base graphic functionality built in to produce very simple plots. For example we can plot the relationship between the London population in 1811 and 1911.
-
-```{r 02-quick-plot, warnings=FALSE, message=FALSE}
-# make a quick plot of two variables of the London population data set
-plot(London.Pop$Persons.1811,London.Pop$Persons.1911)
+# calculate the mean of the 2011 population variable
+mean(London.Pop2011$Persons.2011)
 ```
 
 #### Questions {-}
-1. What happens if you change the order of the variables you put in the `plot()` function? Why?
-2. Instead of using the `$` to select the columns of our dataset, how else can we get the same results?
+1. How do you explain that the median is larger than the mean for this variable?
 
-The result of calling the `plot()` function, is a very simple [scatter graph](https://en.wikipedia.org/wiki/Scatter_plot). The `plot()` function offers a huge number of options for customisation. You can see them using the `?plot` help pages and also the `?par` help pages (`par` in this case is short for parameters). There are some examples below (note how the parameters come after specifying the `x` and `y` columns).
-
-```{r 02-quick-plot-with-some-options, warnings=FALSE, message=FALSE}
-# add a title, change point colour, change point size
-plot(London.Pop$Persons.1811, London.Pop$Persons.1911, main='Quick Plot in R', col='blue', cex=2)
-```
-
-```{r 02-quick-plot-with-different-options, warnings=FALSE, message=FALSE}
-# add a title, change point colour, change point symbol
-plot(London.Pop$Persons.1811, London.Pop$Persons.1911, main="Another Quick Plot in R", col='magenta', pch=22)
-```
+R does not have a standard in-built function to calculate mode. So we create a user function to calculate mode of a data set in R. This function takes the vector as input and gives the mode value as output. 
 
 <div class="note">
-For more information on the plot parameters (some have obscure names) have a look here: http://www.statmethods.net/advgraphs/parameters.html
+You do not have to worry about creating your own functions, so just copy and paste the code below to create the `get_mode()` function.
 </div>
+
+```{r 02-create-a-mode-function, warnings=FALSE, message=FALSE }
+# create a function to calculate the mode
+get_mode <- function(x) {
+   uniqv <- unique(x)
+   uniqv[which.max(tabulate(match(x, uniqv)))]
+}
+
+# calculate the mode of the 2011 population variable
+get_mode(London.Pop2011$Persons.2011)
+```
+
+#### Questions {-}
+1. What is the level of measurement for our *Persons.2011* variable? Nominal, ordinal, or interval/ratio?
+2. Even though we went through all the trouble to create our own function to calculate the mode, do you think it is a good choice to calculate the mode for this variable? Why or why not?
+
+Although R does most of the hard work for us, especially with the `mean()` and the `median()` function, it is a good idea to once go through the calculations of these two central tendency measures ourselves. Let's start by step-by-step calculating the mean and then verify our results with the results of R's `mean()` function.
+
+```{r 02-verify-that-mean, warnings=FALSE, message=FALSE }
+# get the sum of all values
+Persons.2011.Sum <- sum(London.Pop2011$Persons.2011)
+
+# inspect the result
+Persons.2011.Sum
+
+# get the total number of observations
+Persons.2011.Obs <- length(London.Pop2011$Persons.2011)
+
+# inspect the result 
+Persons.2011.Obs
+
+# calculate the mean
+Persons.2011.Mean <- Persons.2011.Sum / Persons.2011.Obs
+
+# inspect the result
+Persons.2011.Mean
+
+# compare our result with R's built-in function
+mean(London.Pop2011$Persons.2011) == Persons.2011.Mean
+```
+
+Great. Our own calculation of the mean is identical to R's built-in function. Now let's do the same for the median.
+
+```{r 02-verify-that-median, warnings=FALSE, message=FALSE }
+# get the total number of observations
+Persons.2011.Obs <- length(London.Pop2011$Persons.2011)
+
+# inspect the result
+Persons.2011.Obs
+
+# order our data from lowest to highest
+Persons.2011.Ordered <- sort(London.Pop2011$Persons.2011, decreasing=FALSE)
+
+# tell R that we want to keep these new order and that it should forget the old order
+rownames(Persons.2011.Ordered) <- NULL
+
+# inspect the result
+Persons.2011.Ordered
+
+# get the number of the observation that contains the median value
+Persons.Median.Obs <- (Persons.2011.Obs + 1)/2
+
+# inspect te result
+Persons.Median.Obs
+
+# get the median
+Persons.2011.Median <- Persons.2011.Ordered[Persons.Median.Obs]
+
+# inspect the result
+Persons.2011.Median
+
+# compare our result with R's built-in function
+median(London.Pop2011$Persons.2011) == Persons.2011.Median
+```
+
+#### Questions {-}
+1. For the calculation of the median: what does the `decreasing=FALSE` parameter in the `sort()` function do? What happens if we change this to `decreasing=TRUE`? Does this affect the results for the calculation of the median? Why? Why not?
+2. When extracting the median: why are we using `[Persons.Median.Obs]` and not `[17]`? 
+3. When comparing our own calculation to R's built-in function we are using two 'equal to' signs `==`, what happens if we only use one 'equal to' `=` sign?
 
 ## Measures of dispersion
 
@@ -239,6 +279,36 @@ You should see you get the minimum (Min.) and maximum (Max.) values of the *assa
 # summarise a categorical variable
 summary(input$WardType)
 ```
+
+
+
+### Plotting data in R
+Tools to create high quality plots have become one of R's greatest assets. This is a relatively recent development since the software has traditionally been focused on the statistics rather than visualisation. The standard installation of R has base graphic functionality built in to produce very simple plots. For example we can plot the relationship between the London population in 1811 and 1911.
+
+```{r 02-quick-plot, warnings=FALSE, message=FALSE}
+# make a quick plot of two variables of the London population data set
+plot(London.Pop$Persons.1811,London.Pop$Persons.1911)
+```
+
+#### Questions {-}
+1. What happens if you change the order of the variables you put in the `plot()` function? Why?
+2. Instead of using the `$` to select the columns of our dataset, how else can we get the same results?
+
+The result of calling the `plot()` function, is a very simple [scatter graph](https://en.wikipedia.org/wiki/Scatter_plot). The `plot()` function offers a huge number of options for customisation. You can see them using the `?plot` help pages and also the `?par` help pages (`par` in this case is short for parameters). There are some examples below (note how the parameters come after specifying the `x` and `y` columns).
+
+```{r 02-quick-plot-with-some-options, warnings=FALSE, message=FALSE}
+# add a title, change point colour, change point size
+plot(London.Pop$Persons.1811, London.Pop$Persons.1911, main='Quick Plot in R', col='blue', cex=2)
+```
+
+```{r 02-quick-plot-with-different-options, warnings=FALSE, message=FALSE}
+# add a title, change point colour, change point symbol
+plot(London.Pop$Persons.1811, London.Pop$Persons.1911, main="Another Quick Plot in R", col='magenta', pch=22)
+```
+
+<div class="note">
+For more information on the plot parameters (some have obscure names) have a look here: http://www.statmethods.net/advgraphs/parameters.html
+</div>
 
 
 ## Seminar {#seminar-w02}
