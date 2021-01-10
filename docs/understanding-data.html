@@ -24,7 +24,7 @@
 <meta name="author" content="Justin van Dijk, Stephen Jivraj" />
 
 
-<meta name="date" content="2021-01-09" />
+<meta name="date" content="2021-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -185,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">1</span> Understanding data</h1>
 <div id="introduction" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Introduction</h2>
-<p>Welcome to your first week of <strong>Introduction to Quantitative Research Methods</strong>. This week we will focus on <strong>understanding data</strong>. We will also introduce you to some basic statistical terminology. Lastly, we will introduce you to the software tools that we will be using throughout the remainder of this course: R and RStudio.</p>
+<p>Welcome to your first week of <strong>Introduction to Quantitative Research Methods</strong>. This week we will focus on <strong>understanding data</strong>. We will also introduce you to some basic statistical terminology. Lastly, we will introduce you to the software tools that we will be using throughout this course: R and RStudio.</p>
 <div class="note">
 <p>Before you continue, make sure you have read through the details on the <a href="index.html">welcome page</a> of this handbook and have watched the course introduction video.</p>
 </div>
@@ -202,6 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="reading-list-w01" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Reading list</h3>
+<p>Please find the reading list for this week below. We strongly recommend that you read the <strong>core reading material</strong> before you continue with the rest of this week’s material.</p>
 <div id="core-reading" class="section level4 unnumbered">
 <h4>Core reading</h4>
 <ul>
@@ -217,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="qa-session" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> Q&amp;A session</h3>
-<p>This week there will be a live Q&amp;A session on <strong>Tuesday, January 12, 2020 @ 11h00 (GMT)</strong>. The session will be hosted on Zoom <a href="https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09">[Link]</a>. For security reasons, the meeting password for this Q&amp;A session can be found on <a href="https://moodle.ucl.ac.uk/course/view.php?id=6845">Moodle</a> on the <strong>main page</strong> (<em>POLS0008 - Q&amp;A - Tuesday 11:00 (JVD)</em>).</p>
+<p>This week there will be a live Q&amp;A session on <strong>Tuesday, January 12, 2020 @ 11h00 (GMT)</strong>. The session will be hosted on Zoom <a href="https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09">[Link]</a>. For security reasons, the meeting password for this Q&amp;A session can be found on <a href="https://moodle.ucl.ac.uk/course/view.php?id=6845">Moodle</a> on the <strong>main page</strong>: <em>POLS0008 - Q&amp;A - Tuesday 11:00 (JVD)</em>.</p>
 </div>
 </div>
 <div id="data-and-statistics" class="section level2" number="1.2">
@@ -244,14 +245,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.3</span> R for data analysis</h2>
 <p>Arguably the easiest way to start learning about data and statistics is by getting our hands dirty. So, before we will introduce you to some statistical terminology, we will have a look at one of the software tools with which we will be working this semester: <a href="https://www.r-project.org/">R</a>. R is a free software environment for statistical computing and graphics. It is extremely powerful and as such is now widely used for academic research as well as in the commercial sector. Ever wondered what tool is used to create those excellent <a href="https://ig.ft.com/coronavirus-global-data/">coronavirus visualisations in the Financial Times</a>?</p>
 <p>R’s great strength is that it is open-source, can be used on all major computer operating systems and is free for anyone to use. Because of this, it is has rapidly become one of the statistical languages of choice for many academics. Moreover, it has a large and active user community with people constantly contributing new packages to carry out all manner of statistical and graphical analysis.</p>
-<div id="video-r-for-data-analysis" class="section level4 unnumbered">
-<h4>Video: R for data analysis</h4>
-<p><div class="vembedr" align="left">
-<div>
-<iframe src="https://web.microsoftstream.com/embed/video/32c1a4c3-2b2f-4530-97d2-efdd0ee432c4?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
-</div>
-</div>
-<a href="https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/ETjqnywNlVFDtOtzGxZ7_XMBtkHS5MN8vypHp6_J3Eq2OQ?e=xfHWJ2">[Lecture slides]</a> <a href="https://web.microsoftstream.com/video/32c1a4c3-2b2f-4530-97d2-efdd0ee432c4">[Watch on MS stream]</a></p>
 <p>Unlike software programmes such as <a href="">Microsoft Excel</a> or <a href="https://www.ibm.com/uk-en/analytics/spss-statistics-software">SPSS</a>, within a coding environment the user has to type commands to get it to execute tasks such as loading in a dataset or performing a calculation. The biggest advantage of this approach is that you can build up a document, or script, that provides a record of what you have done, which in turn enables the straightforward repetition of tasks. Graphics can be easily modified and tweaked by making slight changes to the script or by scrolling through past commands and making quick edits. Unfortunately, command-line computing can also be off-putting at first. It is easy to make mistakes that are not always obvious to detect. Nevertheless, there are good reasons to stick with R. These include:</p>
 <ul>
 <li>It’s broadly intuitive with a strong focus on publishable-quality graphics.</li>
@@ -268,6 +261,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Creating basic and more complex plots in order to visualise the distributions values within a dataset.</li>
 </ol>
 <p>R has a steep learning curve, but the benefits of using it are well worth the effort. Take your time and think through every piece of code you type in. The best way to learn R is to take the basic code provided in tutorials and experiment with changing parameters - such as the colour of points in a graph - to really get ‘under the hood’ of the software. Take lots of notes as you go along and if you are getting really frustrated take a break!</p>
+<div id="video-r-for-data-analysis" class="section level4 unnumbered">
+<h4>Video: R for data analysis</h4>
+<p><div class="vembedr" align="left">
+<div>
+<iframe src="https://web.microsoftstream.com/embed/video/32c1a4c3-2b2f-4530-97d2-efdd0ee432c4?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
+</div>
+</div>
+<a href="https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/ETjqnywNlVFDtOtzGxZ7_XMBtkHS5MN8vypHp6_J3Eq2OQ?e=xfHWJ2">[Lecture slides]</a> <a href="https://web.microsoftstream.com/video/32c1a4c3-2b2f-4530-97d2-efdd0ee432c4">[Watch on MS stream]</a></p>
 </div>
 <div id="pols0008-forum" class="section level4 unnumbered">
 <h4>POLS0008 forum</h4>
@@ -355,7 +356,7 @@ Figure 1.1: The RStudio interface.
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="understanding-data.html#cb24-1" aria-hidden="true"></a><span class="kw">range</span>(friends_dob)</span></code></pre></div>
 <pre><code>## [1] 1967 1970</code></pre>
 <div class="note">
-<p>In next week’s material we will dive a little deeper into these statistical functions, for now we only want you to know how to execute a function and you do not have to worry just yet about what exactly is a <code>range</code>, <code>median</code>, or <code>mean</code>.</p>
+<p>In next week’s material we will dive a little deeper into these statistical functions, for now, however, we only want you to know how to execute a function. If at this stage you are not entirely sure on what what exactly is a <code>range</code>, <code>median</code>, or <code>mean</code> that is perfectly fine and you should not worry about it just yet.</p>
 </div>
 <p>All functions need a series of arguments to be passed to them in order to work. These arguments are typed within the brackets and typically comprise the name of the object (in the examples above its the <code>friends_dob</code>) that contains the data followed by some parameters. The exact parameters required are listed in the functions help files. To find the help file for the function type <code>?</code> followed by the function name, for example:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="understanding-data.html#cb26-1" aria-hidden="true"></a>?mean</span></code></pre></div>
@@ -365,7 +366,7 @@ Figure 1.1: The RStudio interface.
 </div>
 <p>The structure of the <code>friends_dob</code> object - essentially a group of numbers (<strong>integers</strong>!) - is known as a <strong>vector object</strong> in R. To build more complex objects that, for example, resemble a spreadsheet with multiple columns of data, it is possible to create a class of objects known as a <strong>data frame</strong>. This is probably the most commonly used class of object in R. We can create one here by combining two vectors.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="understanding-data.html#cb27-1" aria-hidden="true"></a>friends_characters &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Monica&#39;</span>,<span class="st">&#39;Ross&#39;</span>,<span class="st">&#39;Rachel&#39;</span>,<span class="st">&#39;Joey&#39;</span>,<span class="st">&#39;Chandler&#39;</span>,<span class="st">&#39;Phoebe&#39;</span>)</span>
-<span id="cb27-2"><a href="understanding-data.html#cb27-2" aria-hidden="true"></a>friends &lt;-<span class="st"> </span><span class="kw">data.frame</span>(friends_characters,friends_dob)</span></code></pre></div>
+<span id="cb27-2"><a href="understanding-data.html#cb27-2" aria-hidden="true"></a>friends &lt;-<span class="st"> </span><span class="kw">data.frame</span>(friends_characters, friends_dob)</span></code></pre></div>
 <p>If you type <code>print(friends)</code> you will see our newly created data frame that consists of the first vector object (date of birth) and the second vector objects (names of characters).</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="understanding-data.html#cb28-1" aria-hidden="true"></a><span class="kw">print</span>(friends)</span></code></pre></div>
 <pre><code>##   friends_characters friends_dob
@@ -381,7 +382,7 @@ Figure 1.1: The RStudio interface.
 <ol style="list-style-type: decimal">
 <li>R is case sensitive so you need to make sure that you capitalise everything correctly if required.</li>
 <li>The spaces between the words don’t matter but the positions of the commas and brackets do. Remember, if you find the prompt, <code>&gt;</code>, is replaced with a <code>+</code> it is because the command is incomplete. If necessary, hit the escape (esc) key and try again.</li>
-<li>It is important to come up with good names for your objects. In the case of the <code>friends_dob</code> object we used a underscore to separate the words. It is good practice to keep the object names as short as posssible so we could have gone for <code>FriendsDob</code> or <code>f_dob</code>. Be aware: you cannot start an object name with a number!</li>
+<li>It is important to come up with good names for your objects. In the case of the <code>friends_dob</code> object we used a underscore <code>_</code> to separate the words. It is good practice to keep the object names as short as posssible so we could have gone for <code>FriendsDob</code> or <code>f_dob</code>. Be aware: you cannot start an object name with a number!</li>
 <li>If you press the up arrow in the command line you will be able to edit the previous lines of code you inputted.</li>
 </ol>
 </div>
@@ -477,7 +478,10 @@ Figure 1.3: The RStudio interface with a new script.
 <span id="cb35-2"><a href="understanding-data.html#cb35-2" aria-hidden="true"></a><span class="co"># you may need to create the folder first if it doesn&#39;t exist</span></span>
 <span id="cb35-3"><a href="understanding-data.html#cb35-3" aria-hidden="true"></a><span class="kw">setwd</span>(<span class="st">&#39;~/POLS0008&#39;</span>) </span>
 <span id="cb35-4"><a href="understanding-data.html#cb35-4" aria-hidden="true"></a><span class="co"># note the single / (\\ will also work)</span></span></code></pre></div>
-<p>Once the working directory is setup it is then possible to load in a <code>csv</code> file. We are going to load a dataset that has been saved in the working directory we just set that shows London’s historic population for each of its Boroughs. You can download the <code>csv</code> file below.</p>
+<div class="note">
+<p>Please ensure that <strong>folder names</strong> and <strong>file names</strong> do not contain spaces or special characters such as <code>*</code> <code>.</code> <code>"</code> <code>/</code> <code>\</code> <code>[</code> <code>]</code> <code>:</code> <code>;</code> <code>|</code> <code>=</code> <code>,</code> <code>&lt;</code> <code>?</code> <code>&gt;</code> <code>&amp;</code> <code>$</code> <code>#</code> <code>!</code> <code>'</code> <code>{</code> <code>}</code> <code>(</code> <code>)</code>. Different operating systems and programming languages deal differently with spaces and special characters and as such including these in your folder names and file names can cause many problems and unexpected errors. As an alternative to using white space you can use an underscore <code>_</code> if you like.</p>
+</div>
+<p>Once the working directory is setup it is then possible to load in a <code>csv</code> file. We are going to load a dataset that has been saved in the working directory we just set that shows London’s historic population for each of its Boroughs. You can download the <code>csv</code> file below. The <code>csv</code> file is also available on <a href="https://moodle.ucl.ac.uk/course/view.php?id=6845">Moodle</a> in the <em>Datasets for practicals</em> folder.</p>
 </div>
 <div id="file-download" class="section level4 unnumbered">
 <h4>File download</h4>
@@ -541,7 +545,7 @@ Figure 1.3: The RStudio interface with a new script.
 ## 28       198916       244867       288283            1
 ##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 5 rows ]</code></pre>
 <div class="note">
-<p>Depending on the type of <code>object</code> the exact number of lines displayed through <code>head()</code> and <code>tail()</code> may differ. If you want to have precise control over the output and specify how many rows will be printed, you can do this by passing an <strong>integer</strong> as second argument to either of these functions. For instance, <code>head(London.Pop,n=10)</code> or <code>tail(London.Pop,n=10)</code>.</p>
+<p>Depending on the type of <code>object</code> the exact number of lines displayed through <code>head()</code> and <code>tail()</code> may differ. If you want to have precise control over the output and specify how many rows will be printed, you can do this by passing an <strong>integer</strong> as second argument to either of these functions. For instance, <code>head(London.Pop, n=10)</code> or <code>tail(London.Pop, n=10)</code>.</p>
 </div>
 <p>To learn a bit more about the file you have loaded, R has a number of useful functions. We can use these to find out how many columns (<strong>variables</strong>) and rows (<strong>cases</strong>) the data frame (<strong>dataset</strong>) contains.</p>
 <pre><code>## [1] 25</code></pre>
@@ -607,6 +611,10 @@ working directory.</li>
 </div>
 <div id="seminar-w01" class="section level2" number="1.6">
 <h2><span class="header-section-number">1.6</span> Seminar</h2>
+<p>Please find the seminar task and seminar questions for this week’s seminar below.</p>
+<div class="note">
+<p><strong>Please make sure that you have executed the seminar task and have answered the seminar questions before the seminar!</strong></p>
+</div>
 <div id="seminar-task" class="section level4 unnumbered">
 <h4>Seminar task</h4>
 <p>Create a <code>csv</code> file that contains the following columns:</p>
@@ -619,6 +627,7 @@ working directory.</li>
 </div>
 <div id="seminar-questions" class="section level4 unnumbered">
 <h4>Seminar questions</h4>
+<p>Answer the following questions:</p>
 <ol style="list-style-type: decimal">
 <li>Which Boroughs had the fastest growth during the 19th Century, and which had the slowest?</li>
 <li>You may have noticed that there is an additional column in the pop data frame called <code>Borough-Type</code>. This indicates if a Borough is in inner (1) or outer (2) London. Is this variable ordinal or nominal?</li>
@@ -626,7 +635,7 @@ working directory.</li>
 </div>
 <div id="seminar-link" class="section level4 unnumbered">
 <h4>Seminar link</h4>
-<p>Seminars for all groups take place on <strong>Thursday morning</strong>. You can find the <strong>Zoom</strong> link to your seminar group on <a href="https://moodle.ucl.ac.uk/course/view.php?id=6845">Moodle</a>.</p>
+<p>Seminars for all groups take place on <strong>Thursday morning</strong>. You can find the <strong>Zoom</strong> link to your seminar group on <a href="https://moodle.ucl.ac.uk/course/view.php?id=6845">Moodle</a> in the <em>Seminar links</em> folder.</p>
 </div>
 </div>
 <div id="byl-w01" class="section level2" number="1.7">
