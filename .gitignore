@@ -12,4 +12,5 @@ packrat/lib*/
 .Rproj.user
 docs
 docs/*
-
+_book
+_book/*

@@ -96,7 +96,7 @@ Some tips about how to get the best out of the forum:
 
 ## R console
 You can [download and install R](https://www.r-project.org/) on your laptop but for the purposes of this course we would like you to use the version hosted on the UCL servers so that everyone participating in the course has access to the same version of the software.
-Open a web browser and navigate to: https://rstudio.rc.ucl.ac.uk/
+Open a web browser and navigate to: https://rstudio.data-science.rc.ucl.ac.uk/
 Log in with your **usual UCL username and password**. You should see the RStudio interface appear. If it is the first time you log on to RStudio server you may only see the RStudio interface appear once you have clicked on the **start a new session** button.s
 
 <div class="note">
