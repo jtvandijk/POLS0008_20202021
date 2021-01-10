@@ -32,7 +32,7 @@ Please find the reading list for this week below. We strongly recommend that you
 ### Q&A session
 This week there will be **NO** live Q&A session.
 
-## Examining data
+## Measures of central tendency
 Any research project involving [quantitative data](https://en.wikipedia.org/wiki/Quantitative_research) should start with an exploration / examination of the available datasets. This applies both to data that you have collected yourself or data that you have acquired in a different way, e.g. through downloading official [UK Census and labour market statistics](https://www.nomisweb.co.uk/). The set of techniques that is used to examine your data is called [descriptive statistcs](https://en.wikipedia.org/wiki/Descriptive_statistics). Descriptive statistics are used to describe the basic features of your dataset and provide simple summaries about your data. Together with simple visual analysis, they form the basis of virtually **every** quantitative data analysis 
 
 #### Video: Descriptive statistics I {-}
@@ -62,7 +62,53 @@ London.Pop <- read.csv('census-historic-population-borough.csv')
 London.Pop <- read.csv('raw/census-historic-population-borough.csv')
 ```
 
-Use the `head()`, or `View()` command to remind yourself of the structure of the London population data frame. You should see **25** columns of data.
+Use the `head()`, or `View()`, function to remind yourself of the structure of the London population data frame. You should see **25** columns of data.
+
+#### Questions {-}
+1. What is the difference between using `head()` and `View()` to inspect your data?
+2. Can you combine the functions `View()` and `head()` to browse only through a few lines of your data?
+
+The `mean()`, `median()`, and `range()` were some of the first R functions we used at the last week to describe our `Friends` dataset. Now we know a little more about these **measures of central tendency**, we can apply them on our `London.Pop` data set. Let's do this by focusing on London's population in 2011.
+
+```{r 02-slice-the-population, warnings=FALSE, message=FALSE, echo=TRUE}
+# select the relevant columns
+London.Pop2011 <- London.Pop[,c(1:2,24)]
+```
+
+#### Questions {-}
+1. Do you remember what the `c()` function does?
+2. Why do we need to use the `c()` in this case?
+
+Now we can calculate our **measures of central tendency**.
+
+```{r 02-calculate-measures, warnings=FALSE, message=FALSE, }
+
+We will use these to describe our assault incident data as well as other descriptive statistics, including standard deviation. 
+
+As you may notice, the summary of a categorical variable is in very fact the same as [frequency table](https://en.wikipedia.org/wiki/Frequency_distribution):
+
+```{r 02-frequency-table, warnings=FALSE, message=FALSE}
+# create a frequency table of a categorical variable
+freqtable <- table(input$WardType)
+
+# inspect
+freqtable
+```
+
+We can also get the proportion of each group using the frequency table as input:
+
+```{r 02-prop-frequency-table, warnings=FALSE, message=FALSE}
+# create a frequency table of a categorical variable
+proptable <- prop.table(freqtable)
+
+# inspect
+proptable
+```
+
+
+
+
+
 
 ### Plotting data in R
 Tools to create high quality plots have become one of R's greatest assets. This is a relatively recent development since the software has traditionally been focused on the statistics rather than visualisation. The standard installation of R has base graphic functionality built in to produce very simple plots. For example we can plot the relationship between the London population in 1811 and 1911.
@@ -92,7 +138,7 @@ plot(London.Pop$Persons.1811, London.Pop$Persons.1911, main="Another Quick Plot 
 For more information on the plot parameters (some have obscure names) have a look here: http://www.statmethods.net/advgraphs/parameters.html
 </div>
 
-## Visualising data
+## Measures of dispersion
 
 #### Video: Descriptive Statistics II {-}
 ```{r 02-visualising-data, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -137,7 +183,31 @@ You will notice that the data table has 4 columns and 649 rows. The column headi
 - **WardType**: a classification that groups wards based on similar characteristics. 
 - **assault_09_11**: The number of assault incidents requiring an ambulance between 2009 and 2011 for each Ward.
 
-The `mean()`, `median()`, and `range()` were some of the first R functions we used at the last week to describe our `Friends` dataset. We will use these to describe our assault incident data as well as other descriptive statistics, including standard deviation. 
+
+As you may notice, the summary of a categorical variable is in very fact the same as [frequency table](https://en.wikipedia.org/wiki/Frequency_distribution):
+
+```{r 02-frequency-table, warnings=FALSE, message=FALSE}
+# create a frequency table of a categorical variable
+freqtable <- table(input$WardType)
+
+# inspect
+freqtable
+```
+
+We can also get the proportion of each group using the frequency table as input:
+
+```{r 02-prop-frequency-table, warnings=FALSE, message=FALSE}
+# create a frequency table of a categorical variable
+proptable <- prop.table(freqtable)
+
+# inspect
+proptable
+```
+
+
+
+
+
 
 ```{r 02-descriptive-statistics-ambulance, warnings=FALSE, message=FALSE}
 # calculate the mean of the assault incident variable
@@ -170,25 +240,6 @@ You should see you get the minimum (Min.) and maximum (Max.) values of the *assa
 summary(input$WardType)
 ```
 
-As you may notice, the summary of a categorical variable is in very fact the same as [frequency table](https://en.wikipedia.org/wiki/Frequency_distribution):
-
-```{r 02-frequency-table, warnings=FALSE, message=FALSE}
-# create a frequency table of a categorical variable
-freqtable <- table(input$WardType)
-
-# inspect
-freqtable
-```
-
-We can also get the proportion of each group using the frequency table as input:
-
-```{r 02-prop-frequency-table, warnings=FALSE, message=FALSE}
-# create a frequency table of a categorical variable
-proptable <- prop.table(freqtable)
-
-# inspect
-proptable
-```
 
 ## Seminar {#seminar-w02}
 
@@ -199,12 +250,6 @@ Please find the seminar task and seminar questions for this week's seminar below
 </div>
 
 #### Seminar task {-}
-Create a histogram plot of the ambulance assaults dataset:
-
-1. Use the `ggplot2` package.
-2. Instead of the `geom_point()` geom, use the `geom_histogram()` geom.
-3. Figure out how to change the labels of the *x-axis* and the *y-axis*.
-4. Save the plot as a `pdf`.
 
 #### Seminar questions {-}
 
