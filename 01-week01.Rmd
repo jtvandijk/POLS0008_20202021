@@ -350,7 +350,7 @@ Depending on the type of `object` the exact number of lines displayed through `h
 
 To learn a bit more about the file you have loaded, R has a number of useful functions. We can use these to find out how many columns (**variables**) and rows (**cases**) the data frame (**dataset**) contains.
 
-```{r 01-numbers-of-that-df, warnings=FALSE, message=FALSE,echo=FALSE}
+```{r 01-numbers-of-that-df, warnings=FALSE, message=FALSE}
 # get the number of columns
 ncol(London.Pop)
 
