@@ -1,5 +1,4 @@
 proj.user
-*.Rproj
 .Rhistory
 .RData
 _publish.R
@@ -13,4 +12,4 @@ packrat/lib*/
 _book
 _book/
 _book/*
-
+libs

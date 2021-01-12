@@ -30,10 +30,10 @@ Please find the reading list for this week below. We strongly recommend that you
 [[Link]](https://leanpub.com/openintro-statistics)
 
 ### Q&A session
-This week there will be **NO** live Q&A session. Please post any questions you have on the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137) or ask them to on of the tutors during your live seminar on Thursday.
+This week there is **NO** live Q&A session scheduled. Please post any questions you have on the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137) or ask them to one of the tutors during your live seminar on Thursday.
 
 ## Measures of central tendency
-Any research project involving [quantitative data](https://en.wikipedia.org/wiki/Quantitative_research) should start with an exploration / examination of the available datasets. This applies both to data that you have collected yourself or data that you have acquired in a different way, e.g. through downloading official [UK Census and labour market statistics](https://www.nomisweb.co.uk/). The set of techniques that is used to examine your data is called [descriptive statistics](https://en.wikipedia.org/wiki/Descriptive_statistics). Descriptive statistics are used to describe the basic features of your dataset and provide simple summaries about your data. Together with simple visual analysis, they form the basis of virtually **every** quantitative data analysis 
+Any research project involving [quantitative data](https://en.wikipedia.org/wiki/Quantitative_research) should start with an exploration / examination of the available datasets. This applies both to data that you have collected yourself and data that you have acquired in a different way, e.g. through downloading official [UK Census and labour market statistics](https://www.nomisweb.co.uk/). The set of techniques that is used to examine your data in first instance is called [descriptive statistics](https://en.wikipedia.org/wiki/Descriptive_statistics). Descriptive statistics are used to describe the basic features of your dataset and provide simple summaries about your data. Together with simple visual analysis, they form the basis of virtually **every** quantitative data analysis.
 
 #### Video: Descriptive statistics I {-}
 ```{r 02-descriptive-statistics, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -41,11 +41,12 @@ embed_msstream('a6169cec-43ad-4c3f-bda6-9cc8fc4575f5') %>% use_align('left')
 ```
 [[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/EdQtMgoDs4BPkvVXKqXPDjcBP1OllLAePoqYQM0JO0I8Yw?e=YvMuCS) [[Watch on MS stream]](https://web.microsoftstream.com/video/a6169cec-43ad-4c3f-bda6-9cc8fc4575f5)
 
-For this tutorial we will initially continue to use the `London.Pop` object that we created during last week's tutorial. You may still have it loaded into your R workspace. To check if you do you can use the `ls()` command. Type this into the command line and see if `London.Pop` is printed. If not you can simply reload it:
+For this tutorial we will initially continue to use the `London.Pop` object that we created during last week's tutorial. You may still have it loaded into your R workspace if your RSTudio Server session is still active. To check if you do, you can use the `ls()` command to get a list of all objects that are available in your RStudio session. Type this into the command line and see if `London.Pop` is printed. 
 
+If not you can simply reload it:
 ```{r 02-make-sure-working-dir-is-set, warnings=FALSE, message=FALSE, eval=FALSE}
 # set the working directory path to the folder you wish to use
-# you may need to create the folder first if it doesn't exist
+# this would be the folder that you created during last week's material
 setwd('~/POLS0008') 
 # note the single / (\\ will also work)
 ```
