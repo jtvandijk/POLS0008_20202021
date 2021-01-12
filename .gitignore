@@ -1,5 +1,4 @@
 proj.user
-*.Rproj
 .Rhistory
 .RData
 _publish.R
@@ -10,7 +9,7 @@ packrat/lib*/
 .DS_Store
 .Rproj.user/*
 .Rproj.user
-docs
-docs/*
 _book
+_book/
 _book/*
+libs
