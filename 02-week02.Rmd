@@ -106,7 +106,7 @@ get_mode <- function(x) {
   # get unique values of the input vector
   uniqv <- unique(x)
   
-  # select the values with the highest number of occurences
+  # select the values with the highest number of occurrences
   uniqv[which.max(tabulate(match(x, uniqv)))]
 }
 
@@ -161,7 +161,7 @@ Persons.2011.Ordered
 # get the number of the observation that contains the median value
 Persons.Median.Obs <- (Persons.2011.Obs + 1)/2
 
-# inspect te result
+# inspect the result
 Persons.Median.Obs
 
 # get the median
@@ -226,7 +226,7 @@ embed_msstream('8623cbd8-ab11-40f9-b987-f7e966db50db') %>% use_align('left')
 ```
 [[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/EQBtLckmEItBniy4Jh_toSEBJkOMZ5BKl5pid5BBvRNz0A?e=B01n4f) [[Watch on MS stream]](https://web.microsoftstream.com/video/8623cbd8-ab11-40f9-b987-f7e966db50db)
 
-For the rest of this tutorial we will change our data set to one containing the number of assault incidents that ambulances have been called to in London between 2009 and 2011. You will need to download a prepared version of this file called: `ambulance_assault.csv` and upload it to your working directory. It is in the same data format (`csv`) as our London population file so we use the `read.csv()` command again.
+For the rest of this tutorial we will change our data set to one containing the number of assault incidents that ambulances have been called to in London between 2009 and 2011. You will need to download a prepared version of this file called: `ambulance-assault.csv` and upload it to your working directory. It is in the same data format (`csv`) as our London population file so we use the `read.csv()` command again.
 
 #### File download {-}
 | File                                                 | Type           | Link |
@@ -235,22 +235,22 @@ For the rest of this tutorial we will change our data set to one containing the 
 
 ```{r 02-load-ambulance-csv, warnings=FALSE, message=FALSE, eval=FALSE}
 # load csv file from working directory
-input <- read.csv('ambulance-assault.csv')
+London.Ambulance <- read.csv('ambulance-assault.csv')
 ```
 
 ```{r 02-load-ambulance-csv-for-realz, warnings=FALSE, message=FALSE, echo=FALSE}
 # load csv file from working directory
-input <- read.csv('raw/ambulance-assault.csv')
+London.Ambulance <- read.csv('raw/ambulance-assault.csv')
 ```
 
 ```{r 02-check-ambulance-csv-for-realz, warnings=FALSE, message=FALSE}
 # inspect the results 
-head(input)
+head(London.Ambulance)
 ```
 
 ```{r 02-check-nrow-ambulance-csv-for-realz, warnings=FALSE, message=FALSE}
 # inspect the size of the data set
-nrow(input)
+nrow(London.Ambulance)
 ```
 
 You will notice that the data table has 4 columns and 649 rows. The column headings are abbreviations of the following:
@@ -267,10 +267,10 @@ Let's start by calculating two measures of central tendency by using the `median
 
 ```{r 02-descriptive-statistics-ambulance, warnings=FALSE, message=FALSE}
 # calculate the median of the assault incident variable
-median(input$Assault_09_11)
+median(London.Ambulance$Assault_09_11)
 
 # calculate the mean of the assault incident variable
-mean(input$Assault_09_11)
+mean(London.Ambulance$Assault_09_11)
 ```
 
 #### Questions {-}
@@ -280,16 +280,16 @@ Great. Let's now calculate some measures of dispersion for our data: the range, 
 
 ```{r 02-calculate-that-range, warnings=FALSE, message=FALSE}
 # get the minimum value of our data
-min(input$Assault_09_11)
+min(London.Ambulance$Assault_09_11)
 
 # get the maximum value of our data
-max(input$Assault_09_11)
+max(London.Ambulance$Assault_09_11)
 
 # calculate the range
 1582 - 0
 
 # or in one go
-max(input$Assault_09_11) - min(input$Assault_09_11)
+max(London.Ambulance$Assault_09_11) - min(London.Ambulance$Assault_09_11)
 ```
 
 #### Questions {-}
@@ -304,71 +304,112 @@ A percentile is a score at or below which a given percentage fall. For example, 
 
 ```{r 02-calculate-that-interquartile-range, warnings=FALSE, message=FALSE}
 # get the total number of observations
-Input.Obs <- length(input$Assault_09_11)
+London.Ambulance.Obs <- length(London.Ambulance$Assault_09_11)
 
 # inspect the result
-Input.Obs
+London.Ambulance.Obs
 
 # order our data from lowest to highest
-Input.Ordered <- sort(input$Assault_09_11, decreasing=FALSE)
+London.Ambulance.Ordered <- sort(London.Ambulance$Assault_09_11, decreasing=FALSE)
 
 # inspect the result
-Input.Ordered
+London.Ambulance.Ordered
 
 # get the number ('index value') of the observation that contains the 25th percentile
-Input.Q1 <- (Input.Obs + 1)/4
+London.Ambulance.Q1 <- (London.Ambulance.Obs + 1)/4
 
 # inspect the result
-Input.Q1
+London.Ambulance.Q1
 
 # get the number ('index value') of the observation that contains the 75th percentile
-Input.Q3 <- 3*(Input.Obs + 1)/4
+London.Ambulance.Q3 <- 3*(London.Ambulance.Obs + 1)/4
 
 # inspect the result
-Input.Q3
+London.Ambulance.Q3
 
 # get the 25th percentile
-Input.Ordered[163]
+London.Ambulance.Ordered[163]
 
 # get the 75the percentile
-Input.Ordered[488]
+London.Ambulance.Ordered[488]
 
 # get the interquartile range
 233 - 86
 ```
 
-As shown in the short video, we can also visually represent our range, median, and interquartile range using a box and whisker plot:
+As explained in the video, we can also visually represent our range, median, and interquartile range using a box and whisker plot:
 
-```{r 02-calculate-that-interquartile-range, warnings=FALSE, message=FALSE}
-# make a quick boxplot of our assualt incident variable
-boxplot(input$Assault_09_11, horizontal=TRUE)
+```{r 02-box-that-plot, warnings=FALSE, message=FALSE}
+# make a quick boxplot of our assault incident variable
+boxplot(London.Ambulance$Assault_09_11, horizontal=TRUE)
 ```
 
 #### Questions {-}
 1. There is a big difference between the range that we calculated and the interquartile range that we calculated. What does this mean?
 2. The 25th and 75th percentile do not return integer but a fraction. Why do we use 163 and 488 to extract our percentile values and not 162 and 487?
 
+Now, let's move to the standard deviation. Remember: this is one of the most important measures of dispersion and is widely used in all kinds of statistics. The calculation involves the following steps:
 
+1. Calculate the mean.
+2. Subtract the mean from each observation to get a residual.
+3. Square each residual.
+4. Sum all residuals.
+5. Divide by *n* - 1.
+6. Take the square root of the final number.
 
+```{r 02-it-is-deviating, warnings=FALSE, message=FALSE}
+# calculate the mean
+London.Ambulance.Mean <- mean(London.Ambulance$Assault_09_11)
 
+# subtract the mean from each observation
+London.Ambulance.Res <- London.Ambulance$Assault_09_11 - London.Ambulance.Mean
 
+# square each residual
+London.Ambulance.Res.Sq <- London.Ambulance.Res**2
 
-These are commonly used descriptive statistics. To make things even easier, R has a `summary()` function that calculates a number of these routine statistics simultaneously.
+# sum all squared residuals
+London.Ambulance.Res.Sum <- sum(London.Ambulance.Res.Sq)
+
+# divide 
+London.Ambulance.Variance <- London.Ambulance.Res.Sum / (length(London.Ambulance$Assault_09_11) - 1)
+
+# square root
+London.Ambulance.Sd <- sqrt(London.Ambulance.Variance)
+
+# standard deviation
+London.Ambulance.Sd
+```
+
+There we go. We got our standard deviation! You probably already saw this coming, but R does have some built-in functions to actually calculate these descriptive statistics for us: `range()`, `IQR()`, and `sd()` will do all the hard work for us!
+
+```{r 02-using-built-in-functions, warnings=FALSE, message=FALSE}
+# range
+range(London.Ambulance$Assault_09_11)
+
+# interquartile range
+IQR(London.Ambulance$Assault_09_11)
+
+# standard deviation
+sd(London.Ambulance$Assault_09_11)
+```
+
+#### Questions {-}
+1. What does it mean that we have a standard deviation of 130.3482?
+2. Given the context of the data, do you think this is a low or a high standard deviation?
+
+To make things even easier, R has a `summary()` function that calculates a number of these routine statistics simultaneously. You should see you get the minimum (Min.) and maximum (Max.) values of the *assault_09_11* column; its first (1st Qu.) and third (3rd Qu.) quartiles that comprise the interquartile range; its the mean and the median. The built-in R `summary()` function does not calculate the standard deviation. There are functions in other libraries that calculate more detailed descriptive statistics, 
 
 ```{r 02-descriptive-statistics-summary, warnings=FALSE, message=FALSE}
 # calculate the most common descriptive statistics for the assault incident variable
-summary(input$Assault_09_11)
+summary(London.Ambulance$Assault_09_11)
 ```
 
+#### Recap {-}
+In this section you have learnt how to:
 
-
-
-You should see you get the minimum (Min.) and maximum (Max.) values of the *assault_09_11* column; its first (1st Qu.) and third (3rd Qu.) quartiles that comprise the interquartile range; its the mean and the median. The built-in R `summary()` function does not calculate the standard deviation. There are functions in other libraries that calculate more detailed descriptive statistics, including `describe()` in the `psych` package, which we will use in the later tutorials. We can also use the `summary()` function to describe a categorical variable and it will list its levels:
-
-```{r 02-descriptive-statistics-categorical-variable, warnings=FALSE, message=FALSE}
-# summarise a categorical variable
-summary(input$WardType)
-```
+1. Calculate the range, interquartile range, and standard deviation in R.
+2. Create a simple boxplot using the `boxplot()` function.
+3. Quickly get common descriptive statistics using the `summary()` function.
 
 ## Seminar {#seminar-w02}
 
@@ -379,6 +420,19 @@ Please find the seminar task and seminar questions for this week's seminar below
 </div>
 
 #### Seminar task {-}
+Using the `London.Ambulance` object:
+
+1. Create a new object / data set that **only** contains data for ward type *Multicultural Metropolitan*. 
+2. Create a new object / data set that **only** contains data for ward type *Prospering Metropolitan*.
+
+<div class="note">
+Creating a new object from an existing object is called a **subset**. There are many ways of creating a subset, but one way of doing it is by using the following syntax: `London.Assault[London.Assault$WardType == 'Multicultural Metropolitan',]`.
+</div>
+
+For **both** new objects:
+
+1. Calculate the median, mean, range, interquartile range, and standard deviation for the *Assault_09_11* variable.
+2. Create a boxplot of the *Assault_09_11* variable.
 
 #### Seminar questions {-}
 
@@ -389,6 +443,7 @@ Please find the seminar task and seminar questions for this week's seminar below
 - Range
 - Interquartile Range
 - Standard Deviation
+2. Compare the results of the descriptive statistics you have calculated for your *Multicultural Metropolitan* object / data set with the results of the descriptive statistics you have calculated for you *Prospering Metropolitan* object / data set. What do these differences tell us? In which of these two ward types are the data more clustered? In which of these two ward types are the data more dispersed? 
 
 #### Seminar link {-}
 Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
