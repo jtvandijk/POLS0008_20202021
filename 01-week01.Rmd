@@ -433,7 +433,7 @@ Create a `csv` file that contains the following columns:
 #### Seminar questions {-}
 Answer the following questions:
 
-1. Which Boroughs had the fastest growth during the 19th Century, and which had the slowest?
+1. Which Boroughs had the fastest growth between 1911 and 1961, and which had the slowest?
 2. You may have noticed that there is an additional column in the pop data frame called `Borough-Type`. This indicates if a Borough is in inner (1) or outer (2) London. Is this variable ordinal or nominal?
 
 #### Seminar link {-}
