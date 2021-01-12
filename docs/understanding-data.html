@@ -24,7 +24,7 @@
 <meta name="author" content="Justin van Dijk, Stephen Jivraj" />
 
 
-<meta name="date" content="2021-01-10" />
+<meta name="date" content="2021-01-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -289,10 +289,10 @@ so having descriptive subjects helps. For example “<em>Boxplot does not have a
 <div id="r-console" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> R console</h2>
 <p>You can <a href="https://www.r-project.org/">download and install R</a> on your laptop but for the purposes of this course we would like you to use the version hosted on the UCL servers so that everyone participating in the course has access to the same version of the software.
-Open a web browser and navigate to: <a href="https://rstudio.rc.ucl.ac.uk/" class="uri">https://rstudio.rc.ucl.ac.uk/</a>
+Open a web browser and navigate to: <a href="https://rstudio.data-science.rc.ucl.ac.uk/" class="uri">https://rstudio.data-science.rc.ucl.ac.uk/</a>
 Log in with your <strong>usual UCL username and password</strong>. You should see the RStudio interface appear. If it is the first time you log on to RStudio server you may only see the RStudio interface appear once you have clicked on the <strong>start a new session</strong> button.s</p>
 <div class="note">
-<p><strong>Please note</strong>: RStudio server will only work with an <a href="https://www.ucl.ac.uk/isd/it-essentials-for-new-students/video-guides/getting-started-ucls-vpn">active VPN connection</a> that links your personal computer into UCL’s network. Students in mainland may want to use <a href="https://www.ucl.ac.uk/isd/services/get-connected/china-connect">UCL China Connect</a>. Students that use a Mac computer that is running on the latest version of MacOS (<a href="https://www.apple.com/uk/macos/big-sur/">MacOS Big Sur</a>), are advised to use <a href="https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere">Desktop@UCL</a> as the Cisco AnyConnect VPN application may not work.</p>
+<p><strong>Please note</strong>: RStudio server will only work with an <a href="https://www.ucl.ac.uk/isd/it-essentials-for-new-students/video-guides/getting-started-ucls-vpn">active VPN connection</a> that links your personal computer into UCL’s network. Students in mainland may want to use <a href="https://www.ucl.ac.uk/isd/services/get-connected/china-connect">UCL China Connect</a>. Students that use a Mac computer that is running on the latest version of MacOS (<a href="https://www.apple.com/uk/macos/big-sur/">MacOS Big Sur</a>), are advised to use <a href="https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere">Desktop@UCL</a> as the Cisco AnyConnect VPN application may not work. If you are completely unable to access the server (e.g. your browser displays a <em>This site can’t be reached</em> message), it means that your VPN connection is not working correctly. Please ensure that your VPN is working correctly or use <a href="https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere">Desktop@UCL Anywhere</a> instead.</p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:01-rstudio-interface"></span>
 <img src="images/week01/01_rstudio_interface.png" alt="The RStudio interface."  />
@@ -548,8 +548,14 @@ Figure 1.3: The RStudio interface with a new script.
 <p>Depending on the type of <code>object</code> the exact number of lines displayed through <code>head()</code> and <code>tail()</code> may differ. If you want to have precise control over the output and specify how many rows will be printed, you can do this by passing an <strong>integer</strong> as second argument to either of these functions. For instance, <code>head(London.Pop, n=10)</code> or <code>tail(London.Pop, n=10)</code>.</p>
 </div>
 <p>To learn a bit more about the file you have loaded, R has a number of useful functions. We can use these to find out how many columns (<strong>variables</strong>) and rows (<strong>cases</strong>) the data frame (<strong>dataset</strong>) contains.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="understanding-data.html#cb43-1" aria-hidden="true"></a><span class="co"># get the number of columns</span></span>
+<span id="cb43-2"><a href="understanding-data.html#cb43-2" aria-hidden="true"></a><span class="kw">ncol</span>(London.Pop)</span></code></pre></div>
 <pre><code>## [1] 25</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="understanding-data.html#cb45-1" aria-hidden="true"></a><span class="co"># get the number of rows</span></span>
+<span id="cb45-2"><a href="understanding-data.html#cb45-2" aria-hidden="true"></a><span class="kw">nrow</span>(London.Pop)</span></code></pre></div>
 <pre><code>## [1] 33</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="understanding-data.html#cb47-1" aria-hidden="true"></a><span class="co"># list the column headings</span></span>
+<span id="cb47-2"><a href="understanding-data.html#cb47-2" aria-hidden="true"></a><span class="kw">names</span>(London.Pop)</span></code></pre></div>
 <pre><code>##  [1] &quot;Area.Code&quot;    &quot;Area.Name&quot;    &quot;Persons.1801&quot; &quot;Persons.1811&quot;
 ##  [5] &quot;Persons.1821&quot; &quot;Persons.1831&quot; &quot;Persons.1841&quot; &quot;Persons.1851&quot;
 ##  [9] &quot;Persons.1861&quot; &quot;Persons.1871&quot; &quot;Persons.1881&quot; &quot;Persons.1891&quot;
@@ -558,11 +564,11 @@ Figure 1.3: The RStudio interface with a new script.
 ## [21] &quot;Persons.1981&quot; &quot;Persons.1991&quot; &quot;Persons.2001&quot; &quot;Persons.2011&quot;
 ## [25] &quot;Borough.Type&quot;</code></pre>
 <p>Given the number of columns in the pop data frame, subsetting by selecting on the columns of interest would make it easier to handle. In R there are two was of doing this. The first uses the <code>$</code> symbol to select columns by name and then create a new data frame object.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="understanding-data.html#cb46-1" aria-hidden="true"></a><span class="co"># select the columns containing the Borough names and the 2011 population</span></span>
-<span id="cb46-2"><a href="understanding-data.html#cb46-2" aria-hidden="true"></a>London.Pop<span class="fl">.2011</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(London.Pop<span class="op">$</span>Area.Name, London.Pop<span class="op">$</span>Persons<span class="fl">.2011</span>) </span>
-<span id="cb46-3"><a href="understanding-data.html#cb46-3" aria-hidden="true"></a></span>
-<span id="cb46-4"><a href="understanding-data.html#cb46-4" aria-hidden="true"></a><span class="co"># inspect the results</span></span>
-<span id="cb46-5"><a href="understanding-data.html#cb46-5" aria-hidden="true"></a><span class="kw">head</span>(London.Pop<span class="fl">.2011</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="understanding-data.html#cb49-1" aria-hidden="true"></a><span class="co"># select the columns containing the Borough names and the 2011 population</span></span>
+<span id="cb49-2"><a href="understanding-data.html#cb49-2" aria-hidden="true"></a>London.Pop<span class="fl">.2011</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(London.Pop<span class="op">$</span>Area.Name, London.Pop<span class="op">$</span>Persons<span class="fl">.2011</span>) </span>
+<span id="cb49-3"><a href="understanding-data.html#cb49-3" aria-hidden="true"></a></span>
+<span id="cb49-4"><a href="understanding-data.html#cb49-4" aria-hidden="true"></a><span class="co"># inspect the results</span></span>
+<span id="cb49-5"><a href="understanding-data.html#cb49-5" aria-hidden="true"></a><span class="kw">head</span>(London.Pop<span class="fl">.2011</span>)</span></code></pre></div>
 <pre><code>##   London.Pop.Area.Name London.Pop.Persons.2011
 ## 1       City of London                    7375
 ## 2 Barking and Dagenham                  185911
@@ -571,32 +577,32 @@ Figure 1.3: The RStudio interface with a new script.
 ## 5                Brent                  311215
 ## 6              Bromley                  309392</code></pre>
 <p>A second approach to selecting particular data is to use <code>[Row, Column]</code> and ‘slice’ the data frame. For instance:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="understanding-data.html#cb48-1" aria-hidden="true"></a><span class="co"># select the 1st row of the 2nd column</span></span>
-<span id="cb48-2"><a href="understanding-data.html#cb48-2" aria-hidden="true"></a>London.Pop[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="understanding-data.html#cb51-1" aria-hidden="true"></a><span class="co"># select the 1st row of the 2nd column</span></span>
+<span id="cb51-2"><a href="understanding-data.html#cb51-2" aria-hidden="true"></a>London.Pop[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] City of London
 ## 33 Levels: Barking and Dagenham Barnet Bexley Brent Bromley ... Westminster</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="understanding-data.html#cb50-1" aria-hidden="true"></a><span class="co"># select the first 5 rows of the 1st column</span></span>
-<span id="cb50-2"><a href="understanding-data.html#cb50-2" aria-hidden="true"></a>London.Pop[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="understanding-data.html#cb53-1" aria-hidden="true"></a><span class="co"># select the first 5 rows of the 1st column</span></span>
+<span id="cb53-2"><a href="understanding-data.html#cb53-2" aria-hidden="true"></a>London.Pop[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 00AA 00AB 00AC 00AD 00AE
 ## 33 Levels: 00AA 00AB 00AC 00AD 00AE 00AF 00AG 00AH 00AJ 00AK 00AL ... 00BK</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="understanding-data.html#cb52-1" aria-hidden="true"></a><span class="co"># select the first 5 rows of columns 8 to 11</span></span>
-<span id="cb52-2"><a href="understanding-data.html#cb52-2" aria-hidden="true"></a>London.Pop[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">8</span><span class="op">:</span><span class="dv">11</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="understanding-data.html#cb55-1" aria-hidden="true"></a><span class="co"># select the first 5 rows of columns 8 to 11</span></span>
+<span id="cb55-2"><a href="understanding-data.html#cb55-2" aria-hidden="true"></a>London.Pop[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">8</span><span class="op">:</span><span class="dv">11</span>]</span></code></pre></div>
 <pre><code>##   Persons.1851 Persons.1861 Persons.1871 Persons.1881
 ## 1       128000       112000        75000        51000
 ## 2         8000         8000        10000        13000
 ## 3        15000        20000        29000        41000
 ## 4        12000        15000        22000        29000
 ## 5         5000         6000        19000        31000</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="understanding-data.html#cb54-1" aria-hidden="true"></a><span class="co"># assign the previous selection to a new object</span></span>
-<span id="cb54-2"><a href="understanding-data.html#cb54-2" aria-hidden="true"></a>London.Subset &lt;-<span class="st"> </span>London.Pop[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">8</span><span class="op">:</span><span class="dv">11</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="understanding-data.html#cb57-1" aria-hidden="true"></a><span class="co"># assign the previous selection to a new object</span></span>
+<span id="cb57-2"><a href="understanding-data.html#cb57-2" aria-hidden="true"></a>London.Subset &lt;-<span class="st"> </span>London.Pop[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">8</span><span class="op">:</span><span class="dv">11</span>]</span></code></pre></div>
 <p>In the code snippet, note how the colon <code>:</code> is used to specify a range of values. We used the same technique to create the <code>Some.Data</code> object above. The ability to select particular columns means we can see how the population of London’s Boroughs have changed over the past century by subtracting two columns from one another.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="understanding-data.html#cb55-1" aria-hidden="true"></a><span class="co"># within the brackets you can add additional columns to the data frame </span></span>
-<span id="cb55-2"><a href="understanding-data.html#cb55-2" aria-hidden="true"></a><span class="co"># as long as their separated by commas</span></span>
-<span id="cb55-3"><a href="understanding-data.html#cb55-3" aria-hidden="true"></a>Pop.Change &lt;-<span class="st"> </span><span class="kw">data.frame</span>(London.Pop<span class="op">$</span>Area.Name, London.Pop<span class="op">$</span>Persons<span class="fl">.2011</span> <span class="op">-</span><span class="st"> </span>London.Pop<span class="op">$</span>Persons<span class="fl">.1911</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="understanding-data.html#cb58-1" aria-hidden="true"></a><span class="co"># within the brackets you can add additional columns to the data frame </span></span>
+<span id="cb58-2"><a href="understanding-data.html#cb58-2" aria-hidden="true"></a><span class="co"># as long as their separated by commas</span></span>
+<span id="cb58-3"><a href="understanding-data.html#cb58-3" aria-hidden="true"></a>Pop.Change &lt;-<span class="st"> </span><span class="kw">data.frame</span>(London.Pop<span class="op">$</span>Area.Name, London.Pop<span class="op">$</span>Persons<span class="fl">.2011</span> <span class="op">-</span><span class="st"> </span>London.Pop<span class="op">$</span>Persons<span class="fl">.1911</span>)</span></code></pre></div>
 <p>If you type <code>head(PopChange)</code> you will see that the population change column (created to the right of the comma above) has a very long name. This can be changed using the <code>names()</code> command in the same way as we did this for our <code>Some.Data</code> object.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="understanding-data.html#cb56-1" aria-hidden="true"></a><span class="kw">names</span>(Pop.Change) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Borough&#39;</span>, <span class="st">&#39;Change_1911_2011&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="understanding-data.html#cb59-1" aria-hidden="true"></a><span class="kw">names</span>(Pop.Change) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Borough&#39;</span>, <span class="st">&#39;Change_1911_2011&#39;</span>)</span></code></pre></div>
 <p>Since we have done some new analysis and created additional information it would be good to save the <code>PopChange</code> object to our working directory as a new <code>csv</code> file. This is done using the code below. Within the brackets we put the name of the R object we wish to save on the left of the comma and the file name on the right of the comma (this needs to be in inverted commas). Remember to put <code>.csv</code> after since this is the file format we are saving in.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="understanding-data.html#cb57-1" aria-hidden="true"></a><span class="kw">write.csv</span>(Pop.Change, <span class="st">&#39;Population_Change_1911_2011.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="understanding-data.html#cb60-1" aria-hidden="true"></a><span class="kw">write.csv</span>(Pop.Change, <span class="st">&#39;Population_Change_1911_2011.csv&#39;</span>)</span></code></pre></div>
 </div>
 <div id="recap-1" class="section level4 unnumbered">
 <h4>Recap</h4>
