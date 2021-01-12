@@ -57,7 +57,7 @@ Arguably the easiest way to start learning about data and statistics is by getti
 
 R’s great strength is that it is open-source, can be used on all major computer operating systems and is free for anyone to use. Because of this, it is has rapidly become one of the statistical languages of choice for many academics. Moreover, it has a large and active user community with people constantly contributing new packages to carry out all manner of statistical and graphical analysis. 
 
-Unlike software programmes such as [Microsoft Excel]() or [SPSS](https://www.ibm.com/uk-en/analytics/spss-statistics-software), within a coding environment the user has to type commands to get it to execute tasks such as loading in a dataset or performing a calculation. The biggest advantage of this approach is that you can build up a document, or script, that provides a record of what you have done, which in turn enables the straightforward repetition of tasks. Graphics can be easily modified and tweaked by making slight changes to the script or by scrolling through past commands and making quick edits. Unfortunately, command-line computing can also be off-putting at first. It is easy to make mistakes that are not always obvious to detect. Nevertheless, there are good reasons to stick with R. These include:
+Unlike software programmes such as [Microsoft Excel]() or [SPSS](https://www.ibm.com/uk-en/analytics/spss-statistics-software), within a coding environment the user has to type commands to get it to execute tasks such as loading in a data set or performing a calculation. The biggest advantage of this approach is that you can build up a document, or script, that provides a record of what you have done, which in turn enables the straightforward repetition of tasks. Graphics can be easily modified and tweaked by making slight changes to the script or by scrolling through past commands and making quick edits. Unfortunately, command-line computing can also be off-putting at first. It is easy to make mistakes that are not always obvious to detect. Nevertheless, there are good reasons to stick with R. These include:
 
 - It's broadly intuitive with a strong focus on publishable-quality graphics.
 - It’s 'intelligent' and offers in-built good practice – it tends to stick to statistical conventions and present data in sensible ways.
@@ -70,7 +70,7 @@ The intention of the practical elements of this week is to provide a thorough in
 1. The basic programming principles behind R.
 2. Loading in data from `csv` files and subsetting it into smaller chunks.
 3. Calculating a number of statistics for data exploration and checking.
-4. Creating basic and more complex plots in order to visualise the distributions values within a dataset.
+4. Creating basic and more complex plots in order to visualise the distributions values within a data set.
 
 R has a steep learning curve, but the benefits of using it are well worth the effort. Take your time and think through every piece of code you type in. The best way to learn R is to take the basic code provided in tutorials and experiment with changing parameters - such as the colour of points in a graph - to really get 'under the hood' of the software. Take lots of notes as you go along and if you are getting really frustrated take a break!
 
@@ -309,7 +309,7 @@ setwd('~/POLS0008')
 Please ensure that **folder names** and **file names** do not contain spaces or special characters such as `*` `.` `"` `/` `\` `[` `]` `:` `;` `|` `=` `,` `<` `?` `>` `&` `$` `#` `!` `'` `{` `}` `(` `)`. Different operating systems and programming languages deal differently with spaces and special characters and as such including these in your folder names and file names can cause many problems and unexpected errors. As an alternative to using white space you can use an underscore `_` if you like.
 </div>
 
-Once the working directory is setup it is then possible to load in a `csv` file. We are going to load a dataset that has been saved in the working directory we just set that shows London's historic population for each of its Boroughs. You can download the `csv` file below. The `csv` file is also available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) in the *Datasets for practicals* folder.
+Once the working directory is setup it is then possible to load in a `csv` file. We are going to load a data set that has been saved in the working directory we just set that shows London's historic population for each of its Boroughs. You can download the `csv` file below. The `csv` file is also available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) in the *data sets for practicals* folder.
 
 #### File download {-}
 | File                                                 | Type           | Link |
@@ -334,7 +334,7 @@ To view the object type:s
 print(London.Pop)
 ```
 
-Or if you only want to see the top 10 or bottom 10 rows you can use the `head()` and `tail()` functions. These are particularly useful if you have large datasets!
+Or if you only want to see the top 10 or bottom 10 rows you can use the `head()` and `tail()` functions. These are particularly useful if you have large data sets!
 
 ```{r 01-head-to tail, warnings=FALSE, message=FALSE}
 # view first 10 rows
@@ -348,7 +348,7 @@ tail(London.Pop)
 Depending on the type of `object` the exact number of lines displayed through `head()` and `tail()` may differ. If you want to have precise control over the output and specify how many rows will be printed, you can do this by passing an **integer** as second argument to either of these functions. For instance, `head(London.Pop, n=10)` or `tail(London.Pop, n=10)`.
 </div>
 
-To learn a bit more about the file you have loaded, R has a number of useful functions. We can use these to find out how many columns (**variables**) and rows (**cases**) the data frame (**dataset**) contains.
+To learn a bit more about the file you have loaded, R has a number of useful functions. We can use these to find out how many columns (**variables**) and rows (**cases**) the data frame (**data set**) contains.
 
 ```{r 01-numbers-of-that-df, warnings=FALSE, message=FALSE}
 # get the number of columns
