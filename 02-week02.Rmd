@@ -354,7 +354,7 @@ Now, let's move to the standard deviation. Remember: this is one of the most imp
 2. Subtract the mean from each observation to get a residual.
 3. Square each residual.
 4. Sum all residuals.
-5. Divide by *n* - 1.
+5. Divide by $n-1$.
 6. Take the square root of the final number.
 
 ```{r 02-it-is-deviating, warnings=FALSE, message=FALSE}
