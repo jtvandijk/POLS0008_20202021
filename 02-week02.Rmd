@@ -1,6 +1,6 @@
 # Examining data I
 
-## Introduction
+## Introduction {#introduction-w02}
 Welcome to your second week of **Introduction to Quantitative Research Methods**. This week we will focus on **examining data** using measures of central tendency and measures of dispersion. These measures are collectively known as **descriptive statistics**. We will also talk about some basic data visualisation. Also, as by now everyone should be up and running with R, we will apply some of these descriptive measures onto some data. [Nice](https://www.youtube.com/watch?v=LBduNcf1eQc)!
 
 This week is structured by **3** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in preparation for Thursday's seminar.

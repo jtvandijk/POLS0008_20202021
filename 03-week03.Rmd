@@ -1,4 +1,341 @@
 # Examining data II
 
-<center>**This week’s content will be made available by 25/02.**</center>
+## Introduction {#introduction-w03}
+Welcome to your third week of **Introduction to Quantitative Research Methods**. This week we will focus again on **examining data**, however, this time we will focus on data visualisation. For the tutorial we will use both data sets that we used over the passed two weeks.
 
+This week is structured by **4** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in preparation for Thursday's seminar.
+
+#### Video: Introduction W03 {-}
+```{r 03-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('') %>% use_align('left')
+```
+[Lecture slides] [[Watch on MS stream]]()
+
+```{r 03-settings, warnings=FALSE, message=FALSE, echo=FALSE}
+# settings
+options(max.print=30)
+```
+
+### Reading list {#reading-list-w03}
+Please find the reading list for this week below. We strongly recommend that you read the **core reading material** before you continue with the rest of this week's material.
+
+#### Core reading {-}
+- Lane *et al.*, 2003, **Chapter 3: Graphing Distributions**. In: Lane *et al.*, 2003, Introduction to Statistics. Houston, Texas:  Rice University.
+[[Link]](http://onlinestatbook.com/Online_Statistics_Education.pdf)
+
+### Q&A session
+This week there will be a live Q&A session on **Tuesday, January 26, 2020 @ 11h00 (GMT)**. The session will be hosted on Zoom [[Link]](	https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09). For security reasons, the meeting password for this Q&A session can be found on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) on the **main page** (*POLS0008 - Q&A - Tuesday 11:00 (JVD)*).
+
+## Data visualisation
+
+Why data visualisation
+Important for data examination
+
+#### Video: Data visualisation {-}
+```{r 03-data-visualisation, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]]() [[Watch on MS stream]]()
+
+For this tutorial we start by using the `London.Pop` object again that we created during our tutorial in Week 01 and that we also briefly used last week. You may still have it loaded into your R workspace if your RStudio Server session is still active. To check if you do, you can use the `ls()` command to get a list of all objects that are available in your RStudio session. Type this into the command line and see if `London.Pop` is printed. 
+
+If not you can simply reload it:
+```{r 03-make-sure-working-dir-is-set, warnings=FALSE, message=FALSE, eval=FALSE}
+# set the working directory path to the folder you wish to use
+# this would be the folder that you created during last week's practical
+setwd('~/POLS0008') 
+# note the single / (\\ will also work)
+```
+
+If you struggle with setting up your working directory and you need a reminder, [have a look at how we set this up in our first week](understanding-data.html#working-directory)!
+
+```{r 03-load-csv, warnings=FALSE, message=FALSE, eval=FALSE}
+# load csv file from working directory
+London.Pop <- read.csv('census-historic-population-borough.csv')
+```
+
+```{r 03-load-csv-for-realz, warnings=FALSE, message=FALSE, echo=FALSE}
+# load csv file from working directory
+London.Pop <- read.csv('raw/census-historic-population-borough.csv')
+```
+
+scatter plot
+frequency distribution plot
+cumulative frequency distribution plot
+histogram
+box plot
+
+## ggplot2
+There are many hundreds of packages in R each designed for a specific purpose. Besides the functionality by the basic R installation, there are other packages that you can use to create plots in R. One of those packages is called `ggplot2`. The `ggplot2` package is an implementation of the Grammar of Graphics ([Wilkinson 2005](https://en.wikipedia.org/wiki/Leland_Wilkinson)) - a general scheme for data visualisation that breaks up graphs into semantic components such as scales and layers. `ggplot2` can serve as a replacement for the base graphics in R and contains a number of default options that match good visualisation practice. You provide the data, tell `ggplot2` how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
+
+#### Video: ggplot2 {-}
+```{r 03-ggplot2, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]]() [[Watch on MS stream]]()
+
+As there are many hundres of R packages, these hese are not installed automatically. This means that every additional package we want to use needs to be downloaded and then we need to load it into R in order to use it. To download and install the `ggplot2` package type the following:
+
+```{r 03-install-ggplot2, warnings=FALSE, message=FALSE, eval=FALSE}
+# install package
+install.packages('ggplot2')
+```
+
+<div class="note">
+If you are running RStudio on your own computer: when you hit 'enter' you could be asked to select a [mirror](https://en.wikipedia.org/wiki/Mirror_site) to download the package contents from. It does not really matter which one you choose, but we would suggest you pick the mirror that is geographically closest to you.
+</div>
+
+The `install.packages()` step only needs to be performed once. You do not need to install a the package every time you want to use it. However, each time you open R, or start a **new** R session in RStudio Server, and wish to use a package you need to use the `library()` command to tell R that it will be required.
+
+```{r 01-rstudio-install, echo=FALSE, fig.align='center', fig.cap='Installing the ggplot2 package.'}
+knitr::include_graphics('images/week01/01_install_package.png')
+```
+
+```{r 03-load-ggplot2, warnings=FALSE, message=FALSE}
+# load ggplot2 package
+library(ggplot2)
+```
+
+#### Video: Installing packages in R {-}
+```{r 03-package-installation, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('') %>% use_align('left')
+```
+[Lecture slides] [[Watch on MS stream]]()
+
+Now we installed `ggplot2` and loaded it into our R session, we can start by trying to make a basic plot using the `ggplot2` package ourselves.
+
+<div class="note">
+Whilst the instructions are step by step, you are strongly encouraged to deviate from them, for instance, by trying different colours, to get a better understanding of what we are doing. For further help, `ggplot2` is one of the best documented packages in R and [large volumes of documentation](https://ggplot2.tidyverse.org/) are available. If you want to explore `ggplot2` further, we would recommend taking a look at the [ggplot2 tutorial for beautiful plotting in R](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) by by Cédric Scherer.
+</div>
+
+```{r 03-create-that-ggplot2-object, warnings=FALSE, message=FALSE}
+# create a ggplot2 object named 'p'
+p <- ggplot(data=London.Pop, aes(Persons.1811, Persons.1911))
+```
+
+What you have just done is set up a `ggplot` object where you tell where you want the input data to come from – in this case it is our `London.Pop` object. The column headings within the `aes()` brackets refer to the parts of that data frame you wish to use (the variables *Persons.1811* and *Persons.1911*). aes is short for **aesthetics that vary** – this is a complicated way of saying the data variables used in the plot. Let's have a look at this object.
+
+```{r 03-plot-that-empty-ggplot2-object}
+# plot
+p
+```
+
+As you can see, if you inspect the object `p` that we just created you will get an empty canvas. The reason for this is that you have not told `ggplot` what you want to do with the data. We do this by adding so-called **geoms**, geometries. Let's try to createa a scatter plot. We can do this by using the geom `geom_point()`:
+
+```{r 03-add-a-geom-object, warnings=FALSE, message=FALSE}
+# add our geom to our 'p' object
+p <- p + geom_point()
+
+# plot
+p
+```
+
+You can already see that this plot is looking a bit nicer than the one we created with the base `plot()` function used above. Within the `geom_point()` brackets you can alter the appearance of the points in the plot. 
+
+#### Questions {-}
+1. Try to change the colour and size of the points in your scatterplot by specifying the `colour` and `size` parameter, for instance, `p + geom_point(colour='red', size=2)`.
+2. What other parameters can you pass to the `geom_point()` function? Use `?ggplot2::geom_point` to see the options.
+
+Rather than colouring your points by one colour, you can also colour the points according to another variable. You can do this by adding the desired variable into the `aes()` section after `geom_point()`. Here we will do this to indicate the size of the population in 2011 as well as the relationship between the size of the population in 19811 and 1911.
+
+```{r 03-add-a-geom-object-with-some-more-aes, warnings=FALSE, message=FALSE}
+# add some more aesthetics that vary
+p + geom_point(aes(colour = Persons.2011), size = 2)
+```
+
+You will notice that `ggplot` has also created a key that shows the values associated with each colour. In this slightly contrived example it is also possible to resize each of the points according to the `Persons.2011` variable.
+
+```{r 03-add-a-geom-object-with-some-other-aes, warnings=FALSE, message=FALSE}
+# add some more aesthetics that vary
+p + geom_point(aes(size = Persons.2011))
+```
+
+The real power of `ggplot2` lies in its ability to build a plot up as a series of layers. This is done by stringing plot functions (geoms) together with the `+` sign. For instance, we can add a text layer to the plot using `geom_text()`. 
+
+<div class="note">
+This idea of layers (or geoms) is quite different from the standard plot functions in R, but you will find that each of the functions does a lot of clever stuff to make plotting much easier (see the `ggplot2` documentation for a full list). 
+</div>
+
+```{r 03-full-ggplot, warnings=FALSE, message=FALSE}
+# add a geom_text to the plot
+p + geom_point(aes(size = Persons.2011)) +
+    geom_text(size = 2, colour='red', aes(label = Area.Name))
+```
+
+The above code adds London Borough labels to the plot over the points they correspond to. This is not perfect since many of the labels overlap but they serve as a useful illustration of the layers. To make things a little easier the plot can be saved as a `pdf` using the `ggsave()` command. When saving the plot can be enlarged to help make the labels more legible. 
+
+```{r 03-save-the-plot, warnings=FALSE, message=FALSE, eval=FALSE}
+# save the plot
+ggsave('first_ggplot.pdf', scale=2)
+```
+
+#### Questions {-}
+1. Where does your plot get saved? Why?
+
+Please note that `ggsave()` only works with plots that were created with `ggplot`. Within the brackets you specify the file name for the plot, but as you can see in the example you also include the file format: in this case `.pdf`, but you could also save the plot as a `.jpg` file. The scale controls how many times bigger you want the exported plot to be than it currently is in the plot window. 
+
+`ggplot2` is not limited to scatterplots and we can also create more advanced plots such as histograms and box and whisker plots. Let's first switch our data set to the one containing the number of assault incidents that ambulances have been called to in London between 2009 and 2011. As you will already have uploaded this `ambulance-assault.csv` file to your working directory [last week](examining-data-i.html#measures-of-dispersion), we can simply reload the file if it is not still loaded into your R workspace.
+
+```{r 03-load-ambulance-csv, warnings=FALSE, message=FALSE, eval=FALSE}
+# load csv file from working directory
+London.Ambulance <- read.csv('ambulance-assault.csv')
+```
+
+```{r 03-load-ambulance-csv-for-realz, warnings=FALSE, message=FALSE, echo=FALSE}
+# load csv file from working directory
+London.Ambulance <- read.csv('raw/ambulance-assault.csv')
+```
+
+Histograms provide a nice way of graphically summarising a dataset, so let's start by making a [histogram](https://en.wikipedia.org/wiki/Histogram) for our assault incident variable. 
+
+```{r 03-quick-plot, warnings=FALSE, message=FALSE}
+# create a ggplot2 object named 'p'
+p <- ggplot(London.Ambulance, aes(x=Assault_09_11))
+
+# inspect
+p
+```
+
+#### Questions {-}
+1. Remember why printing/plotting the `p` object currently results in an empty canvas?
+
+The `ggplot(London.Ambulance, aes(x=Assault_09_11))` section means "create a generic plot object (called `p`) from the input object using the *Assault_09_11* column as the data for the x axis". Remember the data variables are required as aesthetics parameters so the *Assault_09_11* appears in the `aes()` brackets. To create the histogram you need to add the relevant `ggplot2` command (geom).
+
+```{r 03-quick-histogram, warnings=TRUE, message=TRUE}
+# add geom to our 'p' object
+p + geom_histogram()
+```
+
+The height of each bar (the x-axis) shows the count of the datapoints and the width of each bar is the value range of datapoints included. If you want the bars to be thinner (to represent a narrower range of values and capture some more of the variation in the distribution) you can adjust the binwidth. Binwidth controls the size of 'bins' that the data are split up into. We will discuss this in more detail later in the course, but put simply, the bigger the bin (larger binwidth) the more data it can hold. Try: 
+
+```{r 03-adjusted-histogram, warnings=TRUE, message=TRUE}
+# add geom to our 'p' object, adjust the bindwidth settings
+p + geom_histogram(binwidth=10)
+```
+
+This plot has provided a good impression of the overall distribution, but it would be interesting to see characteristics of the data within each of the Boroughs. We can do this since each Borough in the `London.Ambulance` object is made up of multiple wards. To see what we mean, we can select all the wards that fall within the Borough of Camden, which has the code `00AG` (if you want to see what each Borough the code corresponds to, and learn a little more about the statistical geography of England and Wales, then [do have a look here](http://en.wikipedia.org/wiki/ONS_coding_system).
+
+```{r 03-filter-to-camden, warnings=TRUE, message=TRUE}
+# filter the data set
+camden <- London.Ambulance[London.Ambulance$BorCode=='00AG',]
+```
+
+The crucial part of the code snippet above is what's included in the square brackets `[ ]`. We are subsetting the `London.Ambulance` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *Bor_Code* column that contain `00AG`. `00AG` is a text string so it needs to go in speech marks `''` (or `""`) and we need to use two equals signs `==` in R to mean "equals to". A single equals sign `=` is another way of assigning objects. Although `=` works the same way as `<-`, it is much less widely used for this purpose because it is also used when parameterising functions. Let's quickly compare our original `London.Pop` object with our newly created `camden` object:
+
+```{r 03-inspec-those-filtered-results, warnings=TRUE, message=TRUE}
+# inspect the ambulance assault incident data set
+nrow(London.Pop)
+
+# inspect the ambulance assault incident data set for Camden
+nrow(camden)
+
+# inspect the ambulance assault incident data set for Camden
+head(camden)
+```
+
+So to produce a histogram for Camden, the code above needs to be replicated using the `camden` object in the place of `London.Pop`:
+
+```{r 03-histogram-camden, warnings=TRUE, message=TRUE}
+# create a ggplot2 object named 'p.camden'
+p.camden <- ggplot(camden, aes(x=Assault_09_11))
+
+# add geom to our 'p.camden' object
+p.camden + geom_histogram()  
+
+# plot pretty(ish) -->
+p.camden + geom_histogram() +
+           ggtitle('Assault incidents in Camden')
+```
+
+As you can see this histogram looks a little different than the histogram for the entire data set did. This is largely because we have relatively few rows of data in the `camden` object (as we saw when using `nrow(camden)`). Nevertheless it would be interesting to see the data distributions for each of the London Boroughs. It is a chance to use the `facet_wrap()` function in R. This brilliant function lets you create a whole load of graphs at once!
+
+```{r 03-wrap-wrap-wrap, warnings=TRUE, message=TRUE,cache=TRUE}
+# note that we are back to using the `p` object since we need all our data for this
+# this code may generate a large number of warning messages relating to the plot binwidth, don't worry about them
+p + geom_histogram() +
+    facet_wrap(~BorCode)
+```
+
+Yes. It is that easy. Let's try using `facet_wrap()` to plot according to Ward type:
+
+```{r 03-wrap-wrap-wrap-ward, warnings=TRUE, message=TRUE, cache=TRUE}
+# note that we are back to using the `p` object since we need all our data for this
+# this code may generate a large number of warning messages relating to the plot binwidth, don't worry about them
+p + geom_histogram() +
+    facet_wrap(~WardType)
+```
+
+#### Questions {-}
+1. What are the key differences in the distributions between the different types of our `facet_wrap()` plots?
+
+The `facet_wrap()` part of the code simply needs the name of the column you would like to use to subset the data into individual plots. Before the column name a tilde `~` is used as shorthand for "by" - so using the function we are asking R to facet the input object into lots of smaller plots based on the *BorCode* column in the first example and *WardType* in the second. 
+
+#### Questions {-}
+1. Use the `facet_wrap()` help file to learn how to create the same plot but with the graphs arranged into 4 columns. Which parameters need to be specified?
+
+In addition to histograms, another type of plot that, as we know, shows the core characteristics of the distribution of values within a data set is a box and whisker plot. These too can be easily produced using the `ggplot2` package:
+
+```{r 03-boxplot, warnings=TRUE, message=TRUE, cache=TRUE}
+# note that the `Assault_09_11` column is now y and not x
+# we also specified x = 1 to align the plot to the x-axis (any single number would work)
+p.boxplot <- ggplot(London.Ambulance, aes(x=1, y=Assault_09_11))
+
+# add the boxplot geom
+p.boxplot + geom_boxplot()
+```
+
+If we are just interested in Camden then we can use the `camden` object created above in the code.
+
+```{r 03-boxplot-camden, warnings=TRUE, message=TRUE}
+# boxplot for camden only
+p.boxplot.camden <- ggplot(camden, aes(x=1, y=Assault_09_11))
+
+# add the boxplot geom
+p.boxplot.camden + geom_boxplot()
+```
+
+If you prefer you can flip the plot 90 degrees so that it reads from left to right: 
+
+```{r boxplot-camden-rotate, warnings=TRUE, message=TRUE}
+# add the boxplot geom and rotate
+p.boxplot.camden + geom_boxplot() +
+                   coord_flip()
+```
+
+You can see that Camden looks a little different to the boxplot of the entire dataset. It would therefore be useful to compare the distributions of data within each of the Boroughs in a single plot as we did with the histograms above. `ggplot2` makes this very easy (again!), we just need to change the `x` parameter to the Borough code column (*BorCode*).
+
+```{r 03-boxplot-all-combined, warnings=TRUE, message=TRUE}
+# boxplot for camden only
+p.boxplot.all <- ggplot(London.Ambulance, aes(x=BorCode, y=Assault_09_11))
+
+# add the boxplot geom and rotate
+p.boxplot.all + geom_boxplot() +
+     coord_flip()
+```
+
+#### Recap {-}
+In this section you have learnt how to:
+
+1. Install and load additional packages in R.
+2. Learned the basics of the `ggplot2` package for creating plots.
+3. Learned what `geoms` are in the context of `ggplot2`.
+4. Learned how to specify data variables with the `aes()` parameter.
+5. Utilised some of the advanced functionality as part of the `ggplot2` package, not least through the creation of facetted histogram plots using `geom_histogram()` and `facet_wrap()` and also box and whisker plots with `geom_boxplot()`.
+
+## Seminar {#seminar-w03}
+Please find the seminar task and seminar questions for this week's seminar below. 
+
+<div class="note">
+**Please make sure that you have executed the seminar task and have answered the seminar questions before the seminar!**
+</div>
+
+#### Seminar task {-}
+
+#### Seminar questions {-}
+
+#### Seminar link {-}
+Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
+
+## Before you leave {#byl-w03}
+Save your R script by pressing the **Save** button in the script window. [That is it for this week](https://www.youtube.com/watch?v=ZbZSe6N_BXs)!

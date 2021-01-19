@@ -1,6 +1,6 @@
 # Understanding data
 
-## Introduction
+## Introduction {#introduction-w01}
 Welcome to your first week of **Introduction to Quantitative Research Methods**. This week we will focus on **understanding data**. We will also introduce you to some basic statistical terminology. Lastly, we will introduce you to the software tools that we will be using throughout this course: R and RStudio.
 
 <div class="note">
