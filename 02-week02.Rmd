@@ -393,6 +393,10 @@ IQR(London.Ambulance$Assault_09_11)
 sd(London.Ambulance$Assault_09_11)
 ```
 
+<div class="note">
+Please be aware tha the `IQR()` function may give slighlty different results in some cases when compared to a manual calculation. This is because the forumulae that the `IQR()` uses is slighlty different than the one we have used in our manual calculation. It is noted in the documentation of the `IQR()` function that: "Note that this function computes the quartiles using the quantile function rather than following Tukey's recommendations, i.e., `IQR(x) = quantile(x, 3/4) - quantile(x, 1/4)`." Can you spot the difference?
+</div>
+
 #### Questions {-}
 1. What does it mean that we have a standard deviation of 130.3482?
 2. Given the context of the data, do you think this is a low or a high standard deviation?
