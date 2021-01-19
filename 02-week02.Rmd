@@ -394,7 +394,7 @@ sd(London.Ambulance$Assault_09_11)
 ```
 
 <div class="note">
-Please be aware tha the `IQR()` function may give slighlty different results in some cases when compared to a manual calculation. This is because the forumulae that the `IQR()` uses is slighlty different than the one we have used in our manual calculation. It is noted in the documentation of the `IQR()` function that: "Note that this function computes the quartiles using the quantile function rather than following Tukey's recommendations, i.e., `IQR(x) = quantile(x, 3/4) - quantile(x, 1/4)`." Can you spot the difference?
+Please be aware that the `IQR()` function may give slighlty different results in some cases when compared to a manual calculation. This is because the forumula that the `IQR()` function uses is slightly different than the formula that we have used in our manual calculation. It is noted in the documentation of the `IQR()` function that: "Note that this function computes the quartiles using the quantile function rather than following Tukey's recommendations, i.e., `IQR(x) = quantile(x, 3/4) - quantile(x, 1/4)`." Can you spot the difference?
 </div>
 
 #### Questions {-}
