@@ -84,7 +84,7 @@ London.Hackney <- London.Pop[London.Pop$Area.Name=='Hackney',3:24]
 London.Hackney
 ```
 
-The crucial part of the code snippet above is what’s included in the square brackets `[ ]`. We are subsetting the `London.Pop` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *Area.Name* column that contain Hackney. Hackney is a text string so it needs to go in speech marks `''` (or `""`) and we need to use two equals signs `==` in R to mean 'equal to'. A single equals sign `=` is another way of assigning objects. Although `=` works the same way as `<-`, it is much less widely used for this purpose because it is also used when parameterising functions. 
+The crucial part of the code snippet above is what’s included in the square brackets `[ ]`. We are subsetting the `London.Pop` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *Area.Name* column that contain Hackney. Hackney is a text string so it needs to go in speech marks `''` (or `""`) and we need to use two equals signs `==` in R to mean "equal to". A single equals sign `=` is another way of assigning objects. Although `=` works the same way as `<-`, it is much less widely used for this purpose because it is also used when parameterising functions. 
 
 We should now be left with a dataframe that only contains one row of data: the data for the borough of Hackney. This does raise a question: how do we include all the variables into our plot as all our data are spread out over different columns (i.e. *Persons1801*,*Persons1811*, etc.)? Ideally we would **flip** the data set around so that all the data (i.e. *Persons1801*,*Persons1811*, etc.) would be in one column. Well, luckily we can actually do that by [transposing](https://en.wikipedia.org/wiki/Transpose) our data set. Transposing is a mathemathical operation to flip a matrix over its diagonal. Effectively, it turns rows into columns and columns into rows. In R we can do this using the `t()` function.
 
@@ -320,7 +320,7 @@ This plot has provided a good impression of the overall distribution, but it wou
 camden <- London.Ambulance[London.Ambulance$BorCode=='00AG',]
 ```
 
-Just like before, the crucial part of the code snippet above is what's included in the square brackets `[ ]`. We are subsetting the `London.Ambulance` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *BorCode* column that contain `00AG`. Let's quickly compare our original `London.Pop` object with our newly created `camden` object:
+Just like before, the crucial part of the code snippet above is what's included in the square brackets. Again we are subsetting the `London.Ambulance` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *BorCode* column that contain `00AG`. Let's quickly compare our original `London.Pop` object with our newly created `camden` object:
 
 ```{r 03-inspec-those-filtered-results, warnings=TRUE, message=TRUE}
 # inspect the ambulance assault incident data set
@@ -334,7 +334,7 @@ head(camden)
 ```
 
 #### Questions {-}
-1. Why we have to use double quotes (`''`) to subset out dataframe to get all rows that contain `00AG`?
+1. Why do we have to use double quotes (`''`) to subset out dataframe to get all rows that contain `00AG`?
 
 So to produce a histogram for Camden, the code above needs to be replicated using the `camden` object in the place of `London.Pop`:
 
@@ -439,17 +439,20 @@ Please find the seminar task and seminar questions for this week's seminar below
 - Add a title using `ggtitle()`.
 - Change the colour of the visualisation.
 - Use a bin width of 75.
+- Save your histogram as a `pdf`.
 
 2. Create a histogram for the London borough of Ealing (Borough code `00AJ`), you need to:
 - Use the `ggplot2` library.
 - Add a title using `ggtitle()`.
 - Change the colour of the visualisation.
 - Use a bin width of 100.
+- Save your histogram as a `pdf`.
 
 3. Create a boxplot for the London borough of Croydon (Borough code `00AH`), you need to:
 - Use the `ggplot2` library.
 - Add a title using `ggtitle()`.
 - Change the colour of the visualisation.
+- Save your boxplot as a `jpg`.
 
 4. For all three visualisations, try to figure out how to:
 - Change the name of the x-axis using `xlab()`.
@@ -461,7 +464,7 @@ Please find the seminar task and seminar questions for this week's seminar below
 - Histogram
 - Box and whisk plot
 - Line chart
-2. Compare the results of the histograms you created for the borough of Ealing using a bin width of 75 with the histogram you created for the borough of Ealing using a bin width of 100. Why do they look so different? What does this tell you about the selection of bin widths?
+2. Compare the results of the histograms you created for the borough of Ealing using a bin width of `75` with the histogram you created for the borough of Ealing using a bin width of `100.` Why do they look so different? What does this tell you about the selection of bin widths?
 
 #### Seminar link {-}
 Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
