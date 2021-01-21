@@ -425,7 +425,8 @@ In this section you have learnt how to:
 Please find the seminar task and seminar questions for this week's seminar below. 
 
 <div class="note">
-**Please make sure that you have executed the seminar task and have answered the seminar questions before the seminar!**
+**Note**<br/>
+Please make sure that you have executed the seminar task and have answered the seminar questions before the seminar!
 </div>
 
 #### Seminar task {-}

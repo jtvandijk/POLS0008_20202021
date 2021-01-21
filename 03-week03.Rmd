@@ -3,7 +3,9 @@
 ## Introduction {#introduction-w03}
 Welcome to your third week of **Introduction to Quantitative Research Methods**. This week we will focus again on **examining data**, however, this time we will focus on data visualisation. For the tutorial we will use both data sets that we used over the last two weeks.
 
-This week is structured by **4** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in preparation for Thursday's seminar.
+> A ~~picture~~ good data visualisation is worth a thousand words.
+
+This week is structured by **5** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in preparation for Thursday's seminar.
 
 Let's go.
 
@@ -26,19 +28,29 @@ Please find the reading list for this week below. We strongly recommend that you
 - Lane *et al.*, 2003, **Chapter 3: Graphing Distributions**. In: Lane *et al.*, 2003, Introduction to Statistics. Houston, Texas:  Rice University.
 [[Link]](http://onlinestatbook.com/Online_Statistics_Education.pdf)
 
+#### Supplementary reading {-}
+- Langton and Solymosi, 2019, Cartograms, hexograms and regular grids: Minimising misrepresentation in spatial data visualisations. *Environment and Planning B: Urban Analytics and City Science*. Advance Online Publication. [[Link]](https://doi.org/10.1177/2399808319873923)
+
 ### Q&A session
 This week there will be a live Q&A session on **Tuesday, January 26, 2020 @ 11h00 (GMT)**. The session will be hosted on Zoom [[Link]](	https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09). For security reasons, the meeting password for this Q&A session can be found on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) on the **main page** (*POLS0008 - Q&A - Tuesday 11:00 (JVD)*).
 
 ## Data visualisation
 Data visualisation is the representation of data in a visual format. This could be a graph, chart, map, or other visual format. Sometimes the visualisation includes every data point, for instance in case of a [scatter graph](https://en.wikipedia.org/wiki/Scatter_plot), or sometimes it shows some type of statistical summary, for instance in case of a [boxplot](https://en.wikipedia.org/wiki/Box_plot). Sometimes visualisations are very descriptive and only include the raw data, whilst other times they are the product of a sequence of transformations and analyses. No matter what, the main goal of data visualisation is to help you interpret the underlying data. Data visualisation is therefore used when cleaning your data, exploring your data, looking for outliers and unusual values, identifying trends, identifying clusters, uncovering patterns, and presenting results. 
 
-> A ~~picture~~ good data visualisation is worth a thousand words.
-
-#### Video: Data visualisation {-}
+#### Video: Data visualisation I {-}
 ```{r 03-data-visualisation, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
+
+Before we move to R and start creating some data visualisations ourselves, a good example, albeit slightly dated, of why data visualisation is so important, is given by the late
+[Hans Rosling](https://en.wikipedia.org/wiki/Hans_Rosling). He was a Swedish physician and statistician who was very passionate about data visualisation. As he says in the video: "Having the data is not enough. I have to show it in ways people both enjoy and understand".
+
+#### Video: Data visualisation II {-}
+```{r 03-data-visualisation-rosling, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_youtube('jbkSRLYSojo') %>% use_align('left')
+```
+[Lecture slides] [[Watch on YouTube]](https://www.youtube.com/watch?v=jbkSRLYSojo)
 
 For this tutorial we start by using the `London.Pop` object again that we created during our tutorial in [Week 01](understanding-data.html#r-script) and that we also briefly used during [last week's tutorial](examining-data-i.html#measures-of-central-tendency). You may still have it loaded into your R workspace if your RStudio Server session is still active. To check if you do, you can use the `ls()` command as usual to get a list of all objects that are available in your RStudio session.
 
@@ -96,7 +108,7 @@ London.Hackney.t <- t(London.Hackney)
 London.Hackney.t
 
 # plot the size of the population in the London borough of Hackney over time
-plot(London.Hackney.t, type='b', col='blue')
+plot(London.Hackney.t, type='b')
 ```
 
 #### Questions {-}
@@ -430,7 +442,8 @@ In this section you have learnt how to:
 Please find the seminar task and seminar questions for this week's seminar below. 
 
 <div class="note">
-**Please make sure that you have executed the seminar task and have answered the seminar questions before the seminar!**
+**Note**<br/>
+Please make sure that you have executed the seminar task and have answered the seminar questions before the seminar!
 </div>
 
 #### Seminar task {-}
