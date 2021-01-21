@@ -1,9 +1,11 @@
 # Examining data II
 
 ## Introduction {#introduction-w03}
-Welcome to your third week of **Introduction to Quantitative Research Methods**. This week we will focus again on **examining data**, however, this time we will focus on data visualisation. For the tutorial we will use both data sets that we used over the passed two weeks.
+Welcome to your third week of **Introduction to Quantitative Research Methods**. This week we will focus again on **examining data**, however, this time we will focus on data visualisation. For the tutorial we will use both data sets that we used over the last two weeks.
 
 This week is structured by **4** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in preparation for Thursday's seminar.
+
+Let's go.
 
 #### Video: Introduction W03 {-}
 ```{r 03-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -28,9 +30,9 @@ Please find the reading list for this week below. We strongly recommend that you
 This week there will be a live Q&A session on **Tuesday, January 26, 2020 @ 11h00 (GMT)**. The session will be hosted on Zoom [[Link]](	https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09). For security reasons, the meeting password for this Q&A session can be found on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) on the **main page** (*POLS0008 - Q&A - Tuesday 11:00 (JVD)*).
 
 ## Data visualisation
+Data visualisation is the representation of data in a visual format. This could be a graph, chart, map, or other visual format. Sometimes the visualisation includes every data point, for instance in case of a [scatter graph](https://en.wikipedia.org/wiki/Scatter_plot), or sometimes it shows some type of statistical summary, for instance in case of a [boxplot](https://en.wikipedia.org/wiki/Box_plot). Sometimes visualisations are very descriptive and only include the raw data, whilst other times they are the product of a sequence of transformations and analyses. No matter what, the main goal of data visualisation is to help you interpret the underlying data. Data visualisation is therefore used when cleaning your data, exploring your data, looking for outliers and unusual values, identifying trends, identifying clusters, uncovering patterns, and presenting results. 
 
-Why data visualisation
-Important for data examination
+> A ~~picture~~ good data visualisation is worth a thousand words.
 
 #### Video: Data visualisation {-}
 ```{r 03-data-visualisation, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -38,7 +40,7 @@ embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
-For this tutorial we start by using the `London.Pop` object again that we created during our tutorial in Week 01 and that we also briefly used last week. You may still have it loaded into your R workspace if your RStudio Server session is still active. To check if you do, you can use the `ls()` command to get a list of all objects that are available in your RStudio session. Type this into the command line and see if `London.Pop` is printed. 
+For this tutorial we start by using the `London.Pop` object again that we created during our tutorial in [Week 01](understanding-data.html#r-script) and that we also briefly used last week. You may still have it loaded into your R workspace if your RStudio Server session is still active. To check if you do, you can use the `ls()` command to get a list of all objects that are available in your RStudio session. Type this into the command line and see if `London.Pop` is printed. 
 
 If not you can simply reload it:
 ```{r 03-make-sure-working-dir-is-set, warnings=FALSE, message=FALSE, eval=FALSE}
@@ -60,11 +62,104 @@ London.Pop <- read.csv('census-historic-population-borough.csv')
 London.Pop <- read.csv('raw/census-historic-population-borough.csv')
 ```
 
-scatter plot
-frequency distribution plot
-cumulative frequency distribution plot
-histogram
-box plot
+Now are data are loaded again, we can start by recreating the simple [scatter graph](https://en.wikipedia.org/wiki/Scatter_plot) we created last week using the `plot()` function.
+
+```{r 03-quick-scatter-plot, warnings=FALSE, message=FALSE}
+# make a quick scatter plot of two variables of the London population data set
+plot(London.Pop$Persons.2001,London.Pop$Persons.2011)
+```
+
+#### Questions {-}
+1. What do the points in the graph represent? 
+2. Do you think there is a relationship between the population in London's boroughs in 2001 and the population in London's boroughs in 2011? If so, what is this relationship?
+3. How can we add a title? And how do we change the colour of the points? 
+
+Another common method to visualise your data is by using a [line chart](https://en.wikipedia.org/wiki/Line_chart). Line charts are particularly useful when you want to compare change over time, for example. A line chart can also be relatively easily created in R. Let's try it by charting the population change over time for one of London's boroughs: [Hackney](https://en.wikipedia.org/wiki/London_Borough_of_Hackney). 
+
+```{r 03-quick-line-chart, warnings=FALSE, message=FALSE}
+# select the data for the borough of Hackney
+London.Hackney <- London.Pop[London.Pop$Area.Name=='Hackney',3:24]
+
+# inspect the result
+London.Hackney
+```
+
+We should now be left with a dataframe that only contains one row of data: the data for the borough of Hackney. This does raise a question now: how do we include all the variables into our plot as all our data are spread out over different columns (i.e. *Persons1801*,*Persons1811*, etc.)? Ideally we would **flip** the data set around so that all the data (i.e. *Persons1801*,*Persons1811*, etc.) would be in one column. Well, luckily we can actually do that by [transposing](https://en.wikipedia.org/wiki/Transpose) our data set. Transposing is a mathemathical operation to flip a matrix over its diagonal. Effectively, it turns rows into columns and columns into rows. In R we can do this using the `t()` function.
+
+```{r 03-transpose-data, warnings=FALSE, message=FALSE}
+# flip the rows and columns of our data set
+London.Hackney.t <- t(London.Hackney)
+
+# inspect the result
+London.Hackney.t
+
+# plot the population change over time in the London borough of Hackney 
+plot(London.Hackney.t, type='b', col='blue')
+```
+
+#### Questions {-}
+1. Why did we use quotation marks when we selected Hackney (i.e. `London.Pop[London.Pop$Area.Name=='Hackney',3:24]`)?
+2. Why did we slice our data frame when we selected the data for Hackney (i.e. `London.Pop[London.Pop$Area.Name=='Hackney',3:24]`)?
+3. How can we change the colour of the information in our graph?
+
+<div class="note">
+**Note**<br/>
+You may be wondering why the first column of the transposed dataframe does not have a column name and why the column with the data of the transposed dataframe is called *12*. The reason for this is that the `t()` function flips the row and column indices around. The column indices (i.e. in this case the column names) now become row names and the row indices (i.e. in this case row numbers) now become column names (the data for Hackney can be found on row number 12 in the original data set). However, do not worry about this too much for now.
+</div>
+
+Last week you also got introduced to the box and whisker plot. A box and whisker plot is a method for visualising your data by their quartiles with the whiskers (the lines extending from the box) incidating the variability of the outside the lower and upper quartile. Typically outliers are plotted as individual points. Let's go back to our full data set and make a boxplot for one of the population variables in the London population data set.
+
+```{r 03-quick-boxplot, warnings=FALSE, message=FALSE}
+# make a boxpot of one of the variables in the London population data set
+boxplot(London.Pop$Persons.2001,horizontal=TRUE)
+```
+
+The standard `plot()` and `boxplot` functions offers a huge number of options for customisation. A useful option is to combine multiple graphs into one figure to allow for easy comparison. We can do this by setting some of the graphical parameters and requesting that our graphs are plotted together.
+
+```{r 03-plot-with-parameters, warnings=FALSE, message=FALSE}
+# specify that we want an output consisting of two rows
+par(mfrow=c(2,1))
+
+# make a boxpot of one of the variables in the London population data set
+boxplot(London.Pop$Persons.2001,horizontal=TRUE)
+
+# make a boxplot of another variable in the London population data set
+boxplot(London.Pop$Persons.2011,horizontal=TRUE)
+```
+
+<div class="note">
+**Note**<br/>
+The specification given to the `par()` function only works once: it is not an option that you switch on and from now on all plots will be plotted together. This means that if you run this code line by line, you will not get the result you want. In order to get both boxplots into one figure, highlight all three lines and then run the code.
+</div>
+
+#### Questions {-}
+1. The boxplots of the population in London's boroughs in 2001 and the population in London's boroughs in 2011 are clearly different. What differences are there and what does this mean?
+2. Why is it currently difficult to compare these two boxplots?
+3. What happens if we update our parameters to `par(mfrow=c(1,2))`?
+
+The last type of plot we will introduce to you today is called a [histogram](https://en.wikipedia.org/wiki/Histogram). As explained in the lecutre video, a histogram is a graphical display of data using bars of different heights. It is therefore quite similar to a bar chart, however, with a histogram we **group** our values into bins. We can create in histogram in R using the `hist()` function.
+
+```{r 03-create-a-histogram, warnings=FALSE, message=FALSE}
+# make a histogram of one of the variables in the London population data set
+hist(London.Pop$Persons.2001)
+```
+
+Currently R automatically picks the widht of the bins in which the data are grouped. To change the width of these bins, we can specify the `breaks` parameter:
+
+```{r 03-bin-width, warnings=FALSE, message=FALSE}
+# create a vector with 
+bindwidth <- c(0,100000,200000,300000,400000)
+
+# make a histogram of one of the variables in the London population data set
+hist(London.Pop$Persons.2001,breaks=bindwidth)
+```
+
+Recap
+In this section you have learnt how to:
+
+1. Create a simple line chart in R.
+2. Combine multiple graphs into one figure.
+3. Create a histogram in R.
 
 ## ggplot2
 There are many hundreds of packages in R each designed for a specific purpose. Besides the functionality by the basic R installation, there are other packages that you can use to create plots in R. One of those packages is called `ggplot2`. The `ggplot2` package is an implementation of the Grammar of Graphics ([Wilkinson 2005](https://en.wikipedia.org/wiki/Leland_Wilkinson)) - a general scheme for data visualisation that breaks up graphs into semantic components such as scales and layers. `ggplot2` can serve as a replacement for the base graphics in R and contains a number of default options that match good visualisation practice. You provide the data, tell `ggplot2` how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
@@ -83,6 +178,7 @@ install.packages('ggplot2')
 ```
 
 <div class="note">
+**Note**<br/>
 If you are running RStudio on your own computer: when you hit 'enter' you could be asked to select a [mirror](https://en.wikipedia.org/wiki/Mirror_site) to download the package contents from. It does not really matter which one you choose, but we would suggest you pick the mirror that is geographically closest to you.
 </div>
 
@@ -106,6 +202,7 @@ embed_msstream('') %>% use_align('left')
 Now we installed `ggplot2` and loaded it into our R session, we can start by trying to make a basic plot using the `ggplot2` package ourselves.
 
 <div class="note">
+**Note**<br/>
 Whilst the instructions are step by step, you are strongly encouraged to deviate from them, for instance, by trying different colours, to get a better understanding of what we are doing. For further help, `ggplot2` is one of the best documented packages in R and [large volumes of documentation](https://ggplot2.tidyverse.org/) are available. If you want to explore `ggplot2` further, we would recommend taking a look at the [ggplot2 tutorial for beautiful plotting in R](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) by by Cédric Scherer.
 </div>
 
@@ -135,7 +232,7 @@ You can already see that this plot is looking a bit nicer than the one we create
 
 #### Questions {-}
 1. Try to change the colour and size of the points in your scatterplot by specifying the `colour` and `size` parameter, for instance, `p + geom_point(colour='red', size=2)`.
-2. What other parameters can you pass to the `geom_point()` function? Use `?ggplot2::geom_point` to see the options.
+2. What other parameters can you pass to the `geom_point()` function? Tip: use `?ggplot2::geom_point` to find out.
 
 Rather than colouring your points by one colour, you can also colour the points according to another variable. You can do this by adding the desired variable into the `aes()` section after `geom_point()`. Here we will do this to indicate the size of the population in 2011 as well as the relationship between the size of the population in 19811 and 1911.
 
@@ -154,6 +251,7 @@ p + geom_point(aes(size = Persons.2011))
 The real power of `ggplot2` lies in its ability to build a plot up as a series of layers. This is done by stringing plot functions (geoms) together with the `+` sign. For instance, we can add a text layer to the plot using `geom_text()`. 
 
 <div class="note">
+**Note**<br/>
 This idea of layers (or geoms) is quite different from the standard plot functions in R, but you will find that each of the functions does a lot of clever stuff to make plotting much easier (see the `ggplot2` documentation for a full list). 
 </div>
 

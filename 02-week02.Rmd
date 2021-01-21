@@ -96,6 +96,7 @@ mean(London.Pop2011$Persons.2011)
 R does not have a standard in-built function to calculate the mode. As we still want to show the mode, we create a user function to calculate the mode of our data set. This function takes [a numeric vector](https://r4ds.had.co.nz/vectors.html) as input and gives the mode value as output.
 
 <div class="note">
+**Note**<br/>
 You do not have to worry about creating your own functions, so just copy and paste the code below to create the `get_mode()` function. 
 </div>
 
@@ -183,6 +184,7 @@ median(London.Pop2011$Persons.2011) == Persons.2011.Median
 Before moving on to the second set of descriptive statistics, the **measures of dispersion**, this is a good moment to note that simple data visualisations are also an extremely powerful tool to explore your data. In fact, tools to create high quality plots have become one of R's greatest assets. This is a relatively recent development since the software has traditionally been [focused on the statistics](https://en.wikipedia.org/wiki/R_(programming_language)) rather than visualisation. The standard installation of R has base graphic functionality built in to produce very simple plots. For example we can plot the relationship between the London population in 1811 and 1911. 
 
 <div class="note">
+**Note**<br/>
 Next week we will be diving deeper into data visualisation and making plots and graphs in R, but for now it is a good idea to already take a sneak peek at how to create some basic plots.
 </div>
 
@@ -208,6 +210,7 @@ plot(London.Pop$Persons.1811, London.Pop$Persons.1911, main="Another Quick Plot 
 ```
 
 <div class="note">
+**Note**<br/>
 For more information on the plot parameters (some have obscure names) have a look here: http://www.statmethods.net/advgraphs/parameters.html
 </div>
 
@@ -299,6 +302,7 @@ max(London.Ambulance$Assault_09_11) - min(London.Ambulance$Assault_09_11)
 The interquartile range requires a little bit more work to be done as we now need to work out the values of the 25th and 75th [percentile](https://en.wikipedia.org/wiki/Percentile).
 
 <div class="note">
+**Note**<br/>
 A percentile is a score at or below which a given percentage of your data points fall. For example, the 50th percentile (also known as the median!) is the score at or below which 50% of the scores in the distribution may be found.
 </div>
 
@@ -394,6 +398,7 @@ sd(London.Ambulance$Assault_09_11)
 ```
 
 <div class="note">
+**Note**<br/>
 Please be aware that the `IQR()` function may give slighlty different results in some cases when compared to a manual calculation. This is because the forumula that the `IQR()` function uses is slightly different than the formula that we have used in our manual calculation. It is noted in the documentation of the `IQR()` function that: "Note that this function computes the quartiles using the quantile function rather than following Tukey's recommendations, i.e., `IQR(x) = quantile(x, 3/4) - quantile(x, 1/4)`."
 </div>
 
@@ -430,6 +435,7 @@ Using the `London.Ambulance` object:
 2. Create a new object / data set that **only** contains data for ward type *Prospering Metropolitan*.
 
 <div class="note">
+**Note**<br/>
 Creating a new object from an existing object is called creating a **subset** of your data. There are many ways of creating a subset, but one way of doing it is by using the following syntax: `London.Assault[London.Assault$WardType == 'Multicultural Metropolitan',]`.
 </div>
 

@@ -4,6 +4,7 @@
 Welcome to your first week of **Introduction to Quantitative Research Methods**. This week we will focus on **understanding data**. We will also introduce you to some basic statistical terminology. Lastly, we will introduce you to the software tools that we will be using throughout this course: R and RStudio.
 
 <div class="note">
+**Note**<br/>
 Before you continue, make sure you have read through the details on the [welcome page](index.html) of this handbook and have watched the course introduction video.
 </div>
 
@@ -100,7 +101,8 @@ Open a web browser and navigate to: https://rstudio.data-science.rc.ucl.ac.uk/
 Log in with your **usual UCL username and password**. You should see the RStudio interface appear. If it is the first time you log on to RStudio server you may only see the RStudio interface appear once you have clicked on the **start a new session** button.s
 
 <div class="note">
-**Please note**: RStudio server will only work with an [active VPN connection](https://www.ucl.ac.uk/isd/it-essentials-for-new-students/video-guides/getting-started-ucls-vpn) that links your personal computer into UCL's network. Students in mainland may want to use [UCL China Connect](https://www.ucl.ac.uk/isd/services/get-connected/china-connect). Students that use a Mac computer that is running on the latest version of MacOS ([MacOS Big Sur](https://www.apple.com/uk/macos/big-sur/)), are advised to use [Desktop@UCL](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) as the Cisco AnyConnect VPN application may not work. If you are completely unable to access the server (e.g. your browser displays a *This site can't be reached* message), it means that your VPN connection is not working correctly. Please ensure that your VPN is working correctly or use [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) instead.
+**Note**<br/>
+RStudio server will only work with an [active VPN connection](https://www.ucl.ac.uk/isd/it-essentials-for-new-students/video-guides/getting-started-ucls-vpn) that links your personal computer into UCL's network. Students in mainland may want to use [UCL China Connect](https://www.ucl.ac.uk/isd/services/get-connected/china-connect). Students that use a Mac computer that is running on the latest version of MacOS ([MacOS Big Sur](https://www.apple.com/uk/macos/big-sur/)), are advised to use [Desktop@UCL](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) as the Cisco AnyConnect VPN application may not work. If you are completely unable to access the server (e.g. your browser displays a *This site can't be reached* message), it means that your VPN connection is not working correctly. Please ensure that your VPN is working correctly or use [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) instead.
 </div>
 
 ```{r 01-rstudio-interface, echo=FALSE, fig.align='center', fig.cap='The RStudio interface.'}
@@ -116,7 +118,8 @@ If you managed to log onto RStudio server: brilliant, we are ready to go. At its
 You will notices that in the command line window, it will give you an answer directly (i.e. 14). These outputs of the command line window are shown as `##` throughout this handbook and you **do not** need to type  anything into the command line that follows `##` (because it simply  shows the result of a command!). 
 
 <div class="note">
-**Please note**: Anything that appears as red in the command line means it is an error (or a warning) so you will likely need to correct your code. If you see a `>` on the left it means you can type in your next line, a `+` means that you haven't finished the previous line of code. As will become clear, `+` signs often appear if you don't close brackets or you did not properly finish your command in a way that R expected.
+**Note**<br/>
+Anything that appears as red in the command line means it is an error (or a warning) so you will likely need to correct your code. If you see a `>` on the left it means you can type in your next line, a `+` means that you haven't finished the previous line of code. As will become clear, `+` signs often appear if you don't close brackets or you did not properly finish your command in a way that R expected.
 </div>
 
 Rather than using numbers and values, it is often easier to assign numbers (or groups of them) a memorable name for easy reference later. In R terminology this is called **creating an object** and this is really important. Let's try this:
@@ -165,6 +168,7 @@ ls()
 ```
 
 <div class="note">
+**Note**<br/>
 Remember that if you have any questions with your R code and you are stuck that you can post a question on the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137)!
 </div>
 
@@ -199,6 +203,7 @@ range(friends_dob)
 ```
 
 <div class="note">
+**Note**<br/>
 In next week's material we will dive a little deeper into these statistical functions, for now, however, we only want you to know how to execute a function. If at this stage you are not entirely sure on what what exactly is a `range`, `median`, or `mean` that is perfectly fine and you should not worry about it just yet.
 </div>
 
@@ -211,6 +216,7 @@ All functions need a series of arguments to be passed to them in order to work. 
 All helpfiles will have a **usage** heading detailing the parameters required. In the case of the mean you can see it simply says `mean(x, ...)`. In function helpfiles `x` will always refer to the object the function requires and, in the case of the mean, the `...` refers to some optional arguments that we don't need to worry about.
 
 <div class="note">
+**Note**<br/>
 When you are new to R the help files can seem pretty impenetrable (because they often are!). Up until relatively recently these were all people had to go on, but in recent years R has really taken off and so there are plenty of places to find help and tips. Google is the best tool to use. When people are having problems they tend to post examples of their code online and then the R community will correct it. One of the best ways to solve a problem is to paste their correct code into your R command line window and then gradually change it for your data and purposes.
 </div>
 
@@ -306,6 +312,7 @@ setwd('~/POLS0008')
 ```
 
 <div class="note">
+**Note**<br/>
 Please ensure that **folder names** and **file names** do not contain spaces or special characters such as `*` `.` `"` `/` `\` `[` `]` `:` `;` `|` `=` `,` `<` `?` `>` `&` `$` `#` `!` `'` `{` `}` `(` `)`. Different operating systems and programming languages deal differently with spaces and special characters and as such including these in your folder names and file names can cause many problems and unexpected errors. As an alternative to using white space you can use an underscore `_` if you like.
 </div>
 
@@ -345,6 +352,7 @@ tail(London.Pop)
 ```
 
 <div class="note">
+**Note**<br/>
 Depending on the type of `object` the exact number of lines displayed through `head()` and `tail()` may differ. If you want to have precise control over the output and specify how many rows will be printed, you can do this by passing an **integer** as second argument to either of these functions. For instance, `head(London.Pop, n=10)` or `tail(London.Pop, n=10)`.
 </div>
 
