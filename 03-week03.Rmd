@@ -40,7 +40,7 @@ embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
-For this tutorial we start by using the `London.Pop` object again that we created during our tutorial in [Week 01](understanding-data.html#r-script) and that we also briefly used last week. You may still have it loaded into your R workspace if your RStudio Server session is still active. To check if you do, you can use the `ls()` command to get a list of all objects that are available in your RStudio session. Type this into the command line and see if `London.Pop` is printed. 
+For this tutorial we start by using the `London.Pop` object again that we created during our tutorial in [Week 01](understanding-data.html#r-script) and that we also briefly used during [last week's tutorial](examining-data-i.html#measures-of-central-tendency). You may still have it loaded into your R workspace if your RStudio Server session is still active. To check if you do, you can use the `ls()` command as usal to get a list of all objects that are available in your RStudio session.
 
 If not you can simply reload it:
 ```{r 03-make-sure-working-dir-is-set, warnings=FALSE, message=FALSE, eval=FALSE}
@@ -62,7 +62,7 @@ London.Pop <- read.csv('census-historic-population-borough.csv')
 London.Pop <- read.csv('raw/census-historic-population-borough.csv')
 ```
 
-Now are data are loaded again, we can start by recreating the simple [scatter graph](https://en.wikipedia.org/wiki/Scatter_plot) we created last week using the `plot()` function.
+Now are data are loaded again, we can start by recreating a simple [scatter graph](https://en.wikipedia.org/wiki/Scatter_plot) in a similar fashion as we did last week using the `plot()` function.
 
 ```{r 03-quick-scatter-plot, warnings=FALSE, message=FALSE}
 # make a quick scatter plot of two variables of the London population data set
@@ -70,11 +70,11 @@ plot(London.Pop$Persons.2001,London.Pop$Persons.2011)
 ```
 
 #### Questions {-}
-1. What do the points in the graph represent? 
+1. What do the points in the graph represent?
 2. Do you think there is a relationship between the population in London's boroughs in 2001 and the population in London's boroughs in 2011? If so, what is this relationship?
-3. How can we add a title? And how do we change the colour of the points? 
+3. How can we add a title? How can we change the colour of the points? 
 
-Another common method to visualise your data is by using a [line chart](https://en.wikipedia.org/wiki/Line_chart). Line charts are particularly useful when you want to compare change over time, for example. A line chart can also be relatively easily created in R. Let's try it by charting the population change over time for one of London's boroughs: [Hackney](https://en.wikipedia.org/wiki/London_Borough_of_Hackney). 
+Another common method to visualise your data is by using a [line chart](https://en.wikipedia.org/wiki/Line_chart). Line charts are particularly useful when you want to compare change over time, for example. A line chart can also be relatively easily created in R. Let's try it by charting the population size over time for one of London's boroughs: [Hackney](https://en.wikipedia.org/wiki/London_Borough_of_Hackney). 
 
 ```{r 03-quick-line-chart, warnings=FALSE, message=FALSE}
 # select the data for the borough of Hackney
@@ -84,7 +84,9 @@ London.Hackney <- London.Pop[London.Pop$Area.Name=='Hackney',3:24]
 London.Hackney
 ```
 
-We should now be left with a dataframe that only contains one row of data: the data for the borough of Hackney. This does raise a question now: how do we include all the variables into our plot as all our data are spread out over different columns (i.e. *Persons1801*,*Persons1811*, etc.)? Ideally we would **flip** the data set around so that all the data (i.e. *Persons1801*,*Persons1811*, etc.) would be in one column. Well, luckily we can actually do that by [transposing](https://en.wikipedia.org/wiki/Transpose) our data set. Transposing is a mathemathical operation to flip a matrix over its diagonal. Effectively, it turns rows into columns and columns into rows. In R we can do this using the `t()` function.
+The crucial part of the code snippet above is what’s included in the square brackets `[ ]`. We are subsetting the `London.Pop` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *Area.Name* column that contain Hackney. Hackney is a text string so it needs to go in speech marks `''` (or `""`) and we need to use two equals signs `==` in R to mean 'equal to'. A single equals sign `=` is another way of assigning objects. Although `=` works the same way as `<-`, it is much less widely used for this purpose because it is also used when parameterising functions. 
+
+We should now be left with a dataframe that only contains one row of data: the data for the borough of Hackney. This does raise a question: how do we include all the variables into our plot as all our data are spread out over different columns (i.e. *Persons1801*,*Persons1811*, etc.)? Ideally we would **flip** the data set around so that all the data (i.e. *Persons1801*,*Persons1811*, etc.) would be in one column. Well, luckily we can actually do that by [transposing](https://en.wikipedia.org/wiki/Transpose) our data set. Transposing is a mathemathical operation to flip a matrix over its diagonal. Effectively, it turns rows into columns and columns into rows. In R we can do this using the `t()` function.
 
 ```{r 03-transpose-data, warnings=FALSE, message=FALSE}
 # flip the rows and columns of our data set
@@ -93,14 +95,13 @@ London.Hackney.t <- t(London.Hackney)
 # inspect the result
 London.Hackney.t
 
-# plot the population change over time in the London borough of Hackney 
+# plot the size of the population in the London borough of Hackney over time
 plot(London.Hackney.t, type='b', col='blue')
 ```
 
 #### Questions {-}
-1. Why did we use quotation marks when we selected Hackney (i.e. `London.Pop[London.Pop$Area.Name=='Hackney',3:24]`)?
-2. Why did we slice our data frame when we selected the data for Hackney (i.e. `London.Pop[London.Pop$Area.Name=='Hackney',3:24]`)?
-3. How can we change the colour of the information in our graph?
+1. Why did we slice our data frame when we selected the data for Hackney (i.e. `London.Pop[London.Pop$Area.Name=='Hackney',3:24]`) and did we not simply keep all columns?
+2. How can we change the colour of the line and points in our graph?
 
 <div class="note">
 **Note**<br/>
@@ -114,7 +115,7 @@ Last week you also got introduced to the box and whisker plot. A box and whisker
 boxplot(London.Pop$Persons.2001,horizontal=TRUE)
 ```
 
-The standard `plot()` and `boxplot` functions offers a huge number of options for customisation. A useful option is to combine multiple graphs into one figure to allow for easy comparison. We can do this by setting some of the graphical parameters and requesting that our graphs are plotted together.
+The standard `plot()` and `boxplot` functions offer a huge number of options for customisation. A useful option is to combine multiple graphs into one figure to allow for easy comparison. We can do this by setting some of the graphical parameters and requesting that our graphs are plotted together.
 
 ```{r 03-plot-with-parameters, warnings=FALSE, message=FALSE}
 # specify that we want an output consisting of two rows
@@ -129,7 +130,7 @@ boxplot(London.Pop$Persons.2011,horizontal=TRUE)
 
 <div class="note">
 **Note**<br/>
-The specification given to the `par()` function only works once: it is not an option that you switch on and from now on all plots will be plotted together. This means that if you run this code line by line, you will not get the result you want. In order to get both boxplots into one figure, highlight all three lines and then run the code.
+The specification given to the `par()` function only works once: it is **not** an option that you switch on and once the option is switched on all plots will be plotted together. This also means that if you run this code line by line, you will not get the result you want. In order to get both boxplots to show in one figure, you need to highlight all three lines and then run the code.
 </div>
 
 #### Questions {-}
@@ -137,7 +138,7 @@ The specification given to the `par()` function only works once: it is not an op
 2. Why is it currently difficult to compare these two boxplots?
 3. What happens if we update our parameters to `par(mfrow=c(1,2))`?
 
-The last type of plot we will introduce to you today is called a [histogram](https://en.wikipedia.org/wiki/Histogram). As explained in the lecutre video, a histogram is a graphical display of data using bars of different heights. It is therefore quite similar to a bar chart, however, with a histogram we **group** our values into bins. We can create in histogram in R using the `hist()` function.
+The last type of plot we will introduce to you today is called a [histogram](https://en.wikipedia.org/wiki/Histogram). As explained in the lecture video, a histogram is a graphical display of data using bars of different heights. It is therefore quite similar to a bar chart, however, with a histogram we **group** our values into bins. We can create in histogram in R using the `hist()` function.
 
 ```{r 03-create-a-histogram, warnings=FALSE, message=FALSE}
 # make a histogram of one of the variables in the London population data set
@@ -147,14 +148,14 @@ hist(London.Pop$Persons.2001)
 Currently R automatically picks the widht of the bins in which the data are grouped. To change the width of these bins, we can specify the `breaks` parameter:
 
 ```{r 03-bin-width, warnings=FALSE, message=FALSE}
-# create a vector with 
+# create a vector with break values
 bindwidth <- c(0,100000,200000,300000,400000)
 
 # make a histogram of one of the variables in the London population data set
 hist(London.Pop$Persons.2001,breaks=bindwidth)
 ```
 
-Recap
+#### Recap {-}
 In this section you have learnt how to:
 
 1. Create a simple line chart in R.
@@ -162,7 +163,7 @@ In this section you have learnt how to:
 3. Create a histogram in R.
 
 ## ggplot2
-There are many hundreds of packages in R each designed for a specific purpose. Besides the functionality by the basic R installation, there are other packages that you can use to create plots in R. One of those packages is called `ggplot2`. The `ggplot2` package is an implementation of the Grammar of Graphics ([Wilkinson 2005](https://en.wikipedia.org/wiki/Leland_Wilkinson)) - a general scheme for data visualisation that breaks up graphs into semantic components such as scales and layers. `ggplot2` can serve as a replacement for the base graphics in R and contains a number of default options that match good visualisation practice. You provide the data, tell `ggplot2` how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
+The graphs and figures we have made so far are not really pretty. Although possible with the basic R installation, there are easier and better ways to make nice visualisations. For this we can turn to other R packages that have been developed. In fact, there are many hundreds of packages in R each designed for a specific purpose, some of which you can use to create plots in R. One of those packages is called `ggplot2`. The `ggplot2` package is an implementation of the Grammar of Graphics ([Wilkinson 2005](https://en.wikipedia.org/wiki/Leland_Wilkinson)) - a general scheme for data visualisation that breaks up graphs into semantic components such as scales and layers. `ggplot2` can serve as a replacement for the base graphics in R and contains a number of default options that match good visualisation practice. You provide the data, tell `ggplot2` how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
 
 #### Video: ggplot2 {-}
 ```{r 03-ggplot2, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -199,12 +200,7 @@ embed_msstream('') %>% use_align('left')
 ```
 [Lecture slides] [[Watch on MS stream]]()
 
-Now we installed `ggplot2` and loaded it into our R session, we can start by trying to make a basic plot using the `ggplot2` package ourselves.
-
-<div class="note">
-**Note**<br/>
-Whilst the instructions are step by step, you are strongly encouraged to deviate from them, for instance, by trying different colours, to get a better understanding of what we are doing. For further help, `ggplot2` is one of the best documented packages in R and [large volumes of documentation](https://ggplot2.tidyverse.org/) are available. If you want to explore `ggplot2` further, we would recommend taking a look at the [ggplot2 tutorial for beautiful plotting in R](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) by by Cédric Scherer.
-</div>
+Now we installed `ggplot2` and loaded it into our R session, we can start by trying to make a basic plot using the `ggplot2` package ourselves. Let's continue for a little while longer with our `London.Pop` object.
 
 ```{r 03-create-that-ggplot2-object, warnings=FALSE, message=FALSE}
 # create a ggplot2 object named 'p'
@@ -218,7 +214,7 @@ What you have just done is set up a `ggplot` object where you tell where you wan
 p
 ```
 
-As you can see, if you inspect the object `p` that we just created you will get an empty canvas. The reason for this is that you have not told `ggplot` what you want to do with the data. We do this by adding so-called **geoms**, geometries. Let's try to createa a scatter plot. We can do this by using the geom `geom_point()`:
+As you can see, if you inspect the object `p` that we just created you will get an empty canvas. The reason for this is that you have not told `ggplot` what you want to do with the data. We do this by adding so-called **geoms**, geometries. Let's try to create a scatter plot. We can do this by using the geom `geom_point()`:
 
 ```{r 03-add-a-geom-object, warnings=FALSE, message=FALSE}
 # add our geom to our 'p' object
@@ -228,13 +224,18 @@ p <- p + geom_point()
 p
 ```
 
-You can already see that this plot is looking a bit nicer than the one we created with the base `plot()` function used above. Within the `geom_point()` brackets you can alter the appearance of the points in the plot. 
+You can already see that this plot is looking a bit nicer than the scatterplot we created with the base `plot()` function used above. Within the `geom_point()` brackets you can alter the appearance of the points in the plot. 
 
 #### Questions {-}
 1. Try to change the colour and size of the points in your scatterplot by specifying the `colour` and `size` parameter, for instance, `p + geom_point(colour='red', size=2)`.
-2. What other parameters can you pass to the `geom_point()` function? Tip: use `?ggplot2::geom_point` to find out.
+2. What other parameters can you pass to the `geom_point()` function?
 
-Rather than colouring your points by one colour, you can also colour the points according to another variable. You can do this by adding the desired variable into the `aes()` section after `geom_point()`. Here we will do this to indicate the size of the population in 2011 as well as the relationship between the size of the population in 19811 and 1911.
+<div class="note">
+**Note**<br/>
+Whilst these instructions are step by step, you are strongly encouraged to deviate from them, for instance, by trying different colours, to get a better understanding of what we are doing. For further help, `ggplot2` is one of the best documented packages in R and [large volumes of documentation](https://ggplot2.tidyverse.org/) are available. If you want to explore `ggplot2` further, we would also recommend taking a look at the [ggplot2 tutorial for beautiful plotting in R](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) by by Cédric Scherer.
+</div>
+
+Rather than colouring your points by one colour, you can also colour the points according to another variable. You can do this by adding the desired variable into the `aes()` section after `geom_point()`. Here we will do this to indicate the size of the population in 2011 as well as the relationship between the size of the population in 1811 and 1911.
 
 ```{r 03-add-a-geom-object-with-some-more-aes, warnings=FALSE, message=FALSE}
 # add some more aesthetics that vary
@@ -261,7 +262,7 @@ p + geom_point(aes(size = Persons.2011)) +
     geom_text(size = 2, colour='red', aes(label = Area.Name))
 ```
 
-The above code adds London Borough labels to the plot over the points they correspond to. This is not perfect since many of the labels overlap but they serve as a useful illustration of the layers. To make things a little easier the plot can be saved as a `pdf` using the `ggsave()` command. When saving the plot can be enlarged to help make the labels more legible. 
+The above code adds London Borough labels to the plot over the points they correspond to. This is not perfect since many of the labels overlap but they serve as a useful illustration of the layers. To make things a little easier the plot can be saved as a `pdf` using the `ggsave()` command. When saving the plot can be enlarged using the `scale` parameter to help make the labels more legible. 
 
 ```{r 03-save-the-plot, warnings=FALSE, message=FALSE, eval=FALSE}
 # save the plot
@@ -305,7 +306,7 @@ The `ggplot(London.Ambulance, aes(x=Assault_09_11))` section means "create a gen
 p + geom_histogram()
 ```
 
-The height of each bar (the x-axis) shows the count of the datapoints and the width of each bar is the value range of datapoints included. If you want the bars to be thinner (to represent a narrower range of values and capture some more of the variation in the distribution) you can adjust the binwidth. Binwidth controls the size of 'bins' that the data are split up into. We will discuss this in more detail later in the course, but put simply, the bigger the bin (larger binwidth) the more data it can hold. Try: 
+The height of each bar (the x-axis) shows the count of the datapoints and the width of each bar is the value range of datapoints included. If you want the bars to be thinner (to represent a narrower range of values and capture some more of the variation in the distribution) you can adjust the binwidth. Binwidth controls the size of 'bins' that the data are split up into. Try: 
 
 ```{r 03-adjusted-histogram, warnings=TRUE, message=TRUE}
 # add geom to our 'p' object, adjust the bindwidth settings
@@ -319,7 +320,7 @@ This plot has provided a good impression of the overall distribution, but it wou
 camden <- London.Ambulance[London.Ambulance$BorCode=='00AG',]
 ```
 
-The crucial part of the code snippet above is what's included in the square brackets `[ ]`. We are subsetting the `London.Ambulance` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *Bor_Code* column that contain `00AG`. `00AG` is a text string so it needs to go in speech marks `''` (or `""`) and we need to use two equals signs `==` in R to mean "equals to". A single equals sign `=` is another way of assigning objects. Although `=` works the same way as `<-`, it is much less widely used for this purpose because it is also used when parameterising functions. Let's quickly compare our original `London.Pop` object with our newly created `camden` object:
+Just like before, the crucial part of the code snippet above is what's included in the square brackets `[ ]`. We are subsetting the `London.Ambulance` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *BorCode* column that contain `00AG`. Let's quickly compare our original `London.Pop` object with our newly created `camden` object:
 
 ```{r 03-inspec-those-filtered-results, warnings=TRUE, message=TRUE}
 # inspect the ambulance assault incident data set
@@ -331,6 +332,9 @@ nrow(camden)
 # inspect the ambulance assault incident data set for Camden
 head(camden)
 ```
+
+#### Questions {-}
+1. Why we have to use double quotes (`''`) to subset out dataframe to get all rows that contain `00AG`?
 
 So to produce a histogram for Camden, the code above needs to be replicated using the `camden` object in the place of `London.Pop`:
 
@@ -345,6 +349,10 @@ p.camden + geom_histogram()
 p.camden + geom_histogram() +
            ggtitle('Assault incidents in Camden')
 ```
+
+#### Questions {-}
+1. What do the values on the x-axis of our histogram mean?
+2. What do the values on the y-axis of our histogram mean?
 
 As you can see this histogram looks a little different than the histogram for the entire data set did. This is largely because we have relatively few rows of data in the `camden` object (as we saw when using `nrow(camden)`). Nevertheless it would be interesting to see the data distributions for each of the London Boroughs. It is a chance to use the `facet_wrap()` function in R. This brilliant function lets you create a whole load of graphs at once!
 
@@ -363,9 +371,6 @@ Yes. It is that easy. Let's try using `facet_wrap()` to plot according to Ward t
 p + geom_histogram() +
     facet_wrap(~WardType)
 ```
-
-#### Questions {-}
-1. What are the key differences in the distributions between the different types of our `facet_wrap()` plots?
 
 The `facet_wrap()` part of the code simply needs the name of the column you would like to use to subset the data into individual plots. Before the column name a tilde `~` is used as shorthand for "by" - so using the function we are asking R to facet the input object into lots of smaller plots based on the *BorCode* column in the first example and *WardType* in the second. 
 
@@ -429,8 +434,34 @@ Please find the seminar task and seminar questions for this week's seminar below
 </div>
 
 #### Seminar task {-}
+1. Create a histogram for the London borough of Ealing (Borough code `00AJ`), you need to:
+- Use the `ggplot2` library.
+- Add a title using `ggtitle()`.
+- Change the colour of the visualisation.
+- Use a bin width of 75.
+
+2. Create a histogram for the London borough of Ealing (Borough code `00AJ`), you need to:
+- Use the `ggplot2` library.
+- Add a title using `ggtitle()`.
+- Change the colour of the visualisation.
+- Use a bin width of 100.
+
+3. Create a boxplot for the London borough of Croydon (Borough code `00AH`), you need to:
+- Use the `ggplot2` library.
+- Add a title using `ggtitle()`.
+- Change the colour of the visualisation.
+
+4. For all three visualisations, try to figure out how to:
+- Change the name of the x-axis using `xlab()`.
+- Change the name of the y-axis using `ylab()`.
 
 #### Seminar questions {-}
+1. Explain why each of these visualisations are useful and what type of data are required to calculate them:
+- Scatter plot
+- Histogram
+- Box and whisk plot
+- Line chart
+2. Compare the results of the histograms you created for the borough of Ealing using a bin width of 75 with the histogram you created for the borough of Ealing using a bin width of 100. Why do they look so different? What does this tell you about the selection of bin widths?
 
 #### Seminar link {-}
 Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
