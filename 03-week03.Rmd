@@ -40,7 +40,7 @@ embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
-For this tutorial we start by using the `London.Pop` object again that we created during our tutorial in [Week 01](understanding-data.html#r-script) and that we also briefly used during [last week's tutorial](examining-data-i.html#measures-of-central-tendency). You may still have it loaded into your R workspace if your RStudio Server session is still active. To check if you do, you can use the `ls()` command as usal to get a list of all objects that are available in your RStudio session.
+For this tutorial we start by using the `London.Pop` object again that we created during our tutorial in [Week 01](understanding-data.html#r-script) and that we also briefly used during [last week's tutorial](examining-data-i.html#measures-of-central-tendency). You may still have it loaded into your R workspace if your RStudio Server session is still active. To check if you do, you can use the `ls()` command as usual to get a list of all objects that are available in your RStudio session.
 
 If not you can simply reload it:
 ```{r 03-make-sure-working-dir-is-set, warnings=FALSE, message=FALSE, eval=FALSE}
@@ -86,7 +86,7 @@ London.Hackney
 
 The crucial part of the code snippet above is what’s included in the square brackets `[ ]`. We are subsetting the `London.Pop` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *Area.Name* column that contain Hackney. Hackney is a text string so it needs to go in speech marks `''` (or `""`) and we need to use two equals signs `==` in R to mean "equal to". A single equals sign `=` is another way of assigning objects. Although `=` works the same way as `<-`, it is much less widely used for this purpose because it is also used when parameterising functions. 
 
-We should now be left with a dataframe that only contains one row of data: the data for the borough of Hackney. This does raise a question: how do we include all the variables into our plot as all our data are spread out over different columns (i.e. *Persons1801*,*Persons1811*, etc.)? Ideally we would **flip** the data set around so that all the data (i.e. *Persons1801*,*Persons1811*, etc.) would be in one column. Well, luckily we can actually do that by [transposing](https://en.wikipedia.org/wiki/Transpose) our data set. Transposing is a mathemathical operation to flip a matrix over its diagonal. Effectively, it turns rows into columns and columns into rows. In R we can do this using the `t()` function.
+We should now be left with a dataframe that only contains one row of data: the data for the borough of Hackney. This does raise a question: how do we include all the variables into our plot as all our data are spread out over different columns (i.e. *Persons1801*,*Persons1811*, etc.)? Ideally we would **flip** the data set around so that all the data (i.e. *Persons1801*,*Persons1811*, etc.) would be in one column. Well, luckily we can actually do that by [transposing](https://en.wikipedia.org/wiki/Transpose) our data set. Transposing is a mathematical operation to flip a matrix over its diagonal. Effectively, it turns rows into columns and columns into rows. In R we can do this using the `t()` function.
 
 ```{r 03-transpose-data, warnings=FALSE, message=FALSE}
 # flip the rows and columns of our data set
@@ -111,7 +111,7 @@ You may be wondering why the first column of the transposed dataframe does not h
 Last week you also got introduced to the box and whisker plot. A box and whisker plot is a method for visualising your data by their quartiles with the whiskers (the lines extending from the box) incidating the variability of the outside the lower and upper quartile. Typically outliers are plotted as individual points. Let's go back to our full data set and make a boxplot for one of the population variables in the London population data set.
 
 ```{r 03-quick-boxplot, warnings=FALSE, message=FALSE}
-# make a boxpot of one of the variables in the London population data set
+# make a boxplot of one of the variables in the London population data set
 boxplot(London.Pop$Persons.2001,horizontal=TRUE)
 ```
 
@@ -145,7 +145,7 @@ The last type of plot we will introduce to you today is called a [histogram](htt
 hist(London.Pop$Persons.2001)
 ```
 
-Currently R automatically picks the widht of the bins in which the data are grouped. To change the width of these bins, we can specify the `breaks` parameter:
+Currently R automatically picks the width of the bins in which the data are grouped. To change the width of these bins, we can specify the `breaks` parameter:
 
 ```{r 03-bin-width, warnings=FALSE, message=FALSE}
 # create a vector with break values
@@ -171,7 +171,7 @@ embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
-As there are many hundres of R packages, these hese are not installed automatically. This means that every additional package we want to use needs to be downloaded and then we need to load it into R in order to use it. To download and install the `ggplot2` package type the following:
+As there are many hundreds of R packages, these hese are not installed automatically. This means that every additional package we want to use needs to be downloaded and then we need to load it into R in order to use it. To download and install the `ggplot2` package type the following:
 
 ```{r 03-install-ggplot2, warnings=FALSE, message=FALSE, eval=FALSE}
 # install package
@@ -306,10 +306,10 @@ The `ggplot(London.Ambulance, aes(x=Assault_09_11))` section means "create a gen
 p + geom_histogram()
 ```
 
-The height of each bar (the x-axis) shows the count of the datapoints and the width of each bar is the value range of datapoints included. If you want the bars to be thinner (to represent a narrower range of values and capture some more of the variation in the distribution) you can adjust the binwidth. Binwidth controls the size of 'bins' that the data are split up into. Try: 
+The height of each bar (the x-axis) shows the count of the datapoints and the width of each bar is the value range of datapoints included. If you want the bars to be thinner (to represent a narrower range of values and capture some more of the variation in the distribution) you can adjust the bin width. Bin width controls the size of 'bins' that the data are split up into. Try: 
 
 ```{r 03-adjusted-histogram, warnings=TRUE, message=TRUE}
-# add geom to our 'p' object, adjust the bindwidth settings
+# add geom to our 'p' object, adjust the bin width settings
 p + geom_histogram(binwidth=10)
 ```
 
@@ -322,7 +322,7 @@ camden <- London.Ambulance[London.Ambulance$BorCode=='00AG',]
 
 Just like before, the crucial part of the code snippet above is what's included in the square brackets. Again we are subsetting the `London.Ambulance` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *BorCode* column that contain `00AG`. Let's quickly compare our original `London.Pop` object with our newly created `camden` object:
 
-```{r 03-inspec-those-filtered-results, warnings=TRUE, message=TRUE}
+```{r 03-inspect-those-filtered-results, warnings=TRUE, message=TRUE}
 # inspect the ambulance assault incident data set
 nrow(London.Pop)
 
@@ -358,7 +358,7 @@ As you can see this histogram looks a little different than the histogram for th
 
 ```{r 03-wrap-wrap-wrap, warnings=TRUE, message=TRUE,cache=TRUE}
 # note that we are back to using the `p` object since we need all our data for this
-# this code may generate a large number of warning messages relating to the plot binwidth, don't worry about them
+# this code may generate a large number of warning messages relating to the plot bin width, don't worry about them
 p + geom_histogram() +
     facet_wrap(~BorCode)
 ```
@@ -367,7 +367,7 @@ Yes. It is that easy. Let's try using `facet_wrap()` to plot according to Ward t
 
 ```{r 03-wrap-wrap-wrap-ward, warnings=TRUE, message=TRUE, cache=TRUE}
 # note that we are back to using the `p` object since we need all our data for this
-# this code may generate a large number of warning messages relating to the plot binwidth, don't worry about them
+# this code may generate a large number of warning messages relating to the plot bin width, don't worry about them
 p + geom_histogram() +
     facet_wrap(~WardType)
 ```
