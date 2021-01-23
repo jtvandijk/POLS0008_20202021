@@ -12,9 +12,9 @@ Let's go.
 #### Video: Introduction W03 {-}
 ```{r 03-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
-embed_msstream('') %>% use_align('left')
+embed_msstream('5b10c318-776e-4398-8682-c413247cd298') %>% use_align('left')
 ```
-[Lecture slides] [[Watch on MS stream]]()
+[Lecture slides] [[Watch on MS stream]](https://web.microsoftstream.com/video/5b10c318-776e-4398-8682-c413247cd298)
 
 ```{r 03-settings, warnings=FALSE, message=FALSE, echo=FALSE}
 # settings
@@ -39,9 +39,9 @@ Data visualisation is the representation of data in a visual format. This could 
 
 #### Video: Data visualisation I {-}
 ```{r 03-data-visualisation, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+embed_msstream('a7d03ee0-4f0a-4e76-8408-fc6f902a2023') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/EcWu0YQXvwxAtNk2uxhoY6ABWNqfL8ztZk0eFH0NNFmO8A?e=31YkqI) [[Watch on MS stream]](https://web.microsoftstream.com/video/a7d03ee0-4f0a-4e76-8408-fc6f902a2023)
 
 Before we move to R and start creating some data visualisations ourselves, a good example, albeit slightly dated, of why data visualisation is so important, is given by the late
 [Hans Rosling](https://en.wikipedia.org/wiki/Hans_Rosling). He was a Swedish physician and statistician who was very passionate about data visualisation. As he says in the video: "Having the data is not enough. I have to show it in ways people both enjoy and understand".
@@ -98,7 +98,7 @@ London.Hackney
 
 The crucial part of the code snippet above is what’s included in the square brackets `[ ]`. We are subsetting the `London.Pop` object, but instead of telling R what column names or numbers we require, we are requesting all rows in the *Area.Name* column that contain Hackney. Hackney is a text string so it needs to go in speech marks `''` (or `""`) and we need to use two equals signs `==` in R to mean "equal to". A single equals sign `=` is another way of assigning objects. Although `=` works the same way as `<-`, it is much less widely used for this purpose because it is also used when parameterising functions. 
 
-We should now be left with a dataframe that only contains one row of data: the data for the borough of Hackney. This does raise a question: how do we include all the variables into our plot as all our data are spread out over different columns (i.e. *Persons1801*,*Persons1811*, etc.)? Ideally we would **flip** the data set around so that all the data (i.e. *Persons1801*,*Persons1811*, etc.) would be in one column. Well, luckily we can actually do that by [transposing](https://en.wikipedia.org/wiki/Transpose) our data set. Transposing is a mathematical operation to flip a matrix over its diagonal. Effectively, it turns rows into columns and columns into rows. In R we can do this using the `t()` function.
+We should now be left with a dataframe that only contains one row of data: the data for the borough of Hackney. This does raise a question: how do we include all the variables into our plot as all our data are spread out over different columns (i.e. *Persons1801*, *Persons1811*, etc.)? Ideally we would **flip** the data set around so that all the data (i.e. *Persons1801*, *Persons1811*, etc.) would be in one column. Well, luckily we can actually do that by [transposing](https://en.wikipedia.org/wiki/Transpose) our data set. Transposing is a mathematical operation to flip a matrix over its diagonal. Effectively, it turns rows into columns and columns into rows. In R we can do this using the `t()` function.
 
 ```{r 03-transpose-data, warnings=FALSE, message=FALSE}
 # flip the rows and columns of our data set
@@ -120,7 +120,7 @@ plot(London.Hackney.t, type='b')
 You may be wondering why the first column of the transposed dataframe does not have a column name and why the column with the data of the transposed dataframe is called *12*. The reason for this is that the `t()` function flips the row and column indices around. The column indices (i.e. in this case the column names) now become row names and the row indices (i.e. in this case row numbers) now become column names (the data for Hackney can be found on row number 12 in the original data set). However, do not worry about this too much for now.
 </div>
 
-Last week you also got introduced to the box and whisker plot. A box and whisker plot is a method for visualising your data by their quartiles with the whiskers (the lines extending from the box) incidating the variability of the outside the lower and upper quartile. Typically outliers are plotted as individual points. Let's go back to our full data set and make a boxplot for one of the population variables in the London population data set.
+Last week you also got introduced to the box and whisker plot. A box and whisker plot is a method for visualising your data by their quartiles with the whiskers (the lines extending from the box) incidating the variability of the values outside the lower and upper quartile. Typically outliers are plotted as individual points. Let's go back to our full data set and make a boxplot for one of the population variables in the London population data set.
 
 ```{r 03-quick-boxplot, warnings=FALSE, message=FALSE}
 # make a boxplot of one of the variables in the London population data set
@@ -179,9 +179,9 @@ The graphs and figures we have made so far are not really pretty. Although possi
 
 #### Video: ggplot2 {-}
 ```{r 03-ggplot2, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+embed_msstream('5f55bc40-cdda-4f01-84dd-96f1dd71274b') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/ER3XhWLz8OdFnMDSBNrFV3gBr2W5GQAL1suQJBXL-Tdnwg?e=gE9zF9) [[Watch on MS stream]](https://web.microsoftstream.com/video/5f55bc40-cdda-4f01-84dd-96f1dd71274b)
 
 As there are many hundreds of R packages, these hese are not installed automatically. This means that every additional package we want to use needs to be downloaded and then we need to load it into R in order to use it. To download and install the `ggplot2` package type the following:
 
@@ -190,16 +190,16 @@ As there are many hundreds of R packages, these hese are not installed automatic
 install.packages('ggplot2')
 ```
 
+```{r 01-rstudio-install, echo=FALSE, fig.align='center', fig.cap='Installing the `ggplot2` package.'}
+knitr::include_graphics('images/week01/01_install_package.png')
+```
+
 <div class="note">
 **Note**<br/>
-If you are running RStudio on your own computer: when you hit 'enter' you could be asked to select a [mirror](https://en.wikipedia.org/wiki/Mirror_site) to download the package contents from. It does not really matter which one you choose, but we would suggest you pick the mirror that is geographically closest to you.
+If you are running RStudio on your own computer: when you hit 'enter' you *could* be asked to select a [mirror](https://en.wikipedia.org/wiki/Mirror_site) to download the package contents from. It does not really matter which one you choose, but we would suggest you pick the mirror that is geographically closest to you.
 </div>
 
 The `install.packages()` step only needs to be performed once. You do not need to install a the package every time you want to use it. However, each time you open R, or start a **new** R session in RStudio Server, and wish to use a package you need to use the `library()` command to tell R that it will be required.
-
-```{r 01-rstudio-install, echo=FALSE, fig.align='center', fig.cap='Installing the ggplot2 package.'}
-knitr::include_graphics('images/week01/01_install_package.png')
-```
 
 ```{r 03-load-ggplot2, warnings=FALSE, message=FALSE}
 # load ggplot2 package
@@ -208,9 +208,9 @@ library(ggplot2)
 
 #### Video: Installing packages in R {-}
 ```{r 03-package-installation, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+embed_msstream('05de9f1d-bfcb-4d46-9be7-abeb2b9f0314') %>% use_align('left')
 ```
-[Lecture slides] [[Watch on MS stream]]()
+[Lecture slides] [[Watch on MS stream]](https://web.microsoftstream.com/video/05de9f1d-bfcb-4d46-9be7-abeb2b9f0314)
 
 Now we installed `ggplot2` and loaded it into our R session, we can start by trying to make a basic plot using the `ggplot2` package ourselves. Let's continue for a little while longer with our `London.Pop` object.
 
