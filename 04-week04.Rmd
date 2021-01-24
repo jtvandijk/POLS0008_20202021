@@ -5,7 +5,7 @@ Welcome to your fourth week of **Introduction to Quantitative Research Methods**
 
 This week is structured by **3** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in preparation for Thursday's seminar.
 
-Let's go.
+Let's do it.
 
 #### Video: Introduction W4 {-}
 ```{r 04-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -14,7 +14,7 @@ embed_msstream('') %>% use_align('left')
 ```
 [Lecture slides] [[Watch on MS stream]]()
 
-```{r 03-settings, warnings=FALSE, message=FALSE, echo=FALSE}
+```{r 04-settings, warnings=FALSE, message=FALSE, echo=FALSE}
 # settings
 options(max.print=30)
 ```
@@ -43,7 +43,7 @@ In this section you have learnt how to:
 2. Load the data that you downloaded into R.
 
 ## Preparing data
-Over the past weeks a lot of information has come your way. However, whilst you are slowly becoming proficient in using R, it is now a good moment to think a little bit more about the data that we have been using and how the data sets have been organisted. This is crucial for when you are moving on to working on your own projects where you have to source data yourselves: the vast majority of the data you will find in the public domain (or private domain for that matter) will be **dirty data**. With dirty data we mean data that needs some form of pre-processing, cleaning, and linkage before you can use it for your analysis.
+Over the past weeks a lot of information has come your way. However, whilst you are slowly becoming proficient in using R, it is now a good moment to think a little bit more about the data that we have been using and how the data sets have been organised This is crucial for when you are moving on to working on your own projects where you have to source data yourselves: the vast majority of the data you will find in the public domain (or private domain for that matter) will be **dirty data**. With dirty data we mean data that needs some form of pre-processing, cleaning, and linkage before you can use it for your analysis.
 
 In the following, you will learn a consistent way to structure your data in R: **tidy data**. Tidy data, as formalised by [R Wizard Hadley Wickham](http://hadley.nz/) in his contribution to the [Journal of Statistical Software](http://www.jstatsoft.org/v59/i10/paper) is not only very much at the core of the `tidyverse` R package that we will introduce you to, but also of general importance when organising your data. In the words, of [the Wizard](https://r4ds.had.co.nz/tidy-data.html):
 
@@ -55,12 +55,35 @@ embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
-You can represent the same underlying data in multiple ways. The example below, taken from the the `tidyverse` package and described in the [R for Data Science](https://r4ds.had.co.nz/tidy-data.html) book, shows that the same data can organised in four different ways. 
+Base R
+Introduced to ggplot2, but
 
-```{r 04-loading-tidyverse, warnings=FALSE, message=FALSE}
+we first have to install the `tidyverse` package using the `install_packages()` function in the same way as we installed the `ggplot2` package [last week](examining-data-ii.html#video-installing-packages-in-r).
+
+```{r 04-installing-tidyverse, warnings=FALSE, message=FALSE, eval=FALSE}
+# install the tidyverse 
+install.packages('tidyverse')
+```
+
+<div class="note">
+**Note**<br/>
+The `tidyverse` package is in fact a collection of packages that are designed for data science tasks. Where in many cases different packages work all slightly differently, all packages of the `tidyverse` share the underlying design philosphy, grammar, and data structures. The `ggplot2` package that you worked with last week is in very fact one of the core package of the `tidyverse`. Because the `tidyverse` consists of multiple packages, it may take a little while before everything is installed so be patient! For more information on `tidyverse`, have a look at https://www.tidyverse.org/.
+</div>
+
+If your installation was successful, you can now load the `tidyverse` as follows:
+
+```{r 04-loading-tidyverse, warnings=TRUE, message=TRUE}
 # load the tidyverse 
 library(tidyverse)
 ```
+
+```{r 04-figure-load-tidyverse, echo=FALSE, fig.align='center', fig.cap='Loading the tidyverse.'}
+knitr::include_graphics('images/week04/04_load_tidyverse.png')
+```
+
+After loading, you may get a short information messages to inform you which packages are attached to your R session and whether there are any conflicting functions. This simply means that there are functions that are named the same across the packages that you have loaded. When you load the `tidyverse` in a fresh R session, these conflicts will include two functions: `filter()` and `lag()`. The `dplyr` package, which is one of the `tidyverse` packages, 
+
+You can represent the same underlying data in multiple ways. The example below, taken from the the `tidyverse` package and described in the [R for Data Science](https://r4ds.had.co.nz/tidy-data.html) book, shows that the same data can organised in four different ways. Before we look at the data, 
 
 Table **1**:
 ```{r 04-tidyverse-table1, warnings=FALSE, message=FALSE}
@@ -94,7 +117,7 @@ None of these representations are wrong per se, however, not are equally easy to
 3. Each value must have its own cell.
 
 ```{r 05-figure-hadley-wickham, echo=FALSE, fig.align='center', fig.cap='A visual representation of tidy data by [Hadley Wickham](https://r4ds.had.co.nz/tidy-data.html).'}
-knitr::include_graphics('images/week05/05_a_tidy_data.png')
+knitr::include_graphics('images/week04/04_tidy_data.png')
 ```
 
 Fortunately, there are some functions in the `tidyr` and `dplyr` packages, both part of the `tidyverse` that will help us cleaning and preparing our datasets to create a **tidy dataset**. The most important and useful functions are:
@@ -114,7 +137,24 @@ Fortunately, there are some functions in the `tidyr` and `dplyr` packages, both 
 Remember that when you encounter a function in a piece of R code that you have not seen before and you are wondering what it does that you can get access the documentation through `?name_of_function`, e.g. `?pivot_longer`. For almost any R package, the documentation contains a list of arguments that the function takes, in which format the functions expects these arguments, as well as a set of usage examples.
 </div>
 
-
 #### Recap {-}
+
+## Seminar {#seminar-w04}
+Please find the seminar task and seminar questions for this week's seminar below. 
+
+<div class="note">
+**Note**<br/>
+Please make sure that you have executed the seminar task and have answered the seminar questions before the seminar!
+</div>
+
+#### Seminar task {-}
+
+#### Seminar questions {-}
+
+#### Seminar link {-}
+Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
+
+## Before you leave {#byl-w04}
+Save your R script by pressing the **Save** button in the script window. [That is it for this week](https://www.youtube.com/watch?v=3wxyN3z9PL4)!
 
 
