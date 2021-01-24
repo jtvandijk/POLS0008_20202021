@@ -1,4 +1,120 @@
 # Sourcing data
 
-<center>**This week’s content will be be made available by 01/02.**</center>
+## Introduction {#introduction-w04}
+Welcome to your fourth week of **Introduction to Quantitative Research Methods**. This week we will focus on **sourcing** and preparing data. For the tutorial we will apply what we have learnt over the past weeks onto a new data set.
+
+This week is structured by **3** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in preparation for Thursday's seminar.
+
+Let's go.
+
+#### Video: Introduction W4 {-}
+```{r 04-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('') %>% use_align('left')
+```
+[Lecture slides] [[Watch on MS stream]]()
+
+```{r 03-settings, warnings=FALSE, message=FALSE, echo=FALSE}
+# settings
+options(max.print=30)
+```
+
+### Reading list {#reading-list-w04}
+Please find the reading list for this week below. We strongly recommend that you read the **core reading material** before you continue with the rest of this week's material.
+
+#### Core reading {-}
+- Wickham, 2014, Tidy data, *Journal of Statistical Software* 59(10). [[Link]](http://www.jstatsoft.org/v59/i10/paper)
+
+### Q&A session
+This week there is **NO** live Q&A session scheduled. Please post any questions you have on the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137) or ask them to your seminar leader during your live seminar on Thursday.
+
+## Sourcing data
+
+#### Video: Sourcing data {-}
+```{r 04-sourcing-data, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]]() [[Watch on MS stream]]()
+
+#### Recap {-}
+In this section you have learnt how to:
+
+1. Download data from the Office for National Statistics.
+2. Load the data that you downloaded into R.
+
+## Preparing data
+Over the past weeks a lot of information has come your way. However, whilst you are slowly becoming proficient in using R, it is now a good moment to think a little bit more about the data that we have been using and how the data sets have been organisted. This is crucial for when you are moving on to working on your own projects where you have to source data yourselves: the vast majority of the data you will find in the public domain (or private domain for that matter) will be **dirty data**. With dirty data we mean data that needs some form of pre-processing, cleaning, and linkage before you can use it for your analysis.
+
+In the following, you will learn a consistent way to structure your data in R: **tidy data**. Tidy data, as formalised by [R Wizard Hadley Wickham](http://hadley.nz/) in his contribution to the [Journal of Statistical Software](http://www.jstatsoft.org/v59/i10/paper) is not only very much at the core of the `tidyverse` R package that we will introduce you to, but also of general importance when organising your data. In the words, of [the Wizard](https://r4ds.had.co.nz/tidy-data.html):
+
+> Once you have tidy data and the tidy tools provided by packages in the tidyverse, you will spend much less time munging data from one representation to another, allowing you to spend more time on the analytic questions at hand.
+
+#### Video: Preparing data {-}
+```{r 04preparing-data, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]]() [[Watch on MS stream]]()
+
+You can represent the same underlying data in multiple ways. The example below, taken from the the `tidyverse` package and described in the [R for Data Science](https://r4ds.had.co.nz/tidy-data.html) book, shows that the same data can organised in four different ways. 
+
+```{r 04-loading-tidyverse, warnings=FALSE, message=FALSE}
+# load the tidyverse 
+library(tidyverse)
+```
+
+Table **1**:
+```{r 04-tidyverse-table1, warnings=FALSE, message=FALSE}
+table1
+```
+
+Table **2**:
+```{r 04-tidyverse-table2, warnings=FALSE, message=FALSE}
+table2
+```
+
+Table **3**:
+```{r 04-tidyverse-table3, warnings=FALSE, message=FALSE}
+table3
+```
+
+Table **4a**:
+```{r 04-tidyverse-table4a, warnings=FALSE, message=FALSE}
+table4a
+```
+
+Table **4b**:
+```{r 04-tidyverse-table4b, warnings=FALSE, message=FALSE}
+table4b
+```
+
+None of these representations are wrong per se, however, not are equally easy to use. Only Table **1** can be considered as tidy data because it is the only table that adheres to the three rules that make a dataset tidy:
+
+1. Each variable must have its own column.
+2. Each observation must have its own row.
+3. Each value must have its own cell.
+
+```{r 05-figure-hadley-wickham, echo=FALSE, fig.align='center', fig.cap='A visual representation of tidy data by [Hadley Wickham](https://r4ds.had.co.nz/tidy-data.html).'}
+knitr::include_graphics('images/week05/05_a_tidy_data.png')
+```
+
+Fortunately, there are some functions in the `tidyr` and `dplyr` packages, both part of the `tidyverse` that will help us cleaning and preparing our datasets to create a **tidy dataset**. The most important and useful functions are:
+
+| Package   | Function          | Use to |
+| :------   | :------           | :------ |
+| dplyr	    | select            | select columns |
+| dplyr	    | filter            | select rows |
+| dplyr	    | mutate            | transform or recode variables |
+| dplyr	    | summarise         | summarise data |
+| dplyr	    | group by          | group data into subgropus for further processing |
+| tidyr	    | pivot_longer      | convert data from wide format to long format |
+| tidyr	    | pivot_wider       | convert long format dataset to wide format |
+
+<div class="note">
+**Note**<br/>
+Remember that when you encounter a function in a piece of R code that you have not seen before and you are wondering what it does that you can get access the documentation through `?name_of_function`, e.g. `?pivot_longer`. For almost any R package, the documentation contains a list of arguments that the function takes, in which format the functions expects these arguments, as well as a set of usage examples.
+</div>
+
+
+#### Recap {-}
+
 
