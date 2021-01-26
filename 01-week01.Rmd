@@ -34,7 +34,7 @@ Please find the reading list for this week below. We strongly recommend that you
 - Diez *et al.*, 2019, **Chapter 1: Introduction to data**. In: Diez *et al.*, 2019, OpenIntro Statistics. Fourth Edition. Boston, Massachusetts: OpenIntro. [[Link]](https://leanpub.com/openintro-statistics)
 
 ### Q&A session
-This week there will be a live Q&A session on **Tuesday, January 12, 2020 @ 11h00 (GMT)**. The session will be hosted on Zoom [[Link]](	https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09). For security reasons, the meeting password for this Q&A session can be found on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) on the **main page**: *POLS0008 - Q&A - Tuesday 11:00 (JVD)*.
+This week there will be a live Q&A session on **Tuesday, January 12, 2020 @ 11h00 (GMT)**. The session will be hosted on Zoom [[Link]](	https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09). For security reasons, the meeting password for this Q&A session can be found on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845) on the **main page**: *POLS0008 - Q&A - Tuesday 11:00*.
 
 ## Data and statistics
 Some of you may wonder why it is necessary to take a course on data and statistics in the first place? Well, there are several compelling reasons to have a (basic) knowledge of data and statistics:
