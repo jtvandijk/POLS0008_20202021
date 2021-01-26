@@ -1,7 +1,7 @@
 # Sourcing data
 
 ## Introduction {#introduction-w04}
-Welcome to your fourth week of **Introduction to Quantitative Research Methods**. This week we will focus on **sourcing** and preparing data. For the tutorial we will apply what we have learnt over the past weeks onto a new data set.
+Welcome to your fourth week of **Introduction to Quantitative Research Methods**. This week we will introduce you to how to prepare and structure your data from official sources. For the tutorial we will apply what we have learnt over the past weeks onto a new data set.
 
 This week is structured by **3** short videos, practical material that you need to work through in preparation for Thursday's seminar, and a seminar task that you need to do in preparation for Thursday's seminar.
 
@@ -25,10 +25,13 @@ Please find the reading list for this week below. We strongly recommend that you
 #### Core reading {-}
 - Wickham, 2014, Tidy data, *Journal of Statistical Software* 59(10). [[Link]](http://www.jstatsoft.org/v59/i10/paper)
 
+#### Supplementary reading {-}
+
 ### Q&A session
 This week there is **NO** live Q&A session scheduled. Please post any questions you have on the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137) or ask them to your seminar leader during your live seminar on Thursday.
 
 ## Sourcing data
+Over the past weeks we have predominantly worked with two data sets: `ambulance-assault.csv` and `census-historic-population-borough.csv`. Although very convenient, in many cases the data that you want are not readily available on as a download on Moodle and you will need to source the data yourself, for instance, by downloading a data set that has been created by a statistical authority such as the [Office for National Statistics](https://www.ons.gov.uk/) [UK], [United States Census Bureau](https://www.census.gov/) [USA], [Statistics South Africa](http://www.statssa.gov.za/) [ZA], or the [National Bureau of Statistics of China](http://www.stats.gov.cn/english/) [CN]. Or perhaps you require a data set compiled by large international institutions like [World Bank](https://www.worldbank.org/) or [Unicef](https://www.unicef.org/)? No matter what your source, you will have to know how to download and prepare your data so that you can conduct your analysis in R.
 
 #### Video: Sourcing data {-}
 ```{r 04-sourcing-data, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -36,13 +39,98 @@ embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
+Within the United Kingdom, the [Office for National Statistics](https://www.ons.gov.uk/) (ONS) is the largest producer of official statistics. ONS is responsible for collecting and publishing statistics related to the economy, population and society at national, regional and local levels. They are also responsible to conduct the census in England and Wales every 10 years (the census for Scotland and Norther Ireland are conducted by the [National Records of Scotland](https://www.nrscotland.gov.uk/) and the [Northern Ireland Statistics and Research Agency](https://www.nisra.gov.uk/). Today we will be downloading a data set from ONS, prepare the data set as a `csv` file, and read our freshly created `csv` file into R.
+
+```{r 04-ons-website, echo=FALSE, fig.align='center', fig.cap='The website of the Office for National Statistics.'}
+knitr::include_graphics('images/week04/04_ons_web.png')
+```
+
+The population data in the `census-historic-population-borough.csv` we have been working with so far only goes as far as 2011, so in the following we will try to get some more recent population estimates. ONS releases every year their Middle Super Output Area [mid-year population estimates](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/middlesuperoutputareamidyearpopulationestimates) for England and Wales, the latest data set that has been released is 2020. This is the data set that we are going to download and prepare.
+
+<div class="note">
+**Note**<br/>
+These [Middle Super Output Areas](https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography) are one of the many administrative geographies that the ONS uses for reporting their small area statistics. 
+</div>
+
+To download the data set, you need to take the following steps:
+
+1. Navigate to the download page of the Middle Super Output Area population estimates which can be found here: [[Link]](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/middlesuperoutputareamidyearpopulationestimates)
+2. Download the file `Mid-2019: SAPE22DT15` to your computer.
+3. As the file that you have now downloaded is a `zip` file, we first **need** to extract the file before we can use it. To unzip the file you can use, for instance, [7-Zip](https://www.7-zip.org/) on Windows or [The Unarchiver](https://theunarchiver.com/) on Mac OS.
+4. Open the file in Microsoft Excel or any other spreadsheet software for inspection. 
+5. Once opened your file should look simlir as to the screenshot below.
+
+```{r 04-mid-year-download, echo=FALSE, fig.align='center', fig.cap='The `Mid-2019: SAPE22DT15` file that we downloaded.'}
+knitr::include_graphics('images/week04/04_download.png')
+```
+
+The file probably does not look exactly like you thought it would because we do not directly see any data as, in fact, all the data is put on different tabs. The data that we want is found on the `Mid-2019 Persons` tab. The problem we have now, however, is that the data as it is right now cannot be read into R without causing us lots of problems down the road. So even though we have our data, we are not yet ready to read our data set into R! So, in video below, we will show you how to create a `csv` from the data that we want to use. 
+
+#### Video: Preparing data {-}
+```{r 04-preparing-data, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('') %>% use_align('left')
+```
+[Lecture slides] [[Watch on MS stream]]()
+
+Now you have seen how to prepare your `csv`, it is time to do it yourselves. Just as a small recap, these are the steps that you need to take to turn the downloaded data into a `csv`:
+
+1. Go to the `Mid-2019 Persons` tab.
+2. Highlight the columns: *MSOA Code*, *MSOA Name*, *LA Code (2019 boundaries)*, *LA name (2019 boundaries)*, *LA Code (2020 boundaries)*, *LA name (2020 boundaries)*, and *All Ages*. Make sure that you do not include any of the whitespace or empty rows.
+3. Scroll down all the way to the bottom of the file and whilst holding the **shift** button, click on the last value in the *All Ages* column. This value should be 9,711. 
+4. Now all the data that we need are selected we can copy them by right clicking and in the context menu opting for the **copy** option. Of course, you can also simply use `control` + `c` (Windows) or `command` + `c` (Mac OS).
+5. Open a new, empty spreadsheet and paste the copied data into this new, empty spreadsheet by right clicking in the first cell and in the context menu opting for the **paste** option. Of course, you can also simply use `control` + `v` (Windows) or `command` + `v` (Mac OS).
+6. Now save this file as a `midyear2019.csv`. Make sure that you select `csv` as your file format (e.g. `CSV UTF8 (Comma-delimited) (.csv)`).
+
+Now, for the moment of truth: let's try and see if we can load our data into R! Of course, start by uploading your `csv` file to RStudio Server and setting your working directory so that R can find the file. 
+
+```{r 04-load-csv, warnings=FALSE, message=FALSE, eval=FALSE}
+# load csv file from working directory
+midyear <- read.csv('midyear2019.csv')
+```
+
+```{r 04-load-csv-for-realz, warnings=FALSE, message=FALSE, echo=FALSE}
+# load csv file from working directory
+midyear <- read.csv('raw/midyear2019.csv')
+
+# inspect
+midyear
+```
+
+#### Questions {-}
+1. Inspect the columnames. Why do they slightly differ from the ones that we saw in Microsoft Excel?
+2. How many rows does the `midyear` dataframe have?
+3. How many columns does the `midyear` dataframe have?
+
+The column names may seem a little complicated but in fact simply refer to some of the administrative geographies that the ONS uses for their statistics. Don't worry if you do not fully understand these, these are notoriously complicated!
+
+| Column heading | Full name | Description |
+| :---           | :---      | :---------- |
+|**MSOA.Code** | MSOA Code | [Middle Super Output Areas](https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography) are one of the many administrative geographies that the ONS uses for reporting their small area statistics. These codes are used as a quick way of referring to them from official data sources. |
+|**MSOA.Name** | MSOA Name | Name of the MSOA. |
+|**LA.Code..2019.boundaries** | Local Authority District codes 2019 | [Local Authority Districts](https://en.wikipedia.org/wiki/Districts_of_England) are a subnational division used for the purposes of local government. Each MSOA belongs to one Local Authority District, however, between years the boundaries of these Local Authority Districts sometimes change. These are the codes for the Local Authority District to which the MSOA belonged to in 2019. |
+|**LA.name..2019.boundaries** | Local Authority District names 2019 | Name of the Local Authority District to which the MSOA belonged to in 2019. 
+|**LA.Code..2020.boundaries** | Local Authority District codes 2020 | Code of the Local Authority District to which the MSOA belonged to in 2020 |
+|**LA.name..2020.boundaries** | Local Authority District names 2020 | Name of the Local Authority District to which the MSOA belonged to in 2019. 
+|**All.Ages** | Total number of people | The total number of people that is estimated to live in the MSOA mid-2019. |
+
+Now we at least have an idea what our column names mean, we can rename them so that they are a little more intelligible.
+
+```{r 04-rename-columns, warnings=FALSE, message=FALSE}
+# rename columns
+names(midyear) <- c('msoa_code','msoa_name','lad19_code','lad19_name','lad20_code','lad20_name','pop19')
+
+# inspect
+names(midyear)
+```
+
 #### Recap {-}
 In this section you have learnt how to:
 
 1. Download data from the Office for National Statistics.
-2. Load the data that you downloaded into R.
+2. Select the data that you need and save these into a `csv` file.
+2. Load the `csv` file that you created into R.
 
-## Preparing data
+## Structuring data
 Over the past weeks a lot of information has come your way. However, whilst you are slowly becoming proficient in using R, it is now a good moment to think a little bit more about the data that we have been using and how the data sets have been organised This is crucial for when you are moving on to working on your own projects where you have to source data yourselves: the vast majority of the data you will find in the public domain (or private domain for that matter) will be **dirty data**. With dirty data we mean data that needs some form of pre-processing, cleaning, and linkage before you can use it for your analysis.
 
 In the following, you will learn a consistent way to structure your data in R: **tidy data**. Tidy data, as formalised by [R Wizard Hadley Wickham](http://hadley.nz/) in his contribution to the [Journal of Statistical Software](http://www.jstatsoft.org/v59/i10/paper) is not only very much at the core of the `tidyverse` R package that we will introduce you to, but also of general importance when organising your data. In the words, of [the Wizard](https://r4ds.had.co.nz/tidy-data.html):
@@ -156,5 +244,3 @@ Seminars for all groups take place on **Thursday morning**. You can find the **Z
 
 ## Before you leave {#byl-w04}
 Save your R script by pressing the **Save** button in the script window. [That is it for this week](https://www.youtube.com/watch?v=3wxyN3z9PL4)!
-
-

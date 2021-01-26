@@ -190,8 +190,8 @@ As there are many hundreds of R packages, these hese are not installed automatic
 install.packages('ggplot2')
 ```
 
-```{r 01-rstudio-install, echo=FALSE, fig.align='center', fig.cap='Installing the `ggplot2` package.'}
-knitr::include_graphics('images/week01/01_install_package.png')
+```{r 03-rstudio-install, echo=FALSE, fig.align='center', fig.cap='Installing the `ggplot2` package.'}
+knitr::include_graphics('images/week03/03_install_package.png')
 ```
 
 <div class="note">
