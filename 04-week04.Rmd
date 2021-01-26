@@ -33,7 +33,7 @@ This week there is **NO** live Q&A session scheduled. Please post any questions 
 ## Sourcing data
 Over the past weeks we have predominantly worked with two data sets: `ambulance-assault.csv` and `census-historic-population-borough.csv`. Although very convenient, in many cases the data that you want are not readily available on as a download on Moodle and you will need to source the data yourself, for instance, by downloading a data set that has been created by a statistical authority such as the [Office for National Statistics](https://www.ons.gov.uk/) [UK], [United States Census Bureau](https://www.census.gov/) [USA], [Statistics South Africa](http://www.statssa.gov.za/) [ZA], or the [National Bureau of Statistics of China](http://www.stats.gov.cn/english/) [CN]. Or perhaps you require a data set compiled by large international institutions like [World Bank](https://www.worldbank.org/) or [Unicef](https://www.unicef.org/)? No matter what your source, you will have to know how to download and prepare your data so that you can conduct your analysis in R.
 
-#### Video: Sourcing data {-}
+#### Video: Sourcing data I {-}
 ```{r 04-sourcing-data, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
 ```
@@ -58,7 +58,7 @@ To download the data set, you need to take the following steps:
 2. Download the file `Mid-2019: SAPE22DT15` to your computer.
 3. As the file that you have now downloaded is a `zip` file, we first **need** to extract the file before we can use it. To unzip the file you can use, for instance, [7-Zip](https://www.7-zip.org/) on Windows or [The Unarchiver](https://theunarchiver.com/) on Mac OS.
 4. Open the file in Microsoft Excel or any other spreadsheet software for inspection. 
-5. Once opened your file should look simlir as to the screenshot below.
+5. Once opened your file should look similar as to the screenshot below.
 
 ```{r 04-mid-year-download, echo=FALSE, fig.align='center', fig.cap='The `Mid-2019: SAPE22DT15` file that we downloaded.'}
 knitr::include_graphics('images/week04/04_download.png')
@@ -66,7 +66,7 @@ knitr::include_graphics('images/week04/04_download.png')
 
 The file probably does not look exactly like you thought it would because we do not directly see any data as, in fact, all the data is put on different tabs. The data that we want is found on the `Mid-2019 Persons` tab. The problem we have now, however, is that the data as it is right now cannot be read into R without causing us lots of problems down the road. So even though we have our data, we are not yet ready to read our data set into R! So, in video below, we will show you how to create a `csv` from the data that we want to use. 
 
-#### Video: Preparing data {-}
+#### Video: Sourcing data II {-}
 ```{r 04-preparing-data, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
 ```
@@ -74,14 +74,14 @@ embed_msstream('') %>% use_align('left')
 
 Now you have seen how to prepare your `csv`, it is time to do it yourselves. Just as a small recap, these are the steps that you need to take to turn the downloaded data into a `csv`:
 
-1. Go to the `Mid-2019 Persons` tab.
-2. Highlight the columns: *MSOA Code*, *MSOA Name*, *LA Code (2019 boundaries)*, *LA name (2019 boundaries)*, *LA Code (2020 boundaries)*, *LA name (2020 boundaries)*, and *All Ages*. Make sure that you do not include any of the whitespace or empty rows.
-3. Scroll down all the way to the bottom of the file and whilst holding the **shift** button, click on the last value in the *All Ages* column. This value should be 9,711. 
+1. Open the downloaded file in Microsoft Excel and navigate to the `Mid-2019 Persons` tab.
+2. Highlight the columns: *MSOA Code*, *MSOA Name*, *LA Code (2019 boundaries)*, *LA name (2019 boundaries)*, *LA Code (2020 boundaries)*, *LA name (2020 boundaries)*, and *All Ages*. **Make sure that you do not include any of the whitespace or empty rows.**
+3. Scroll down all the way to the bottom of the file and whilst holding the **shift** button, click on the last value in the *All Ages* column. This value should be 9,711. All data should now be selected.
 4. Now all the data that we need are selected we can copy them by right clicking and in the context menu opting for the **copy** option. Of course, you can also simply use `control` + `c` (Windows) or `command` + `c` (Mac OS).
 5. Open a new, empty spreadsheet and paste the copied data into this new, empty spreadsheet by right clicking in the first cell and in the context menu opting for the **paste** option. Of course, you can also simply use `control` + `v` (Windows) or `command` + `v` (Mac OS).
 6. Now save this file as a `midyear2019.csv`. Make sure that you select `csv` as your file format (e.g. `CSV UTF8 (Comma-delimited) (.csv)`).
 
-Now, for the moment of truth: let's try and see if we can load our data into R! Of course, start by uploading your `csv` file to RStudio Server and setting your working directory so that R can find the file. 
+Now, for the moment of truth: let's try and see if we can load our data into R! Of course, you will first need to upload your `csv` file to RStudio Server and set your working directory so that R can find the file - but you should be able to do that without any problems by now.
 
 ```{r 04-load-csv, warnings=FALSE, message=FALSE, eval=FALSE}
 # load csv file from working directory
@@ -91,17 +91,19 @@ midyear <- read.csv('midyear2019.csv')
 ```{r 04-load-csv-for-realz, warnings=FALSE, message=FALSE, echo=FALSE}
 # load csv file from working directory
 midyear <- read.csv('raw/midyear2019.csv')
+```
 
+```{r 04-inspect-csv, warnings=FALSE, message=FALSE, echo=FALSE}
 # inspect
 midyear
 ```
 
 #### Questions {-}
-1. Inspect the columnames. Why do they slightly differ from the ones that we saw in Microsoft Excel?
+1. Inspect the columnames. Why do you think that they slightly differ from the ones that we saw in Microsoft Excel?
 2. How many rows does the `midyear` dataframe have?
 3. How many columns does the `midyear` dataframe have?
 
-The column names may seem a little complicated but in fact simply refer to some of the administrative geographies that the ONS uses for their statistics. Don't worry if you do not fully understand these, these are notoriously complicated!
+The column names may seem a little complicated but in fact simply refer to some of the administrative geographies that the ONS uses for their statistics. Don't worry if you do not fully understand these as they are notoriously complicated and confusing!
 
 | Column heading | Full name | Description |
 | :---           | :---      | :---------- |
@@ -123,6 +125,8 @@ names(midyear) <- c('msoa_code','msoa_name','lad19_code','lad19_name','lad20_cod
 names(midyear)
 ```
 
+Great. This is all looking very good but we are not completely there yet. Now we sourced our data and read it into R, we need to do some final preparations so that our data is analysis ready.
+
 #### Recap {-}
 In this section you have learnt how to:
 
@@ -130,7 +134,7 @@ In this section you have learnt how to:
 2. Select the data that you need and save these into a `csv` file.
 2. Load the `csv` file that you created into R.
 
-## Structuring data
+## Preparing data
 Over the past weeks a lot of information has come your way. However, whilst you are slowly becoming proficient in using R, it is now a good moment to think a little bit more about the data that we have been using and how the data sets have been organised This is crucial for when you are moving on to working on your own projects where you have to source data yourselves: the vast majority of the data you will find in the public domain (or private domain for that matter) will be **dirty data**. With dirty data we mean data that needs some form of pre-processing, cleaning, and linkage before you can use it for your analysis.
 
 In the following, you will learn a consistent way to structure your data in R: **tidy data**. Tidy data, as formalised by [R Wizard Hadley Wickham](http://hadley.nz/) in his contribution to the [Journal of Statistical Software](http://www.jstatsoft.org/v59/i10/paper) is not only very much at the core of the `tidyverse` R package that we will introduce you to, but also of general importance when organising your data. In the words, of [the Wizard](https://r4ds.had.co.nz/tidy-data.html):
@@ -155,7 +159,7 @@ install.packages('tidyverse')
 
 <div class="note">
 **Note**<br/>
-The `tidyverse` package is in fact a collection of packages that are designed for data science tasks. Where in many cases different packages work all slightly differently, all packages of the `tidyverse` share the underlying design philosphy, grammar, and data structures. The `ggplot2` package that you worked with last week is in very fact one of the core package of the `tidyverse`. Because the `tidyverse` consists of multiple packages, it may take a little while before everything is installed so be patient! For more information on `tidyverse`, have a look at https://www.tidyverse.org/.
+The `tidyverse` package is in fact a collection of packages that are designed for data science tasks. Where in many cases different packages work all slightly differently, all packages of the `tidyverse` share the underlying design philosophy, grammar, and data structures. The `ggplot2` package that you worked with last week is in very fact one of the core package of the `tidyverse`. Because the `tidyverse` consists of multiple packages, it may take a little while before everything is installed so be patient! For more information on `tidyverse`, have a look at https://www.tidyverse.org/.
 </div>
 
 If your installation was successful, you can now load the `tidyverse` as follows:
@@ -216,7 +220,7 @@ Fortunately, there are some functions in the `tidyr` and `dplyr` packages, both 
 | dplyr	    | filter            | select rows |
 | dplyr	    | mutate            | transform or recode variables |
 | dplyr	    | summarise         | summarise data |
-| dplyr	    | group by          | group data into subgropus for further processing |
+| dplyr	    | group by          | group data into subgroups for further processing |
 | tidyr	    | pivot_longer      | convert data from wide format to long format |
 | tidyr	    | pivot_wider       | convert long format dataset to wide format |
 
