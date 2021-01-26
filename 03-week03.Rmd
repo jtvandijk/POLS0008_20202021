@@ -447,21 +447,21 @@ Please make sure that you have executed the seminar task and have answered the s
 </div>
 
 #### Seminar task {-}
-1. Create a histogram for the London borough of Ealing (Borough code `00AJ`), you need to:
+1. Create a histogram of the *Assault_09_11* variable for the London borough of Ealing (Borough code `00AJ`), you need to:
 - Use the `ggplot2` library.
 - Add a title using `ggtitle()`.
 - Change the colour of the visualisation.
 - Use a bin width of 75.
 - Save your histogram as a `pdf`.
 
-2. Create a histogram for the London borough of Ealing (Borough code `00AJ`), you need to:
+2. Create a histogram of the *Assault_09_11* variable for the London borough of Ealing (Borough code `00AJ`), you need to:
 - Use the `ggplot2` library.
 - Add a title using `ggtitle()`.
 - Change the colour of the visualisation.
 - Use a bin width of 100.
 - Save your histogram as a `pdf`.
 
-3. Create a boxplot for the London borough of Croydon (Borough code `00AH`), you need to:
+3. Create a boxplot of the *Assault_09_11* variable for the London borough of Croydon (Borough code `00AH`), you need to:
 - Use the `ggplot2` library.
 - Add a title using `ggtitle()`.
 - Change the colour of the visualisation.
@@ -477,7 +477,7 @@ Please make sure that you have executed the seminar task and have answered the s
 - Histogram
 - Box and whisk plot
 - Line chart
-2. Compare the results of the histograms you created for the borough of Ealing using a bin width of `75` with the histogram you created for the borough of Ealing using a bin width of `100.` Why do they look so different? What does this tell you about the selection of bin widths?
+2. Compare the results of the histograms you created of the *Assault_09_11* variable for the borough of Ealing using a bin width of `75` with the histogram you created for the borough of Ealing using a bin width of `100.` Why do they look so different? What does this tell you about the selection of bin widths?
 
 #### Seminar link {-}
 Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
