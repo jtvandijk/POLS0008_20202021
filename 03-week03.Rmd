@@ -322,7 +322,7 @@ The height of each bar (the x-axis) shows the count of the datapoints and the wi
 
 ```{r 03-adjusted-histogram, warnings=TRUE, message=TRUE}
 # add geom to our 'p' object, adjust the bin width settings
-p + geom_histogram(binwidth=10)
+p + geom_histogram(, binwidth=10)
 ```
 
 This plot has provided a good impression of the overall distribution, but it would be interesting to see characteristics of the data within each of the Boroughs. We can do this since each Borough in the `London.Ambulance` object is made up of multiple wards. To see what we mean, we can select all the wards that fall within the Borough of Camden, which has the code `00AG` (if you want to see what each Borough the code corresponds to, and learn a little more about the statistical geography of England and Wales, then [do have a look here](http://en.wikipedia.org/wiki/ONS_coding_system).
@@ -357,7 +357,7 @@ p.camden <- ggplot(camden, aes(x=Assault_09_11))
 # add geom to our 'p.camden' object
 p.camden + geom_histogram()  
 
-# plot pretty(ish) -->
+# plot pretty(ish) 
 p.camden + geom_histogram() +
            ggtitle('Assault incidents in Camden')
 ```
@@ -393,8 +393,8 @@ In addition to histograms, another type of plot that, as we know, shows the core
 
 ```{r 03-boxplot, warnings=TRUE, message=TRUE, cache=TRUE}
 # note that the `Assault_09_11` column is now y and not x
-# we also specified x = 1 to align the plot to the x-axis (any single number would work)
-p.boxplot <- ggplot(London.Ambulance, aes(x=1, y=Assault_09_11))
+# we specify x = 'London' to add a meaningfull label to the x-axis
+p.boxplot <- ggplot(London.Ambulance, aes(x='London', y=Assault_09_11))
 
 # add the boxplot geom
 p.boxplot + geom_boxplot()
@@ -404,7 +404,8 @@ If we are just interested in Camden then we can use the `camden` object created 
 
 ```{r 03-boxplot-camden, warnings=TRUE, message=TRUE}
 # boxplot for camden only
-p.boxplot.camden <- ggplot(camden, aes(x=1, y=Assault_09_11))
+# we speficy x = 'Camden' to add a meaningfull label to the x-axis
+p.boxplot.camden <- ggplot(camden, aes(x='Camden', y=Assault_09_11))
 
 # add the boxplot geom
 p.boxplot.camden + geom_boxplot()
