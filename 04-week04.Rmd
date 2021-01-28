@@ -10,9 +10,9 @@ Let's do it.
 #### Video: Introduction W4 {-}
 ```{r 04-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
-embed_msstream('') %>% use_align('left')
+embed_msstream('bc8a46a4-c664-470d-b85f-118d4449bc63') %>% use_align('left')
 ```
-[Lecture slides] [[Watch on MS stream]]()
+[Lecture slides] [[Watch on MS stream]](https://web.microsoftstream.com/video/bc8a46a4-c664-470d-b85f-118d4449bc63)
 
 ```{r 04-settings, warnings=FALSE, message=FALSE, echo=FALSE}
 # settings
@@ -36,9 +36,9 @@ Over the past weeks we have predominantly worked with two data sets that we prov
 
 #### Video: Sourcing data I {-}
 ```{r 04-sourcing-data, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+embed_msstream('53e1631e-8b44-4e4e-894c-2c3c801dc880') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/EW8A8akMbrpFtL4TOIhpLMcBdhUWzPJeB6cCYvjMtqlcZg?e=lBOjLz) [[Watch on MS stream]](https://web.microsoftstream.com/video/53e1631e-8b44-4e4e-894c-2c3c801dc880)
 
 Within the United Kingdom, the [Office for National Statistics](https://www.ons.gov.uk/) (ONS) is the largest producer of official statistics. ONS is responsible for collecting and publishing statistics related to the economy, population and society at national, regional and local levels. They are also responsible for conducting the census in England and Wales every 10 years (the census for Scotland and Northern Ireland are conducted by the [National Records of Scotland](https://www.nrscotland.gov.uk/) and the [Northern Ireland Statistics and Research Agency](https://www.nisra.gov.uk/), respectively). Today we will be downloading a data set from ONS, prepare the data set as a `csv` file, and read our freshly created `csv` file into R.
 
@@ -70,10 +70,10 @@ knitr::include_graphics('images/week04/04_download.png')
 The file probably does not look exactly like you thought it would because we do not directly see any data! In fact, ONS has put the data on different tabs. Some of these tabs contain the actual data, whilst others contain some [meta-data](https://en.wikipedia.org/wiki/Metadata) and notes and definitions. The data that we want to use is found on the `Mid-2019 Persons` tab: the total number of people living in each MSOA. The problem we have now, however, is that the data as it is right now cannot be read into R without causing us lots of problems down the road. So even though we have the data we want to work with at our finger tips, we are not yet ready to read our data set into R! So, in video below, we will show you how to create a `csv` from the data that we want to use. 
 
 #### Video: Sourcing data II {-}
-```{r 04-preparing-data, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+```{r 04-sourcing-data-example, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('c0c8aad3-f624-44fd-ac70-42841dc4ae63') %>% use_align('left')
 ```
-[Lecture slides] [[Watch on MS stream]]()
+[Lecture slides] [[Watch on MS stream]](https://web.microsoftstream.com/video/c0c8aad3-f624-44fd-ac70-42841dc4ae63)
 
 Now you have seen how to prepare your `csv`, it is time to do it yourselves. Just as a small recap, these are the steps that you need to take to turn the downloaded data into a `csv`:
 
@@ -152,10 +152,10 @@ In this section you have learnt how to:
 Even though the data set that we downloaded came from an official national statistical authority, the data is not directly ready for analysis. In fact, the vast majority of the data you will find in the public domain (or private domain for that matter) will be **dirty data**. With dirty data we mean data that needs some form of pre-processing, cleaning, and linkage before you can use it for your analysis. In the following, you will learn a consistent way to structure your data in R: **tidy data**. Tidy data, as formalised by [R expert Hadley Wickham](http://hadley.nz/) in his contribution to the [Journal of Statistical Software](http://www.jstatsoft.org/v59/i10/paper) is not only very much at the core of the `tidyverse` R package that we will introduce you to, but also of general importance when organising your data. 
 
 #### Video: Preparing data {-}
-```{r 04preparing-data, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+```{r 04-preparing-data, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('98f36fbc-2a25-444f-8291-9aac71acaba5') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[[Lecture slides]](https://liveuclac-my.sharepoint.com/:b:/g/personal/ucfajtv_ucl_ac_uk/ERxtSfPHBY1Em-Cb-EzZItAB_2JxS82zQZqEe5-Syk-fpQ?e=Z2Zoew) [[Watch on MS stream]](https://web.microsoftstream.com/video/98f36fbc-2a25-444f-8291-9aac71acaba5)
 
 As you know by now, your basic R functionality (the `base` package) can be extended by installing additional packages. These packages are the fundamental units of reproducible R code and include functions, documentation, and sample data. Last week, we introduced you to the `ggplot2` package: a general scheme for data visualisation that breaks up graphs into semantic components such as scales and layers. Today we will introduce you to the `tidyverse` package. This package is specifically created to make working with data, including data cleaning and data preparation, easier. Let's start by installing the `tidyverse` package using the `install_packages()` function in the same way as we installed the `ggplot2` package [last week](examining-data-ii.html#video-installing-packages-in-r).
 
@@ -328,11 +328,12 @@ For **both** new objects:
 #### Additional tasks {-}
 If you found these assignments and questions relatively easy and want to be challenged a little more:
 
-1. Download the mid-year population estimates for 2018 to your computer (`Mid-2018: SAPE21DT3a`).
+1. Download the mid-year population estimates for 2018 to your computer (`Mid-2018: SAPE21DT15 (unformatted)`). Make sure that you download the file with exactly this name: it is listed under the "supporting files you may find useful" heading.
 2. Prepare the file and import into R.
 3. Take the necessary steps in R to make sure that all numeric variables are also recognised by R as numeric variables.
-4. Join the 2018 and 2019 midyear population data set by using the `left join()` function from the `tidyverse()` package, e.g. something like: `midyear <- left_join(midyear2018,midyear2019,by='msoa_code')`.
-5. Compare the population change between 2018 and 2019 by creating a scatterplot.
+4. Join the 2018 and 2019 midyear population data set by using the `left join()` function from the `tidyverse()` package, e.g. something like: `midyear <- left_join(midyear2018,midyear2019,by=c('area_code'='msoa_code')`.
+5. Calculate the population change between 2018 and 2019.
+6. Create a scatterplot of the population change.
 
 #### Seminar link {-}
 Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
