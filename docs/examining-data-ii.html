@@ -24,7 +24,7 @@
 <meta name="author" content="Justin van Dijk, Stephen Jivraj" />
 
 
-<meta name="date" content="2021-01-26" />
+<meta name="date" content="2021-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -186,7 +186,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="examining-data-ii.html"><a href="examining-data-ii.html#seminar-w03"><i class="fa fa-check"></i><b>3.4</b> Seminar</a></li>
 <li class="chapter" data-level="3.5" data-path="examining-data-ii.html"><a href="examining-data-ii.html#byl-w03"><i class="fa fa-check"></i><b>3.5</b> Before you leave</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="sourcing-data.html"><a href="sourcing-data.html"><i class="fa fa-check"></i><b>4</b> Sourcing data</a></li>
+<li class="chapter" data-level="4" data-path="sourcing-data.html"><a href="sourcing-data.html"><i class="fa fa-check"></i><b>4</b> Sourcing data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="sourcing-data.html"><a href="sourcing-data.html#introduction-w04"><i class="fa fa-check"></i><b>4.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="sourcing-data.html"><a href="sourcing-data.html#reading-list-w04"><i class="fa fa-check"></i><b>4.1.1</b> Reading list</a></li>
+<li class="chapter" data-level="4.1.2" data-path="understanding-data.html"><a href="understanding-data.html#qa-session"><i class="fa fa-check"></i><b>4.1.2</b> Q&amp;A session</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="sourcing-data.html"><a href="sourcing-data.html#sourcing-data-1"><i class="fa fa-check"></i><b>4.2</b> Sourcing data</a></li>
+<li class="chapter" data-level="4.3" data-path="sourcing-data.html"><a href="sourcing-data.html#preparing-data"><i class="fa fa-check"></i><b>4.3</b> Preparing data</a></li>
+<li class="chapter" data-level="4.4" data-path="sourcing-data.html"><a href="sourcing-data.html#seminar-w04"><i class="fa fa-check"></i><b>4.4</b> Seminar</a></li>
+<li class="chapter" data-level="4.5" data-path="sourcing-data.html"><a href="sourcing-data.html#byl-w04"><i class="fa fa-check"></i><b>4.5</b> Before you leave</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -242,7 +253,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="qa-session" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Q&amp;A session</h3>
-<p>This week there will be a live Q&amp;A session on <strong>Tuesday, January 26, 2020 @ 11h00 (GMT)</strong>. The session will be hosted on Zoom <a href="https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09">[Link]</a>. For security reasons, the meeting password for this Q&amp;A session can be found on <a href="https://moodle.ucl.ac.uk/course/view.php?id=6845">Moodle</a> on the <strong>main page</strong> (<em>POLS0008 - Q&amp;A - Tuesday 11:00 (JVD)</em>).</p>
+<p>This week there will be a live Q&amp;A session on <strong>Tuesday, January 26, 2020 @ 11h00 (GMT)</strong>. The session will be hosted on Zoom <a href="https://ucl.zoom.us/j/96460973152?pwd=K2taYWJLdm5HKzAzQXJCUThxbUczUT09">[Link]</a>. For security reasons, the meeting password for this Q&amp;A session can be found on <a href="https://moodle.ucl.ac.uk/course/view.php?id=6845">Moodle</a> on the <strong>main page</strong> (<em>POLS0008 - Q&amp;A - Tuesday 11:00)</em>.</p>
 </div>
 </div>
 <div id="data-visualisation" class="section level2" number="3.2">
@@ -410,8 +421,8 @@ The specification given to the <code>par()</code> function only works once: it i
 <p>As there are many hundreds of R packages, these hese are not installed automatically. This means that every additional package we want to use needs to be downloaded and then we need to load it into R in order to use it. To download and install the <code>ggplot2</code> package type the following:</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="examining-data-ii.html#cb145-1" aria-hidden="true"></a><span class="co"># install package</span></span>
 <span id="cb145-2"><a href="examining-data-ii.html#cb145-2" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:01-rstudio-install"></span>
-<img src="images/week01/01_install_package.png" alt="Installing the `ggplot2` package."  />
+<div class="figure" style="text-align: center"><span id="fig:03-rstudio-install"></span>
+<img src="images/week03/03_install_package.png" alt="Installing the `ggplot2` package."  />
 <p class="caption">
 Figure 3.1: Installing the <code>ggplot2</code> package.
 </p>
@@ -508,7 +519,7 @@ This idea of layers (or geoms) is quite different from the standard plot functio
 <p><img src="POLS0008_files/figure-html/03-quick-histogram-1.png" width="672" /></p>
 <p>The height of each bar (the x-axis) shows the count of the datapoints and the width of each bar is the value range of datapoints included. If you want the bars to be thinner (to represent a narrower range of values and capture some more of the variation in the distribution) you can adjust the bin width. Bin width controls the size of ‘bins’ that the data are split up into. Try:</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="examining-data-ii.html#cb158-1" aria-hidden="true"></a><span class="co"># add geom to our &#39;p&#39; object, adjust the bin width settings</span></span>
-<span id="cb158-2"><a href="examining-data-ii.html#cb158-2" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth=</span><span class="dv">10</span>)</span></code></pre></div>
+<span id="cb158-2"><a href="examining-data-ii.html#cb158-2" aria-hidden="true"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(, <span class="dt">binwidth=</span><span class="dv">10</span>)</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/03-adjusted-histogram-1.png" width="672" /></p>
 <p>This plot has provided a good impression of the overall distribution, but it would be interesting to see characteristics of the data within each of the Boroughs. We can do this since each Borough in the <code>London.Ambulance</code> object is made up of multiple wards. To see what we mean, we can select all the wards that fall within the Borough of Camden, which has the code <code>00AG</code> (if you want to see what each Borough the code corresponds to, and learn a little more about the statistical geography of England and Wales, then <a href="http://en.wikipedia.org/wiki/ONS_coding_system">do have a look here</a>.</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="examining-data-ii.html#cb159-1" aria-hidden="true"></a><span class="co"># filter the data set</span></span>
@@ -550,7 +561,7 @@ This idea of layers (or geoms) is quite different from the standard plot functio
 <span id="cb166-5"><a href="examining-data-ii.html#cb166-5" aria-hidden="true"></a>p.camden <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()  </span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="POLS0008_files/figure-html/03-histogram-camden-1.png" width="672" /></p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="examining-data-ii.html#cb168-1" aria-hidden="true"></a><span class="co"># plot pretty(ish) --&gt;</span></span>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="examining-data-ii.html#cb168-1" aria-hidden="true"></a><span class="co"># plot pretty(ish) </span></span>
 <span id="cb168-2"><a href="examining-data-ii.html#cb168-2" aria-hidden="true"></a>p.camden <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span></span>
 <span id="cb168-3"><a href="examining-data-ii.html#cb168-3" aria-hidden="true"></a><span class="st">           </span><span class="kw">ggtitle</span>(<span class="st">&#39;Assault incidents in Camden&#39;</span>)</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
@@ -585,18 +596,19 @@ This idea of layers (or geoms) is quite different from the standard plot functio
 </ol>
 <p>In addition to histograms, another type of plot that, as we know, shows the core characteristics of the distribution of values within a data set is a box and whisker plot. These too can be easily produced using the <code>ggplot2</code> package:</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="examining-data-ii.html#cb174-1" aria-hidden="true"></a><span class="co"># note that the `Assault_09_11` column is now y and not x</span></span>
-<span id="cb174-2"><a href="examining-data-ii.html#cb174-2" aria-hidden="true"></a><span class="co"># we also specified x = 1 to align the plot to the x-axis (any single number would work)</span></span>
-<span id="cb174-3"><a href="examining-data-ii.html#cb174-3" aria-hidden="true"></a>p.boxplot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(London.Ambulance, <span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">1</span>, <span class="dt">y=</span>Assault_<span class="dv">09</span>_<span class="dv">11</span>))</span>
+<span id="cb174-2"><a href="examining-data-ii.html#cb174-2" aria-hidden="true"></a><span class="co"># we specify x = &#39;London&#39; to add a meaningfull label to the x-axis</span></span>
+<span id="cb174-3"><a href="examining-data-ii.html#cb174-3" aria-hidden="true"></a>p.boxplot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(London.Ambulance, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">&#39;London&#39;</span>, <span class="dt">y=</span>Assault_<span class="dv">09</span>_<span class="dv">11</span>))</span>
 <span id="cb174-4"><a href="examining-data-ii.html#cb174-4" aria-hidden="true"></a></span>
 <span id="cb174-5"><a href="examining-data-ii.html#cb174-5" aria-hidden="true"></a><span class="co"># add the boxplot geom</span></span>
 <span id="cb174-6"><a href="examining-data-ii.html#cb174-6" aria-hidden="true"></a>p.boxplot <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/03-boxplot-1.png" width="672" /></p>
 <p>If we are just interested in Camden then we can use the <code>camden</code> object created above in the code.</p>
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="examining-data-ii.html#cb175-1" aria-hidden="true"></a><span class="co"># boxplot for camden only</span></span>
-<span id="cb175-2"><a href="examining-data-ii.html#cb175-2" aria-hidden="true"></a>p.boxplot.camden &lt;-<span class="st"> </span><span class="kw">ggplot</span>(camden, <span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">1</span>, <span class="dt">y=</span>Assault_<span class="dv">09</span>_<span class="dv">11</span>))</span>
-<span id="cb175-3"><a href="examining-data-ii.html#cb175-3" aria-hidden="true"></a></span>
-<span id="cb175-4"><a href="examining-data-ii.html#cb175-4" aria-hidden="true"></a><span class="co"># add the boxplot geom</span></span>
-<span id="cb175-5"><a href="examining-data-ii.html#cb175-5" aria-hidden="true"></a>p.boxplot.camden <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<span id="cb175-2"><a href="examining-data-ii.html#cb175-2" aria-hidden="true"></a><span class="co"># we speficy x = &#39;Camden&#39; to add a meaningfull label to the x-axis</span></span>
+<span id="cb175-3"><a href="examining-data-ii.html#cb175-3" aria-hidden="true"></a>p.boxplot.camden &lt;-<span class="st"> </span><span class="kw">ggplot</span>(camden, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">&#39;Camden&#39;</span>, <span class="dt">y=</span>Assault_<span class="dv">09</span>_<span class="dv">11</span>))</span>
+<span id="cb175-4"><a href="examining-data-ii.html#cb175-4" aria-hidden="true"></a></span>
+<span id="cb175-5"><a href="examining-data-ii.html#cb175-5" aria-hidden="true"></a><span class="co"># add the boxplot geom</span></span>
+<span id="cb175-6"><a href="examining-data-ii.html#cb175-6" aria-hidden="true"></a>p.boxplot.camden <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="POLS0008_files/figure-html/03-boxplot-camden-1.png" width="672" /></p>
 <p>If you prefer you can flip the plot 90 degrees so that it reads from left to right:</p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="examining-data-ii.html#cb176-1" aria-hidden="true"></a><span class="co"># add the boxplot geom and rotate</span></span>
