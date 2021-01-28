@@ -32,7 +32,7 @@ Please find the reading list for this week below. We strongly recommend that you
 This week there is **NO** live Q&A session scheduled. Please post any questions you have on the [POLS0008 Forum](https://moodle.ucl.ac.uk/mod/forum/view.php?id=1632137) or ask them to your seminar leader during your live seminar on Thursday.
 
 ## Sourcing data
-Over the past weeks we have predominantly worked with two data sets that we provided for you: `ambulance-assault.csv` and `census-historic-population-borough.csv`. Although these data sets are very useful to give you an introduction to Quantitative Research methods, in real life data you will have to source your own data. In the case of social sciences, you often can find socio-economic data on the websites of national statistical authorities such as the [Office for National Statistics](https://www.ons.gov.uk/), [United States Census Bureau](https://www.census.gov/), [Statistics South Africa](http://www.statssa.gov.za/), or the [National Bureau of Statistics of China](http://www.stats.gov.cn/english/). Also large international institutions like [World Bank](https://www.worldbank.org/) and [Unicef](https://www.unicef.org/) compile socio-economic data sets and make these available for research purposes. No matter where you will be getting your data from, however, you will have to know how to download and prepare these data sets in such a way that you can work with them in R to conduct your analysis.
+Over the past weeks we have predominantly worked with two data sets that we provided for you: `ambulance-assault.csv` and `census-historic-population-borough.csv`. Although these data sets are very useful to give you an introduction to Quantitative Research methods, in real life data you will have to source your own data. In the case of the social sciences, you often can find socio-economic data on the websites of national statistical authorities such as the [Office for National Statistics](https://www.ons.gov.uk/), [United States Census Bureau](https://www.census.gov/), [Statistics South Africa](http://www.statssa.gov.za/), or the [National Bureau of Statistics of China](http://www.stats.gov.cn/english/). Also large international institutions like [World Bank](https://www.worldbank.org/) and [Unicef](https://www.unicef.org/) compile socio-economic data sets and make these available for research purposes. No matter where you will be getting your data from, however, you will have to know how to download and prepare these data sets in such a way that you can work with them in R to conduct your analysis.
 
 #### Video: Sourcing data I {-}
 ```{r 04-sourcing-data, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -88,7 +88,7 @@ Now you have seen how to prepare your `csv`, it is time to do it yourselves. Jus
 | 7    | Conduct a visual check to make sure that you did not copy any additional data. |
 | 8    | Remove all formatting and make sure that empty columns are indeed empty. |
 | 9    | Save this file as a `midyear2019.csv`. Make sure that you select `csv` as your file format (e.g. `CSV UTF8 (Comma-delimited) (.csv)`). |
-| 10   | Inspect your data in a texteditor such as [Wordpad](https://en.wikipedia.org/wiki/WordPad) or [Textedit](https://support.apple.com/en-gb/guide/textedit/welcome/mac) to make sure the file you created is indeed a comma-separated file.
+| 10   | Inspect your data in a text editor such as [Wordpad](https://en.wikipedia.org/wiki/WordPad) or [Textedit](https://support.apple.com/en-gb/guide/textedit/welcome/mac) to make sure the file you created is indeed a comma-separated file.
 
 Now, for the moment of truth: let's try and see if we can load our data into R! Of course, you will first need to upload your `csv` file to RStudio Server and set your working directory so that R can find the file - but you should be able to do that without any problems by now.
 
@@ -108,7 +108,7 @@ midyear
 ```
 
 #### Questions {-}
-1. Inspect the columnames. Why do you think that they slightly differ from the ones that we saw in Microsoft Excel?
+1. Inspect the column names. Why do you think that they slightly differ from the ones that we saw in Microsoft Excel?
 2. How many rows does the `midyear` dataframe have?
 3. How many columns does the `midyear` dataframe have?
 
@@ -136,7 +136,7 @@ names(midyear)
 
 ```{r 04-write, warnings=FALSE, message=FALSE, eval=FALSE}
 # write to new csv
-write.csv(midyear,'midyear2019_v2.csv',row.names=FALSE)
+write.csv(midyear, 'midyear2019_v2.csv', row.names=FALSE)
 ```
 
 Great. This is all looking very good but we are not completely there yet. Now we sourced our data and managed to successfully read the data set into R, we will need to do conduct some final preparations so that our data is analysis ready.
@@ -149,7 +149,7 @@ In this section you have learnt how to:
 2. Load the `csv` file that you created into R.
 
 ## Preparing data
-Even though the data set that we downloaded came from an official national statistical authority, the data is not directly ready for analysis. In fact, the vast majority of the data you will find in the public domain (or private domain for that matter) will be **dirty data**. With dirty data we mean data that needs some form of pre-processing, cleaning, and linkage before you can use it for your analysis. In the following, you will learn a consistent way to structure your data in R: **tidy data**. Tidy data, as formalised by [R expert Hadley Wickham](http://hadley.nz/) in his contribution to the [Journal of Statistical Software](http://www.jstatsoft.org/v59/i10/paper) is not only very much at the core of the `tidyverse` R package that we will introduce you to, but also of general importance when organising your data. 
+Even though the data set that we downloaded came from an official national statistical authority, the data is not directly ready for analysis. In fact, the vast majority of the data you will find in the public domain (or private domain for that matter) will be **dirty data**. With dirty data we mean data that needs some level of pre-processing, cleaning, and linkage before you can use it for your analysis. In the following, you will learn a consistent way to structure your data in R: **tidy data**. Tidy data, as formalised by [R expert Hadley Wickham](http://hadley.nz/) in his contribution to the [Journal of Statistical Software](http://www.jstatsoft.org/v59/i10/paper) is not only very much at the core of the `tidyverse` R package that we will introduce you to, but also of general importance when organising your data. 
 
 #### Video: Preparing data {-}
 ```{r 04-preparing-data, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -180,7 +180,10 @@ library(tidyverse)
 knitr::include_graphics('images/week04/04_load_tidyverse.png')
 ```
 
-After loading, you may get a short information messages to inform you which packages are attached to your R session and whether there are any conflicting functions. This simply means that there are functions that are named the same across the packages that you have loaded. For instance, when you load the `tidyverse` in a fresh R session, the `tidyverse` will tell you that two functions from the `dplyr` package (which is an integral part of the `tidyverse` package) *mask* the functionality of two functions of the `stats` package (which is part of `base` R). This simply means that if you now type in `filter()` you will get the `dplyr` functionality and not the functionality of the `stats`. This is very important information as both these functions do something **completely** different! You can still use the `filter()` function from the `stats` package but then you have to explicitly tell R that you want to use the function called `filter()` within the stats package: `stats::filter()`. 
+<div class="note">
+**Note**<br/>
+After loading the `tidyverse`, you may get a short information messages to inform you which packages are attached to your R session and whether there are any conflicting functions. This simply means that there are functions that are named the same across the packages that you have loaded. For instance, when you load the `tidyverse` in a fresh R session, the `tidyverse` will tell you that two functions from the `dplyr` package (which is an integral part of the `tidyverse` package) *mask* the functionality of two functions of the `stats` package (which is part of `base` R). This simply means that if you now type in `filter()` you will get the `dplyr` functionality and not the functionality of the `stats`. This is very important information as both these functions do something **completely** different! You can still use the `filter()` function from the `stats` package but then you have to explicitly tell R that you want to use the function called `filter()` within the stats package: `stats::filter()`. 
+</div>
 
 Now that we have loaded the `tidyverse` we can continue with our data preparation. We will start by reading in the `csv` file that we created earlier, however, we will use the function `read_csv()` from the `tidyverse` instead of the function `read.csv()` from `base` R. The function `read_csv` returns a so-called `tibble`. [Tibbles](https://r4ds.had.co.nz/tibbles.html) are data frames, but they tweak some older behaviours to make life a little easier.
 
@@ -219,7 +222,7 @@ mean(midyear$pop19)
 median(midyear$pop19)
 ```
 
-As you can see, this is not working perfectly for the simple fact that the the `mean()` function require a numeric variable as its input! The `median()` does return a value, however, this is not per se the median that we are interested in as the sorting of the data is now done alphabetically: see for your self what happens when using the `sort()` function on the *pop19* variable. Fortunately, there are some functions in the `dplyr` package, which is part of the `tidyverse`, that will help us further cleaning and preparing our data. Some of the most important and useful functions are:
+As you can see, this is not working perfectly for the simple fact that the the `mean()` function requires a numeric variable as its input! The `median()` does return a value, however, this is not per se the median that we are interested in as the sorting of the data is now done alphabetically: see for your self what happens when using the `sort()` function on the *pop19* variable. Fortunately, there are some functions in the `dplyr` package, which is part of the `tidyverse`, that will help us further cleaning and preparing our data. Some of the most important and useful functions are:
 
 | Package   | Function          | Use to |
 | :------   | :------           | :------ |
@@ -253,15 +256,15 @@ midyear_fil
 ```
 
 #### Questions {-}
-1. How can we get the same data frame with selected columns (`midyear_sel`) using the `base` R syntax we have been using until now?
-2. How can we get the same data frame with filtered rows (`midyear_fil`) using the `base` R syntax we have been using until now?
+1. How can we get the same data frame with selected columns (`midyear_sel`) using the `base` R syntax we have been using in previous weeks?
+2. How can we get the same data frame with filtered rows (`midyear_fil`) using the `base` R syntax we have been using in previous weeks?
 
 With the `mutate()` function we can easily create new columns, so let's try this function to see if we can create a new variable that contains all the data from *pop19* in a numeric format.
 
 ```{r 04-dplyr-mutate, warnings=FALSE, message=FALSE}
 # create a new variable named pop19_no space
 # by replacing all white space with nothing using the "str_replace_all" function
-midyear <- mutate(midyear,pop19_nospace=str_replace_all(pop19, pattern=' ', repl=''))
+midyear <- mutate(midyear, pop19_nospace=str_replace_all(pop19, pattern=' ', repl=''))
 
 # inspect
 midyear
@@ -277,7 +280,7 @@ midyear
 str(midyear)
 ```
 
-This looks much better. We can now try to calculate the median and the mean again:
+Note the information for *pop19_numeric*: `str` indicates that the column is now of type `num` (i.e. numeric). This is much better. We can now try to calculate the median and the mean again:
 
 ```{r 04-cleaned-data, warnings=FALSE, message=FALSE}
 # calculate the mean of the pop19_numeric variable
@@ -291,7 +294,7 @@ Everything seems to be working fine now and our data is now finally ready for an
 
 ```{r 04-write-clean-file, warnings=FALSE, message=FALSE, eval=FALSE}
 # write to new csv
-write.csv(midyear,'midyear2019_clean.csv',row.names=FALSE)
+write.csv(midyear, 'midyear2019_clean.csv', row.names=FALSE)
 ```
 
 #### Recap {-}
@@ -326,14 +329,16 @@ For **both** new objects:
 3. Compare the histograms that you created for your *Birmingham* object / data set and the *Manchester* data set, what can you tell about the population distribution of both Local Authority Districts?
 
 #### Additional tasks {-}
-If you found these assignments and questions relatively easy and want to be challenged a little more:
+If you found these assignments and questions relatively easy and want an assignment that is a little more realistic, try to do the following:
 
 1. Download the mid-year population estimates for 2018 to your computer (`Mid-2018: SAPE21DT15 (unformatted)`). Make sure that you download the file with exactly this name: it is listed under the "supporting files you may find useful" heading.
-2. Prepare the file and import into R.
-3. Take the necessary steps in R to make sure that all numeric variables are also recognised by R as numeric variables.
-4. Join the 2018 and 2019 midyear population data set by using the `left join()` function from the `tidyverse()` package, e.g. something like: `midyear <- left_join(midyear2018,midyear2019,by=c('area_code'='msoa_code')`.
-5. Calculate the population change between 2018 and 2019.
-6. Create a scatterplot of the population change.
+2. Prepare a `csv` file of the first three columns of the `Mid-2018 Perons` tab and import into R.
+3. Give the columns the following names: *msoa_code*, *msoa_name*, *pop18*.
+4. Take the necessary steps in R to make sure that all numeric variables are also recognised by R as numeric variables.
+5. Join the 2018 and 2019 midyear population data set by using the `left join()` function from the `tidyverse()` package, e.g. something like: `midyear <- left_join(midyear2018, midyear2019, by=c('msoa_code'='msoa_code')`.
+6. Calculate the population change between 2018 and 2019.
+7. Create a histogram of the population change.
+8. Which MSOA has the largest decline in population between 2018 and 2019? Which MSOA had the largest increase in population between 2018 and 2019?
 
 #### Seminar link {-}
 Seminars for all groups take place on **Thursday morning**. You can find the **Zoom** link to your seminar group on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=6845). 
