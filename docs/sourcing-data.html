@@ -24,7 +24,7 @@
 <meta name="author" content="Justin van Dijk, Stephen Jivraj" />
 
 
-<meta name="date" content="2021-01-28" />
+<meta name="date" content="2021-02-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -503,12 +503,12 @@ The <code>tidyverse</code> package is in fact a <strong>collection of packages</
 <p>If your installation was successful, you can now load the <code>tidyverse</code> as follows:</p>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="sourcing-data.html#cb184-1" aria-hidden="true"></a><span class="co"># load the tidyverse </span></span>
 <span id="cb184-2"><a href="sourcing-data.html#cb184-2" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ tibble  3.0.4     ✓ dplyr   1.0.3
 ## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
 ## ✓ readr   1.4.0     ✓ forcats 0.5.0
 ## ✓ purrr   0.3.4</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:04-figure-load-tidyverse"></span>
@@ -576,6 +576,10 @@ After loading the <code>tidyverse</code>, you may get a short information messag
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="sourcing-data.html#cb196-1" aria-hidden="true"></a><span class="co"># median</span></span>
 <span id="cb196-2"><a href="sourcing-data.html#cb196-2" aria-hidden="true"></a><span class="kw">median</span>(midyear<span class="op">$</span>pop19)</span></code></pre></div>
 <pre><code>## [1] &quot;7 251&quot;</code></pre>
+<div class="note">
+<p><strong>Note</strong><br/>
+Depending on computer settings and the version of Microsoft Excel or spreadsheet software that you use, you get a numeric variable (e.g. double) rather than a character variable. If so, you are lucky and do not need to undertake the steps below to turn this character column into a numeric column because the results of your <code>mean()</code> and <code>median()</code> function should already be correct and differ from the results shown here. Just continue with the tutorial by carefully reading through the steps that you would have needed to take if your results would have been the same as shown here.</p>
+</div>
 <p>As you can see, this is not working perfectly for the simple fact that the the <code>mean()</code> function requires a numeric variable as its input! The <code>median()</code> does return a value, however, this is not per se the median that we are interested in as the sorting of the data is now done alphabetically: see for your self what happens when using the <code>sort()</code> function on the <em>pop19</em> variable. Fortunately, there are some functions in the <code>dplyr</code> package, which is part of the <code>tidyverse</code>, that will help us further cleaning and preparing our data. Some of the most important and useful functions are:</p>
 <table>
 <thead>
