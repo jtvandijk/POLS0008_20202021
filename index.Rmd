@@ -6,7 +6,7 @@ site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
 link-citations: yes
-github-repo: "jtvandijk/POLS0008"
+github-repo: "jtvandijk/POLS0008_20202021"
 description: "POLS0008: Introduction to Quantitative Research Methods."
 url: 'https\://jtvandijk.github.io/POLS0008_20202021/'
 ---
