@@ -8,7 +8,7 @@ documentclass: book
 link-citations: yes
 github-repo: "jtvandijk/POLS0008"
 description: "POLS0008: Introduction to Quantitative Research Methods."
-url: 'https\://jtvandijk.github.io/POLS0008/'
+url: 'https\://jtvandijk.github.io/POLS0008_20202021/'
 ---
 
 # Welcome {-}
